@@ -504,6 +504,29 @@
             box-shadow: 0 4px 16px var(--surface-shadow-2);
         }
 
+        /* ===== FORM FEEDBACK ===== */
+        .form-msg {
+            margin-top: -3.5rem;
+            margin-bottom: 3rem;
+            font-size: 0.95rem;
+            min-height: 1.5em;
+            color: var(--text-secondary);
+            transition: opacity 0.3s ease;
+        }
+
+        .form-msg.success {
+            color: var(--accent-secondary);
+        }
+
+        .form-msg.error {
+            color: #c0555a;
+        }
+
+        .cta-group button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
         /* ===== FEATURES ===== */
         .features-grid {
             display: grid;
@@ -668,9 +691,10 @@
                 </p>
 
                 <form class="cta-group" id="waitlistForm">
-                    <input type="email" placeholder="Enter your email address..." data-i18n-placeholder="emailPlaceholder" required>
+                    <input type="email" name="email" placeholder="Enter your email address..." data-i18n-placeholder="emailPlaceholder" required>
                     <button type="submit" data-i18n="ctaButton">Join the Waitlist</button>
                 </form>
+                <p class="form-msg" id="formMsg"></p>
             </section>
 
             <section class="features-grid">
@@ -716,6 +740,8 @@
                 footerCopy: '\u00a9 2025 skriv.ist | Crafted with care',
                 footerBy: 'By',
                 thankYou: 'Thank you. We will whisper when it is ready.',
+                errorMsg: 'Something went wrong. Please try again.',
+                sending: 'Sending...',
                 label: 'EN'
             },
             ja: {
@@ -732,6 +758,8 @@
                 footerCopy: '\u00a9 2025 skriv.ist | \u4e01\u5be7\u306b\u4f5c\u3089\u308c\u307e\u3057\u305f',
                 footerBy: '',
                 thankYou: '\u3042\u308a\u304c\u3068\u3046\u3054\u3056\u3044\u307e\u3059\u3002\u6e96\u5099\u304c\u3067\u304d\u305f\u3089\u304a\u77e5\u3089\u305b\u3057\u307e\u3059\u3002',
+                errorMsg: '\u554f\u984c\u304c\u767a\u751f\u3057\u307e\u3057\u305f\u3002\u3082\u3046\u4e00\u5ea6\u304a\u8a66\u3057\u304f\u3060\u3055\u3044\u3002',
+                sending: '\u9001\u4fe1\u4e2d...',
                 label: 'JA'
             },
             tr: {
@@ -748,6 +776,8 @@
                 footerCopy: '\u00a9 2025 skriv.ist | \u00d6zenle yap\u0131ld\u0131',
                 footerBy: '',
                 thankYou: 'Te\u015fekk\u00fcrler. Haz\u0131r oldu\u011funda size f\u0131s\u0131ldayaca\u011f\u0131z.',
+                errorMsg: 'Bir sorun olu\u015ftu. L\u00fctfen tekrar deneyin.',
+                sending: 'G\u00f6nderiliyor...',
                 label: 'TR'
             },
             es: {
@@ -764,6 +794,8 @@
                 footerCopy: '\u00a9 2025 skriv.ist | Hecho con cuidado',
                 footerBy: 'Por',
                 thankYou: 'Gracias. Te susurraremos cuando est\u00e9 listo.',
+                errorMsg: 'Algo sali\u00f3 mal. Por favor, int\u00e9ntalo de nuevo.',
+                sending: 'Enviando...',
                 label: 'ES'
             },
             pt: {
@@ -780,6 +812,8 @@
                 footerCopy: '\u00a9 2025 skriv.ist | Feito com cuidado',
                 footerBy: 'Por',
                 thankYou: 'Obrigado. Vamos sussurrar quando estiver pronto.',
+                errorMsg: 'Algo deu errado. Por favor, tente novamente.',
+                sending: 'Enviando...',
                 label: 'PT'
             },
             de: {
@@ -796,6 +830,8 @@
                 footerCopy: '\u00a9 2025 skriv.ist | Mit Sorgfalt gefertigt',
                 footerBy: 'Von',
                 thankYou: 'Danke. Wir fl\u00fcstern dir, wenn es soweit ist.',
+                errorMsg: 'Etwas ist schiefgelaufen. Bitte versuche es erneut.',
+                sending: 'Wird gesendet...',
                 label: 'DE'
             },
             fr: {
@@ -812,6 +848,8 @@
                 footerCopy: '\u00a9 2025 skriv.ist | Fait avec soin',
                 footerBy: 'Par',
                 thankYou: 'Merci. Nous vous murmurerons quand tout sera pr\u00eat.',
+                errorMsg: 'Une erreur est survenue. Veuillez r\u00e9essayer.',
+                sending: 'Envoi en cours...',
                 label: 'FR'
             }
         };
@@ -920,10 +958,43 @@
             }
         });
 
-        /* ===== FORM HANDLER ===== */
-        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+        /* ===== FORM HANDLER (Formspree) ===== */
+        var form = document.getElementById('waitlistForm');
+        var formMsg = document.getElementById('formMsg');
+        var submitBtn = form.querySelector('button[type="submit"]');
+
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
-            alert(T[currentLang].thankYou);
+            var strings = T[currentLang];
+            var emailInput = form.querySelector('input[name="email"]');
+            var originalBtnText = submitBtn.textContent;
+
+            /* Disable button and show sending state */
+            submitBtn.disabled = true;
+            submitBtn.textContent = strings.sending;
+            formMsg.textContent = '';
+            formMsg.className = 'form-msg';
+
+            fetch('https://formspree.io/f/mdalegzk', {
+                method: 'POST',
+                headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: emailInput.value })
+            }).then(function(response) {
+                if (response.ok) {
+                    formMsg.textContent = strings.thankYou;
+                    formMsg.className = 'form-msg success';
+                    emailInput.value = '';
+                } else {
+                    formMsg.textContent = strings.errorMsg;
+                    formMsg.className = 'form-msg error';
+                }
+            }).catch(function() {
+                formMsg.textContent = strings.errorMsg;
+                formMsg.className = 'form-msg error';
+            }).finally(function() {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            });
         });
     })();
     </script>
