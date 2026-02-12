@@ -45,36 +45,154 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&family=Noto+Sans:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            /* The Nordic Pastel Palette */
-            --sky-blue: #d4e9f7;
-            --mint-green: #d0f0c0;
-            --organic-white: #f8fbf8;
-            --text-dark: #2c3e50;
-            --text-soft: #5a7684;
-            --accent-gold: #e6c229; /* A tiny touch of warmth */
+        /* ===== LIGHT THEME (default) ===== */
+        :root,
+        [data-theme="light"] {
+            --bg-gradient-1: #dae8f3;
+            --bg-gradient-2: #f5f7f5;
+            --bg-gradient-3: #d5ecd0;
+
+            --surface-primary: rgba(255, 255, 255, 0.9);
+            --surface-border: rgba(0, 0, 0, 0.06);
+            --surface-shadow-1: rgba(0, 0, 0, 0.04);
+            --surface-shadow-2: rgba(0, 0, 0, 0.06);
+
+            --text-primary: #1a2b3c;
+            --text-secondary: #5a6e7a;
+            --text-tertiary: #8a9aa6;
+
+            --accent-primary: #6a9fc0;
+            --accent-secondary: #7db88a;
+
+            --button-gradient-1: #6a9fc0;
+            --button-gradient-2: #7db88a;
+            --button-text: #ffffff;
+
+            --input-bg: #ffffff;
+            --input-border: rgba(0, 0, 0, 0.1);
+            --input-focus-ring: rgba(106, 159, 192, 0.2);
+
+            --particle-color-1: rgba(106, 159, 192, 0.35);
+            --particle-color-2: rgba(125, 184, 138, 0.3);
+            --particle-color-3: rgba(255, 255, 255, 0.6);
+            --particle-glow: rgba(106, 159, 192, 0.2);
+
+            --icon-gradient-1: #e0eef8;
+            --icon-gradient-2: #dceee0;
+
+            --link-color: #6a9fc0;
+            --divider: rgba(0, 0, 0, 0.06);
         }
 
+        /* ===== DARK THEME ===== */
+        [data-theme="dark"] {
+            --bg-gradient-1: #0f1923;
+            --bg-gradient-2: #141e28;
+            --bg-gradient-3: #111d1a;
+
+            --surface-primary: rgba(20, 30, 40, 0.85);
+            --surface-border: rgba(255, 255, 255, 0.08);
+            --surface-shadow-1: rgba(0, 0, 0, 0.2);
+            --surface-shadow-2: rgba(0, 0, 0, 0.3);
+
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --text-tertiary: #64748b;
+
+            --accent-primary: #7cb5d6;
+            --accent-secondary: #8ec99a;
+
+            --button-gradient-1: #5a94b5;
+            --button-gradient-2: #6aaa78;
+            --button-text: #ffffff;
+
+            --input-bg: rgba(255, 255, 255, 0.05);
+            --input-border: rgba(255, 255, 255, 0.12);
+            --input-focus-ring: rgba(124, 181, 214, 0.25);
+
+            --particle-color-1: rgba(124, 181, 214, 0.2);
+            --particle-color-2: rgba(142, 201, 154, 0.15);
+            --particle-color-3: rgba(255, 255, 255, 0.12);
+            --particle-glow: rgba(124, 181, 214, 0.15);
+
+            --icon-gradient-1: rgba(106, 159, 192, 0.15);
+            --icon-gradient-2: rgba(125, 184, 138, 0.15);
+
+            --link-color: #7cb5d6;
+            --divider: rgba(255, 255, 255, 0.08);
+        }
+
+        /* ===== OS-level dark mode auto-detect ===== */
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg-gradient-1: #0f1923;
+                --bg-gradient-2: #141e28;
+                --bg-gradient-3: #111d1a;
+
+                --surface-primary: rgba(20, 30, 40, 0.85);
+                --surface-border: rgba(255, 255, 255, 0.08);
+                --surface-shadow-1: rgba(0, 0, 0, 0.2);
+                --surface-shadow-2: rgba(0, 0, 0, 0.3);
+
+                --text-primary: #e2e8f0;
+                --text-secondary: #94a3b8;
+                --text-tertiary: #64748b;
+
+                --accent-primary: #7cb5d6;
+                --accent-secondary: #8ec99a;
+
+                --button-gradient-1: #5a94b5;
+                --button-gradient-2: #6aaa78;
+                --button-text: #ffffff;
+
+                --input-bg: rgba(255, 255, 255, 0.05);
+                --input-border: rgba(255, 255, 255, 0.12);
+                --input-focus-ring: rgba(124, 181, 214, 0.25);
+
+                --particle-color-1: rgba(124, 181, 214, 0.2);
+                --particle-color-2: rgba(142, 201, 154, 0.15);
+                --particle-color-3: rgba(255, 255, 255, 0.12);
+                --particle-glow: rgba(124, 181, 214, 0.15);
+
+                --icon-gradient-1: rgba(106, 159, 192, 0.15);
+                --icon-gradient-2: rgba(125, 184, 138, 0.15);
+
+                --link-color: #7cb5d6;
+                --divider: rgba(255, 255, 255, 0.08);
+            }
+        }
+
+        /* ===== SMOOTH THEME TRANSITION (only during manual toggle) ===== */
+        html.theme-transitioning,
+        html.theme-transitioning *,
+        html.theme-transitioning *::before,
+        html.theme-transitioning *::after {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+        }
+
+        /* ===== RESET ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* ===== BASE ===== */
         body {
-            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--organic-white) 50%, var(--mint-green) 100%);
-            color: var(--text-dark);
-            font-family: 'Lato', sans-serif;
+            background: linear-gradient(135deg, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 50%, var(--bg-gradient-3) 100%);
+            color: var(--text-primary);
+            font-family: 'Lato', 'Noto Sans', sans-serif;
+            font-synthesis: none;
             line-height: 1.8;
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* The "Fairies/Feathers" - subtle floating particles */
+        /* ===== FLOATING PARTICLES ===== */
         .particles {
             position: fixed;
             top: 0;
@@ -88,33 +206,213 @@
         .particle {
             position: absolute;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.6);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
             animation: floatUp 15s infinite linear;
             bottom: -50px;
         }
 
-        @keyframes floatUp {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-            20% { opacity: 0.7; }
-            80% { opacity: 0.5; }
-            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+        .particle:nth-child(odd) {
+            background: var(--particle-color-1);
+            box-shadow: 0 0 12px var(--particle-glow);
         }
 
-        /* Main container - floating card effect */
+        .particle:nth-child(even) {
+            background: var(--particle-color-2);
+            box-shadow: 0 0 10px var(--particle-glow);
+        }
+
+        .particle:nth-child(3n) {
+            background: var(--particle-color-3);
+            box-shadow: 0 0 14px var(--particle-glow);
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0; }
+            10% { opacity: 0.7; }
+            50% { opacity: 0.9; }
+            80% { opacity: 0.5; }
+            100% { transform: translateY(-120vh) rotate(180deg) scale(1.1); opacity: 0; }
+        }
+
+        @keyframes floatUpDrift {
+            0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            50% { transform: translateY(-60vh) translateX(30px) rotate(90deg); opacity: 0.8; }
+            100% { transform: translateY(-120vh) translateX(-20px) rotate(200deg); opacity: 0; }
+        }
+
+        @keyframes floatUpSway {
+            0% { transform: translateY(0) translateX(0) scale(0.9); opacity: 0; }
+            15% { opacity: 0.7; }
+            40% { transform: translateY(-45vh) translateX(-25px) scale(1); }
+            70% { transform: translateY(-85vh) translateX(15px) scale(1.05); opacity: 0.5; }
+            100% { transform: translateY(-120vh) translateX(5px) scale(0.95); opacity: 0; }
+        }
+
+        /* ===== MAIN CONTAINER ===== */
         .container {
             position: relative;
             z-index: 2;
-            max-width: 900px;
-            margin: 4rem auto;
-            padding: 3rem;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px); /* Frosted glass effect */
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(174, 198, 207, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            max-width: 860px;
+            margin: 5rem auto;
+            padding: 3.5rem 4rem;
+            background: var(--surface-primary);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow:
+                0 1px 2px var(--surface-shadow-1),
+                0 4px 8px var(--surface-shadow-1),
+                0 16px 32px var(--surface-shadow-2);
+            border: 1px solid var(--surface-border);
         }
 
+        /* ===== TOP BAR (theme toggle + language picker) ===== */
+        .top-bar {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        /* ===== LANGUAGE PICKER ===== */
+        .lang-picker {
+            position: relative;
+        }
+
+        .lang-picker-btn {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 10px;
+            border-radius: 10px;
+            border: 1px solid var(--surface-border);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-family: 'Lato', 'Noto Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            box-shadow: none;
+            transition: color 0.3s ease, border-color 0.3s ease;
+            line-height: 1;
+            height: 40px;
+        }
+
+        .lang-picker-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--text-tertiary);
+            transform: none;
+            box-shadow: none;
+        }
+
+        .lang-picker-btn svg {
+            width: 12px;
+            height: 12px;
+            transition: transform 0.2s ease;
+        }
+
+        .lang-picker.open .lang-picker-btn svg {
+            transform: rotate(180deg);
+        }
+
+        .lang-dropdown {
+            display: none;
+            position: absolute;
+            top: calc(100% + 6px);
+            right: 0;
+            min-width: 140px;
+            background: var(--surface-primary);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--surface-border);
+            border-radius: 10px;
+            box-shadow:
+                0 4px 8px var(--surface-shadow-1),
+                0 12px 24px var(--surface-shadow-2);
+            overflow: hidden;
+            z-index: 100;
+        }
+
+        .lang-picker.open .lang-dropdown {
+            display: block;
+        }
+
+        .lang-option {
+            display: block;
+            width: 100%;
+            padding: 8px 14px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: 'Lato', 'Noto Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 300;
+            text-align: left;
+            cursor: pointer;
+            transition: background 0.15s ease, color 0.15s ease;
+            letter-spacing: normal;
+            text-transform: none;
+            box-shadow: none;
+            border-radius: 0;
+            line-height: 1.6;
+        }
+
+        .lang-option:hover {
+            background: var(--input-focus-ring);
+            color: var(--text-primary);
+            transform: none;
+            box-shadow: none;
+        }
+
+        .lang-option.active {
+            color: var(--accent-primary);
+            font-weight: 400;
+        }
+
+        /* ===== THEME TOGGLE ===== */
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            border: 1px solid var(--surface-border);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            box-shadow: none;
+            text-transform: none;
+            font-size: inherit;
+            font-weight: inherit;
+            letter-spacing: normal;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            color: var(--text-primary);
+            border-color: var(--text-tertiary);
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Icon visibility based on theme */
+        .theme-toggle .icon-sun { display: none; }
+        .theme-toggle .icon-moon { display: block; }
+
+        [data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+        [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+            :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+        }
+
+        /* ===== HEADER ===== */
         header {
             text-align: center;
             margin-bottom: 3rem;
@@ -124,120 +422,164 @@
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 2.5rem;
-            color: var(--text-dark);
-            letter-spacing: 1px;
+            color: var(--text-primary);
+            letter-spacing: 2px;
         }
-        
+
         .logo span {
-            color: #8ab6d6; /* Slightly deeper blue for accent */
+            color: var(--accent-primary);
             font-style: italic;
         }
 
+        /* ===== HERO ===== */
         h1 {
             font-family: 'Playfair Display', serif;
             font-size: clamp(2.5rem, 5vw, 3.5rem);
-            color: var(--text-dark);
+            color: var(--text-primary);
             margin-bottom: 1.5rem;
-            line-height: 1.2;
+            line-height: 1.15;
+            letter-spacing: -0.5px;
+            font-weight: 400;
+            font-style: italic;
         }
 
         .hero-sub {
-            font-size: 1.2rem;
-            color: var(--text-soft);
+            font-size: 1.1rem;
+            color: var(--text-secondary);
             max-width: 650px;
             margin: 0 auto 3rem auto;
             font-weight: 300;
+            letter-spacing: 0.3px;
+            line-height: 1.7;
         }
 
-        /* Gentle CTA */
+        /* ===== CTA FORM ===== */
         .cta-group {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 4rem;
+            gap: 12px;
+            margin-bottom: 5rem;
         }
 
         input[type="email"] {
             padding: 1rem 1.5rem;
-            border-radius: 50px;
-            border: 1px solid #dceefb;
-            background: #fff;
+            border-radius: 10px;
+            border: 1px solid var(--input-border);
+            background: var(--input-bg);
+            color: var(--text-primary);
             font-family: inherit;
             font-size: 1rem;
             width: 300px;
             outline: none;
-            transition: border-color 0.3s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
+
+        input[type="email"]::placeholder {
+            color: var(--text-tertiary);
+        }
+
         input[type="email"]:focus {
-            border-color: #8ab6d6;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px var(--input-focus-ring);
         }
 
         button {
-            padding: 1rem 2rem;
-            border-radius: 50px;
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
             border: none;
-            background: linear-gradient(to right, #8ab6d6, #a4d4ae);
-            color: white;
+            background: linear-gradient(135deg, var(--button-gradient-1), var(--button-gradient-2));
+            color: var(--button-text);
             font-family: inherit;
-            font-weight: 600;
-            font-size: 1rem;
+            font-weight: 400;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
             cursor: pointer;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 5px 15px rgba(164, 212, 174, 0.4);
-        }
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(164, 212, 174, 0.6);
+            box-shadow: 0 2px 8px var(--surface-shadow-1);
         }
 
-        /* Harmonic Features */
+        button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px var(--surface-shadow-2);
+        }
+
+        /* ===== FEATURES ===== */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 4rem;
-            margin-top: 4rem;
+            gap: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--divider);
             text-align: center;
         }
 
         .feature h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-family: 'Lato', 'Noto Sans', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
             margin-bottom: 1rem;
-            color: var(--text-dark);
+            color: var(--text-primary);
         }
 
         .feature p {
-            color: var(--text-soft);
+            color: var(--text-secondary);
             font-weight: 300;
         }
-        
-        /* Subtle organic icons using CSS shapes */
+
+        /* Morphing organic icons */
         .icon-organic {
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             margin: 0 auto 1.5rem auto;
-            background: linear-gradient(135deg, #e0f2fe, #dcfce7);
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            animation: morph 8s ease-in-out infinite;
-        }
-        @keyframes morph {
-            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-            50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
-            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            background: linear-gradient(135deg, var(--icon-gradient-1), var(--icon-gradient-2));
+            border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+            animation: morph 12s ease-in-out infinite;
         }
 
+        @keyframes morph {
+            0% { border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%; }
+            50% { border-radius: 60% 40% 40% 60% / 60% 60% 40% 40%; }
+            100% { border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%; }
+        }
+
+        /* ===== FOOTER ===== */
         footer {
             text-align: center;
             margin-top: 4rem;
             font-size: 0.9rem;
-            color: var(--text-soft);
+            color: var(--text-tertiary);
         }
-        
-        /* Responsive adjustments */
+
+        footer a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 600px) {
             .container {
                 margin: 2rem 1rem;
-                padding: 2rem;
+                padding: 2rem 1.5rem;
+            }
+            .top-bar {
+                top: 1rem;
+                right: 1rem;
+            }
+            .theme-toggle {
+                width: 36px;
+                height: 36px;
+            }
+            .lang-picker-btn {
+                height: 36px;
+                font-size: 0.75rem;
+                padding: 5px 8px;
             }
             .cta-group {
                 flex-direction: column;
@@ -251,58 +593,340 @@
             }
         }
     </style>
+
+    <!-- Anti-flash: apply stored theme before render -->
+    <script>
+    (function() {
+        var t = null;
+        try { t = localStorage.getItem('skrivist-theme'); } catch(e) {}
+        if (t) document.documentElement.setAttribute('data-theme', t);
+        var l = null;
+        try { l = localStorage.getItem('skrivist-lang'); } catch(e) {}
+        if (l) document.documentElement.setAttribute('lang', l);
+    })();
+    </script>
 </head>
 <body>
 
     <div class="particles">
-        <div class="particle" style="left: 10%; width: 20px; height: 20px; animation-duration: 18s; animation-delay: 0s;"></div>
-        <div class="particle" style="left: 30%; width: 15px; height: 15px; animation-duration: 12s; animation-delay: 2s; filter: blur(2px);"></div>
-        <div class="particle" style="left: 50%; width: 25px; height: 25px; animation-duration: 20s; animation-delay: 4s;"></div>
-        <div class="particle" style="left: 70%; width: 10px; height: 10px; animation-duration: 15s; animation-delay: 1s; filter: blur(1px);"></div>
-        <div class="particle" style="left: 90%; width: 18px; height: 18px; animation-duration: 14s; animation-delay: 3s;"></div>
+        <div class="particle" style="left: 5%; width: 22px; height: 22px; animation-duration: 16s; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 15%; width: 14px; height: 14px; animation: floatUpDrift 14s infinite linear; animation-delay: 3s;"></div>
+        <div class="particle" style="left: 25%; width: 18px; height: 18px; animation-duration: 18s; animation-delay: 1s;"></div>
+        <div class="particle" style="left: 35%; width: 12px; height: 12px; animation: floatUpSway 20s infinite linear; animation-delay: 5s;"></div>
+        <div class="particle" style="left: 45%; width: 26px; height: 26px; animation-duration: 22s; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 55%; width: 16px; height: 16px; animation: floatUpDrift 17s infinite linear; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 65%; width: 20px; height: 20px; animation-duration: 15s; animation-delay: 0.5s;"></div>
+        <div class="particle" style="left: 75%; width: 10px; height: 10px; animation: floatUpSway 19s infinite linear; animation-delay: 6s;"></div>
+        <div class="particle" style="left: 85%; width: 24px; height: 24px; animation-duration: 21s; animation-delay: 1.5s;"></div>
+        <div class="particle" style="left: 92%; width: 13px; height: 13px; animation: floatUpDrift 13s infinite linear; animation-delay: 3.5s;"></div>
     </div>
 
     <div class="container">
+        <div class="top-bar">
+            <div class="lang-picker" id="langPicker">
+                <button class="lang-picker-btn" type="button" aria-label="Change language" title="Change language">
+                    <span id="langLabel">EN</span>
+                    <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 1.5 6 6.5 11 1.5"></polyline></svg>
+                </button>
+                <div class="lang-dropdown" role="listbox" aria-label="Language">
+                    <button class="lang-option active" role="option" data-lang="en">English</button>
+                    <button class="lang-option" role="option" data-lang="ja">日本語</button>
+                    <button class="lang-option" role="option" data-lang="tr">Türkçe</button>
+                    <button class="lang-option" role="option" data-lang="es">Español</button>
+                    <button class="lang-option" role="option" data-lang="pt">Português</button>
+                    <button class="lang-option" role="option" data-lang="de">Deutsch</button>
+                    <button class="lang-option" role="option" data-lang="fr">Français</button>
+                </div>
+            </div>
+            <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">
+                <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+
         <header>
             <div class="logo">skriv<span>.ist</span></div>
         </header>
 
         <main style="text-align: center;">
             <section class="hero-section">
-                <h1>Where stories find <br>their breath.</h1>
-                <p class="hero-sub">
+                <h1 data-i18n="headline">Where stories find <br>their breath.</h1>
+                <p class="hero-sub" data-i18n="subheadline">
                     A quiet, minimalist reading sanctuary designed to soften the noise and let your mind wander freely through the pages.
                 </p>
-                
-                <form class="cta-group" onsubmit="event.preventDefault(); alert('Thank you. We will whisper when it is ready.');">
-                    <input type="email" placeholder="Enter your email address..." required>
-                    <button type="submit">Join the Waitlist</button>
+
+                <form class="cta-group" id="waitlistForm">
+                    <input type="email" placeholder="Enter your email address..." data-i18n-placeholder="emailPlaceholder" required>
+                    <button type="submit" data-i18n="ctaButton">Join the Waitlist</button>
                 </form>
             </section>
 
             <section class="features-grid">
                 <div class="feature">
                     <div class="icon-organic"></div>
-                    <h3>A Gentle Space</h3>
-                    <p>Free from algorithmic distractions, social feeds, and gamification. Just a calm canvas for your thoughts and the text.</p>
+                    <h3 data-i18n="feature1Title">A Gentle Space</h3>
+                    <p data-i18n="feature1Desc">Free from algorithmic distractions, social feeds, and gamification. Just a calm canvas for your thoughts and the text.</p>
                 </div>
                 <div class="feature">
                     <div class="icon-organic" style="animation-delay: -2s;"></div>
-                    <h3>Natural Sync</h3>
-                    <p>Your library flows effortlessly between your devices. Read offline in peace; we quietly handle the rest when you reconnect.</p>
+                    <h3 data-i18n="feature2Title">Natural Sync</h3>
+                    <p data-i18n="feature2Desc">Your library flows effortlessly between your devices. Read offline in peace; we quietly handle the rest when you reconnect.</p>
                 </div>
                 <div class="feature">
                     <div class="icon-organic" style="animation-delay: -4s;"></div>
-                    <h3>Harmonic Formats</h3>
-                    <p>Bring your cherished collection home. We provide a beautiful, unified experience for your EPUBs.</p>
+                    <h3 data-i18n="feature3Title">Harmonic Formats</h3>
+                    <p data-i18n="feature3Desc">Bring your cherished collection home. We provide a beautiful, unified experience for your EPUBs.</p>
                 </div>
             </section>
         </main>
 
         <footer>
-            <p>© 2025 skriv.ist | Crafted with care | By <a href="https://gand.tr">gand.tr</a></p>
+            <p><span data-i18n="footerCopy">&copy; 2025 skriv.ist | Crafted with care</span> | <span data-i18n="footerBy">By</span> <a href="https://gand.tr">gand.tr</a></p>
         </footer>
     </div>
+
+    <!-- Theme toggle + Language switcher + Form handler -->
+    <script>
+    (function() {
+        /* ===== TRANSLATIONS ===== */
+        var T = {
+            en: {
+                headline: 'Where stories find <br>their breath.',
+                subheadline: 'A quiet, minimalist reading sanctuary designed to soften the noise and let your mind wander freely through the pages.',
+                emailPlaceholder: 'Enter your email address...',
+                ctaButton: 'Join the Waitlist',
+                feature1Title: 'A Gentle Space',
+                feature1Desc: 'Free from algorithmic distractions, social feeds, and gamification. Just a calm canvas for your thoughts and the text.',
+                feature2Title: 'Natural Sync',
+                feature2Desc: 'Your library flows effortlessly between your devices. Read offline in peace; we quietly handle the rest when you reconnect.',
+                feature3Title: 'Harmonic Formats',
+                feature3Desc: 'Bring your cherished collection home. We provide a beautiful, unified experience for your EPUBs.',
+                footerCopy: '\u00a9 2025 skriv.ist | Crafted with care',
+                footerBy: 'By',
+                thankYou: 'Thank you. We will whisper when it is ready.',
+                label: 'EN'
+            },
+            ja: {
+                headline: '\u7269\u8a9e\u304c\u606f\u3065\u304f<br>\u5834\u6240\u3002',
+                subheadline: '\u9759\u304b\u3067\u30df\u30cb\u30de\u30eb\u306a\u8aad\u66f8\u306e\u8056\u57df\u3002\u96d1\u97f3\u3092\u3084\u308f\u3089\u3052\u3001\u30da\u30fc\u30b8\u306e\u4e2d\u3092\u81ea\u7531\u306b\u3055\u307e\u3088\u3048\u308b\u7a7a\u9593\u3067\u3059\u3002',
+                emailPlaceholder: '\u30e1\u30fc\u30eb\u30a2\u30c9\u30ec\u30b9\u3092\u5165\u529b...',
+                ctaButton: '\u30a6\u30a7\u30a4\u30c8\u30ea\u30b9\u30c8\u306b\u53c2\u52a0',
+                feature1Title: '\u7a4f\u3084\u304b\u306a\u7a7a\u9593',
+                feature1Desc: '\u30a2\u30eb\u30b4\u30ea\u30ba\u30e0\u3001SNS\u30d5\u30a3\u30fc\u30c9\u3001\u30b2\u30fc\u30df\u30d5\u30a3\u30b1\u30fc\u30b7\u30e7\u30f3\u306e\u306a\u3044\u4e16\u754c\u3002\u3042\u306a\u305f\u306e\u601d\u8003\u3068\u30c6\u30ad\u30b9\u30c8\u306e\u305f\u3081\u306e\u9759\u304b\u306a\u30ad\u30e3\u30f3\u30d0\u30b9\u3002',
+                feature2Title: '\u81ea\u7136\u306a\u540c\u671f',
+                feature2Desc: '\u30e9\u30a4\u30d6\u30e9\u30ea\u304c\u30c7\u30d0\u30a4\u30b9\u9593\u3092\u30b7\u30fc\u30e0\u30ec\u30b9\u306b\u6d41\u308c\u307e\u3059\u3002\u30aa\u30d5\u30e9\u30a4\u30f3\u3067\u8aad\u66f8\u3092\u3002\u518d\u63a5\u7d9a\u6642\u306b\u9759\u304b\u306b\u540c\u671f\u3057\u307e\u3059\u3002',
+                feature3Title: '\u8abf\u548c\u306e\u30d5\u30a9\u30fc\u30de\u30c3\u30c8',
+                feature3Desc: '\u5927\u5207\u306a\u30b3\u30ec\u30af\u30b7\u30e7\u30f3\u3092\u3053\u3053\u306b\u3002EPUB\u306e\u305f\u3081\u306e\u7f8e\u3057\u304f\u7d71\u4e00\u3055\u308c\u305f\u4f53\u9a13\u3092\u63d0\u4f9b\u3057\u307e\u3059\u3002',
+                footerCopy: '\u00a9 2025 skriv.ist | \u4e01\u5be7\u306b\u4f5c\u3089\u308c\u307e\u3057\u305f',
+                footerBy: '',
+                thankYou: '\u3042\u308a\u304c\u3068\u3046\u3054\u3056\u3044\u307e\u3059\u3002\u6e96\u5099\u304c\u3067\u304d\u305f\u3089\u304a\u77e5\u3089\u305b\u3057\u307e\u3059\u3002',
+                label: 'JA'
+            },
+            tr: {
+                headline: 'Hikayelerin nefes<br>buldu\u011fu yer.',
+                subheadline: 'G\u00fcr\u00fclt\u00fcy\u00fc yumu\u015fatan, zihninizi sayfalar aras\u0131nda \u00f6zg\u00fcrce dola\u015ft\u0131ran sessiz ve minimalist bir okuma s\u0131\u011f\u0131na\u011f\u0131.',
+                emailPlaceholder: 'E-posta adresinizi girin...',
+                ctaButton: 'Bekleme Listesine Kat\u0131l',
+                feature1Title: 'Huzurlu Bir Alan',
+                feature1Desc: 'Algoritmik dikkat da\u011f\u0131t\u0131c\u0131lardan, sosyal medya ak\u0131\u015flar\u0131ndan ve oyunla\u015ft\u0131rmadan uzak. D\u00fc\u015f\u00fcnceleriniz ve metin i\u00e7in sakin bir tuval.',
+                feature2Title: 'Do\u011fal Senkronizasyon',
+                feature2Desc: 'K\u00fct\u00fcphaneniz cihazlar\u0131n\u0131z aras\u0131nda zahmetsizce akar. \u00c7evrimd\u0131\u015f\u0131 huzur i\u00e7inde okuyun; yeniden ba\u011fland\u0131\u011f\u0131n\u0131zda gerisini biz hallederiz.',
+                feature3Title: 'Uyumlu Formatlar',
+                feature3Desc: 'De\u011ferli koleksiyonunuzu eve getirin. EPUB\'lar\u0131n\u0131z i\u00e7in g\u00fczel ve birle\u015fik bir deneyim sunuyoruz.',
+                footerCopy: '\u00a9 2025 skriv.ist | \u00d6zenle yap\u0131ld\u0131',
+                footerBy: '',
+                thankYou: 'Te\u015fekk\u00fcrler. Haz\u0131r oldu\u011funda size f\u0131s\u0131ldayaca\u011f\u0131z.',
+                label: 'TR'
+            },
+            es: {
+                headline: 'Donde las historias<br>encuentran su aliento.',
+                subheadline: 'Un santuario de lectura tranquilo y minimalista, dise\u00f1ado para suavizar el ruido y dejar que tu mente vague libremente entre las p\u00e1ginas.',
+                emailPlaceholder: 'Introduce tu correo electr\u00f3nico...',
+                ctaButton: '\u00danete a la lista de espera',
+                feature1Title: 'Un Espacio Sereno',
+                feature1Desc: 'Sin distracciones algor\u00edtmicas, sin redes sociales, sin gamificaci\u00f3n. Solo un lienzo tranquilo para tus pensamientos y el texto.',
+                feature2Title: 'Sincronizaci\u00f3n Natural',
+                feature2Desc: 'Tu biblioteca fluye sin esfuerzo entre tus dispositivos. Lee sin conexi\u00f3n en paz; nosotros nos encargamos del resto cuando te reconectes.',
+                feature3Title: 'Formatos Arm\u00f3nicos',
+                feature3Desc: 'Trae tu preciada colecci\u00f3n a casa. Ofrecemos una experiencia hermosa y unificada para tus EPUBs.',
+                footerCopy: '\u00a9 2025 skriv.ist | Hecho con cuidado',
+                footerBy: 'Por',
+                thankYou: 'Gracias. Te susurraremos cuando est\u00e9 listo.',
+                label: 'ES'
+            },
+            pt: {
+                headline: 'Onde as hist\u00f3rias<br>encontram seu respiro.',
+                subheadline: 'Um santu\u00e1rio de leitura tranquilo e minimalista, projetado para suavizar o ru\u00eddo e deixar sua mente vagar livremente pelas p\u00e1ginas.',
+                emailPlaceholder: 'Digite seu endere\u00e7o de e-mail...',
+                ctaButton: 'Entrar na lista de espera',
+                feature1Title: 'Um Espa\u00e7o Sereno',
+                feature1Desc: 'Livre de distra\u00e7\u00f5es algor\u00edtmicas, feeds sociais e gamifica\u00e7\u00e3o. Apenas uma tela calma para seus pensamentos e o texto.',
+                feature2Title: 'Sincroniza\u00e7\u00e3o Natural',
+                feature2Desc: 'Sua biblioteca flui sem esfor\u00e7o entre seus dispositivos. Leia offline em paz; n\u00f3s cuidamos do resto quando voc\u00ea reconectar.',
+                feature3Title: 'Formatos Harm\u00f4nicos',
+                feature3Desc: 'Traga sua cole\u00e7\u00e3o querida para casa. Oferecemos uma experi\u00eancia bela e unificada para seus EPUBs.',
+                footerCopy: '\u00a9 2025 skriv.ist | Feito com cuidado',
+                footerBy: 'Por',
+                thankYou: 'Obrigado. Vamos sussurrar quando estiver pronto.',
+                label: 'PT'
+            },
+            de: {
+                headline: 'Wo Geschichten<br>ihren Atem finden.',
+                subheadline: 'Ein ruhiges, minimalistisches Lese-Refugium, das den L\u00e4rm mildert und deinen Geist frei durch die Seiten wandern l\u00e4sst.',
+                emailPlaceholder: 'E-Mail-Adresse eingeben...',
+                ctaButton: 'Auf die Warteliste',
+                feature1Title: 'Ein Sanfter Raum',
+                feature1Desc: 'Frei von algorithmischen Ablenkungen, Social-Media-Feeds und Gamification. Nur eine ruhige Leinwand f\u00fcr deine Gedanken und den Text.',
+                feature2Title: 'Nat\u00fcrliche Synchronisation',
+                feature2Desc: 'Deine Bibliothek flie\u00dft m\u00fchelos zwischen deinen Ger\u00e4ten. Lies offline in Ruhe; wir k\u00fcmmern uns leise um den Rest, wenn du dich wieder verbindest.',
+                feature3Title: 'Harmonische Formate',
+                feature3Desc: 'Bring deine gesch\u00e4tzte Sammlung nach Hause. Wir bieten ein sch\u00f6nes, einheitliches Erlebnis f\u00fcr deine EPUBs.',
+                footerCopy: '\u00a9 2025 skriv.ist | Mit Sorgfalt gefertigt',
+                footerBy: 'Von',
+                thankYou: 'Danke. Wir fl\u00fcstern dir, wenn es soweit ist.',
+                label: 'DE'
+            },
+            fr: {
+                headline: 'L\u00e0 o\u00f9 les histoires<br>trouvent leur souffle.',
+                subheadline: 'Un sanctuaire de lecture tranquille et minimaliste, con\u00e7u pour adoucir le bruit et laisser votre esprit vagabonder librement \u00e0 travers les pages.',
+                emailPlaceholder: 'Entrez votre adresse e-mail...',
+                ctaButton: "Rejoindre la liste d'attente",
+                feature1Title: 'Un Espace Doux',
+                feature1Desc: "Sans distractions algorithmiques, sans fils d'actualit\u00e9, sans gamification. Juste un canevas calme pour vos pens\u00e9es et le texte.",
+                feature2Title: 'Synchronisation Naturelle',
+                feature2Desc: 'Votre biblioth\u00e8que circule sans effort entre vos appareils. Lisez hors ligne en paix\u00a0; nous g\u00e9rons le reste discr\u00e8tement lorsque vous vous reconnectez.',
+                feature3Title: 'Formats Harmoniques',
+                feature3Desc: 'Ramenez votre pr\u00e9cieuse collection chez vous. Nous offrons une exp\u00e9rience belle et unifi\u00e9e pour vos EPUBs.',
+                footerCopy: '\u00a9 2025 skriv.ist | Fait avec soin',
+                footerBy: 'Par',
+                thankYou: 'Merci. Nous vous murmurerons quand tout sera pr\u00eat.',
+                label: 'FR'
+            }
+        };
+
+        var currentLang = 'en';
+
+        function applyLang(lang) {
+            if (!T[lang]) return;
+            currentLang = lang;
+            var strings = T[lang];
+
+            /* Update all data-i18n elements */
+            var els = document.querySelectorAll('[data-i18n]');
+            for (var i = 0; i < els.length; i++) {
+                var key = els[i].getAttribute('data-i18n');
+                if (strings[key] !== undefined) {
+                    els[i].innerHTML = strings[key];
+                }
+            }
+
+            /* Update placeholders */
+            var placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+            for (var j = 0; j < placeholders.length; j++) {
+                var pKey = placeholders[j].getAttribute('data-i18n-placeholder');
+                if (strings[pKey] !== undefined) {
+                    placeholders[j].setAttribute('placeholder', strings[pKey]);
+                }
+            }
+
+            /* Update label and html lang */
+            document.getElementById('langLabel').textContent = strings.label;
+            document.documentElement.setAttribute('lang', lang);
+
+            /* Update active state in dropdown */
+            var options = document.querySelectorAll('.lang-option');
+            for (var k = 0; k < options.length; k++) {
+                if (options[k].getAttribute('data-lang') === lang) {
+                    options[k].classList.add('active');
+                } else {
+                    options[k].classList.remove('active');
+                }
+            }
+
+            try { localStorage.setItem('skrivist-lang', lang); } catch(e) {}
+        }
+
+        /* ===== LANGUAGE PICKER ===== */
+        var picker = document.getElementById('langPicker');
+        var pickerBtn = picker.querySelector('.lang-picker-btn');
+
+        pickerBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            picker.classList.toggle('open');
+        });
+
+        var langOptions = picker.querySelectorAll('.lang-option');
+        for (var i = 0; i < langOptions.length; i++) {
+            langOptions[i].addEventListener('click', function(e) {
+                e.stopPropagation();
+                applyLang(this.getAttribute('data-lang'));
+                picker.classList.remove('open');
+            });
+        }
+
+        /* Close dropdown on outside click */
+        document.addEventListener('click', function() {
+            picker.classList.remove('open');
+        });
+
+        /* Restore stored language */
+        var storedLang = null;
+        try { storedLang = localStorage.getItem('skrivist-lang'); } catch(e) {}
+        if (storedLang && T[storedLang]) {
+            applyLang(storedLang);
+        }
+
+        /* ===== THEME TOGGLE ===== */
+        var toggle = document.querySelector('.theme-toggle');
+        var root = document.documentElement;
+
+        function getSystemTheme() {
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        function getStoredTheme() {
+            try { return localStorage.getItem('skrivist-theme'); } catch(e) { return null; }
+        }
+
+        toggle.addEventListener('click', function() {
+            root.classList.add('theme-transitioning');
+
+            var current = root.getAttribute('data-theme') || getSystemTheme();
+            var next = current === 'dark' ? 'light' : 'dark';
+
+            root.setAttribute('data-theme', next);
+            try { localStorage.setItem('skrivist-theme', next); } catch(e) {}
+
+            setTimeout(function() {
+                root.classList.remove('theme-transitioning');
+            }, 350);
+        });
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
+            if (!getStoredTheme()) {
+                root.removeAttribute('data-theme');
+            }
+        });
+
+        /* ===== FORM HANDLER ===== */
+        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert(T[currentLang].thankYou);
+        });
+    })();
+    </script>
 
 </body>
 </html>
