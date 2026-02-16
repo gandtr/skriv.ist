@@ -616,6 +616,85 @@
             }
         }
     </style>
+    <style>
+        /* ===== DEMO SECTION ===== */
+        .demo-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .demo-btn {
+            display: inline-block;
+            margin-bottom: 3rem;
+            padding: 1.2rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--button-text);
+            background: linear-gradient(135deg, var(--button-gradient-1), var(--button-gradient-2));
+            border-radius: 50px;
+            box-shadow: 0 4px 12px var(--surface-shadow-1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .demo-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--surface-shadow-2);
+        }
+
+        .demo-features-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4rem;
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .feature-column {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .feature-column h3 {
+            font-family: 'Playfair Display', serif; /* Matching header font */
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--accent-secondary);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .styled-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .styled-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .styled-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+
+        .styled-list.upcoming li::before {
+             color: var(--text-tertiary); /* Different color for upcoming */
+        }
+    </style>
 
     <!-- Anti-flash: apply stored theme before render -->
     <script>
@@ -697,6 +776,32 @@
                 <p class="form-msg" id="formMsg"></p>
             </section>
 
+            <section class="demo-section">
+                <a href="https://app.skriv.ist" class="demo-btn" target="_blank" data-i18n="demoButton">Try the Demo!</a>
+                
+                <div class="demo-features-container">
+                    <div class="feature-column">
+                        <h3 data-i18n="currentFeaturesTitle">Current Features</h3>
+                        <ul class="styled-list">
+                            <li data-i18n="feat1">No app install, add to home screen</li>
+                            <li data-i18n="feat2">iOS, Android, PC eBook sync (up to 10 books)</li>
+                            <li data-i18n="feat3">Light, Dark, Sepia themes, E-Paper mode</li>
+                            <li data-i18n="feat4">Integrated ambient sounds</li>
+                            <li data-i18n="feat5">Free public domain books provided</li>
+                        </ul>
+                    </div>
+                    <div class="feature-column">
+                        <h3 data-i18n="upcomingFeaturesTitle">Upcoming Features</h3>
+                        <ul class="styled-list upcoming">
+                            <li data-i18n="upc1">Calibre integration</li>
+                            <li data-i18n="upc2">TTS (Free & Paid versions)</li>
+                            <li data-i18n="upc3">Custom TTS server support</li>
+                            <li data-i18n="upc4">OPDS support</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
             <section class="features-grid">
                 <div class="feature">
                     <div class="icon-organic"></div>
@@ -742,7 +847,19 @@
                 thankYou: 'Thank you. We will whisper when it is ready.',
                 errorMsg: 'Something went wrong. Please try again.',
                 sending: 'Sending...',
-                label: 'EN'
+                label: 'EN',
+                demoButton: 'Try the Demo!',
+                currentFeaturesTitle: 'Current Features',
+                upcomingFeaturesTitle: 'Upcoming Features',
+                feat1: 'No app install, add to home screen',
+                feat2: 'iOS, Android, PC eBook sync (up to 10 books)',
+                feat3: 'Light, Dark, Sepia themes, E-Paper mode',
+                feat4: 'Integrated ambient sounds',
+                feat5: 'Free public domain books provided',
+                upc1: 'Calibre integration',
+                upc2: 'TTS (Free & Paid versions)',
+                upc3: 'Custom TTS server support',
+                upc4: 'OPDS support'
             },
             ja: {
                 headline: '\u7269\u8a9e\u304c\u606f\u3065\u304f<br>\u5834\u6240\u3002',
@@ -760,7 +877,19 @@
                 thankYou: '\u3042\u308a\u304c\u3068\u3046\u3054\u3056\u3044\u307e\u3059\u3002\u6e96\u5099\u304c\u3067\u304d\u305f\u3089\u304a\u77e5\u3089\u305b\u3057\u307e\u3059\u3002',
                 errorMsg: '\u554f\u984c\u304c\u767a\u751f\u3057\u307e\u3057\u305f\u3002\u3082\u3046\u4e00\u5ea6\u304a\u8a66\u3057\u304f\u3060\u3055\u3044\u3002',
                 sending: '\u9001\u4fe1\u4e2d...',
-                label: 'JA'
+                label: 'JA',
+                demoButton: 'デモを試す',
+                currentFeaturesTitle: '現在の機能',
+                upcomingFeaturesTitle: '今後の機能',
+                feat1: 'アプリインストール不要、ホーム画面に追加',
+                feat2: 'iOS/Android/PC同期（最大10冊）',
+                feat3: 'ライト/ダーク/セピア/電子ペーパー',
+                feat4: '環境音統合',
+                feat5: 'パブリックドメイン書籍を提供',
+                upc1: 'Calibre連携',
+                upc2: '音声読み上げ（無料/有料）',
+                upc3: 'カスタムTTSサーバー',
+                upc4: 'OPDSサポート'
             },
             tr: {
                 headline: 'Hikayelerin nefes<br>buldu\u011fu yer.',
@@ -778,7 +907,19 @@
                 thankYou: 'Te\u015fekk\u00fcrler. Haz\u0131r oldu\u011funda size f\u0131s\u0131ldayaca\u011f\u0131z.',
                 errorMsg: 'Bir sorun olu\u015ftu. L\u00fctfen tekrar deneyin.',
                 sending: 'G\u00f6nderiliyor...',
-                label: 'TR'
+                label: 'TR',
+                demoButton: 'Demoyu Dene!',
+                currentFeaturesTitle: 'Mevcut Özellikler',
+                upcomingFeaturesTitle: 'Gelecek Özellikler',
+                feat1: 'Uygulama yüklemeye gerek yok, ana ekrana ekle',
+                feat2: 'iOS/Android/PC senk. (10 kitaba kadar)',
+                feat3: 'Açık/Koyu/Sepya/E-Kağıt modları',
+                feat4: 'Entegre ortam sesleri',
+                feat5: 'Ücretsiz kamu malı kitaplar',
+                upc1: 'Calibre entegrasyonu',
+                upc2: 'Metin Okuma (Ücretsiz/Ücretli)',
+                upc3: 'Özel TTS sunucusu',
+                upc4: 'OPDS desteği'
             },
             es: {
                 headline: 'Donde las historias<br>encuentran su aliento.',
@@ -796,7 +937,19 @@
                 thankYou: 'Gracias. Te susurraremos cuando est\u00e9 listo.',
                 errorMsg: 'Algo sali\u00f3 mal. Por favor, int\u00e9ntalo de nuevo.',
                 sending: 'Enviando...',
-                label: 'ES'
+                label: 'ES',
+                demoButton: '¡Prueba la Demo!',
+                currentFeaturesTitle: 'Características Actuales',
+                upcomingFeaturesTitle: 'Próximas Características',
+                feat1: 'Sin instalación, añadir a pantalla de inicio',
+                feat2: 'Sincronización iOS/Android/PC (hasta 10 libros)',
+                feat3: 'Temas Claro/Oscuro/Sepia/Tinta Elect.',
+                feat4: 'Sonidos ambientales integrados',
+                feat5: 'Libros de dominio público incluidos',
+                upc1: 'Integración con Calibre',
+                upc2: 'Texto a Voz (Gratis/Pago)',
+                upc3: 'Servidor TTS personalizado',
+                upc4: 'Soporte OPDS'
             },
             pt: {
                 headline: 'Onde as hist\u00f3rias<br>encontram seu respiro.',
@@ -814,7 +967,19 @@
                 thankYou: 'Obrigado. Vamos sussurrar quando estiver pronto.',
                 errorMsg: 'Algo deu errado. Por favor, tente novamente.',
                 sending: 'Enviando...',
-                label: 'PT'
+                label: 'PT',
+                demoButton: 'Experimente a Demo!',
+                currentFeaturesTitle: 'Funcionalidades Atuais',
+                upcomingFeaturesTitle: 'Funcionalidades Futuras',
+                feat1: 'Sem instalação, adicione à tela inicial',
+                feat2: 'Sincronização iOS/Android/PC (até 10 livros)',
+                feat3: 'Claro/Escuro/Sépia/E-Paper',
+                feat4: 'Sons ambientes integrados',
+                feat5: 'Livros de domínio público incluídos',
+                upc1: 'Integração com Calibre',
+                upc2: 'Texto para Fala (Grátis/Pago)',
+                upc3: 'Servidor TTS personalizado',
+                upc4: 'Suporte OPDS'
             },
             de: {
                 headline: 'Wo Geschichten<br>ihren Atem finden.',
@@ -832,7 +997,19 @@
                 thankYou: 'Danke. Wir fl\u00fcstern dir, wenn es soweit ist.',
                 errorMsg: 'Etwas ist schiefgelaufen. Bitte versuche es erneut.',
                 sending: 'Wird gesendet...',
-                label: 'DE'
+                label: 'DE',
+                demoButton: 'Demo ausprobieren!',
+                currentFeaturesTitle: 'Aktuelle Funktionen',
+                upcomingFeaturesTitle: 'Geplante Funktionen',
+                feat1: 'Keine App-Installation, zum Homescreen',
+                feat2: 'Sync für iOS/Android/PC (bis zu 10 Bücher)',
+                feat3: 'Hell/Dunkel/Sepia/E-Paper-Modus',
+                feat4: 'Integrierte Umgebungsgeräusche',
+                feat5: 'Kostenlose gemeinfreie Bücher',
+                upc1: 'Calibre-Integration',
+                upc2: 'Text-to-Speech (Free/Pro)',
+                upc3: 'Eigener TTS-Server',
+                upc4: 'OPDS-Unterstützung'
             },
             fr: {
                 headline: 'L\u00e0 o\u00f9 les histoires<br>trouvent leur souffle.',
@@ -850,8 +1027,20 @@
                 thankYou: 'Merci. Nous vous murmurerons quand tout sera pr\u00eat.',
                 errorMsg: 'Une erreur est survenue. Veuillez r\u00e9essayer.',
                 sending: 'Envoi en cours...',
-                label: 'FR'
-            }
+                label: 'FR',
+                demoButton: 'Essayer la Démo !',
+                currentFeaturesTitle: 'Fonctionnalités Actuelles',
+                upcomingFeaturesTitle: 'Fonctionnalités à Venir',
+                feat1: "Pas d'installation, ajouter à l'écran d'accueil",
+                feat2: 'Synchro iOS/Android/PC (max 10 livres)',
+                feat3: 'Thèmes Clair/Sombre/Sépia/E-Paper',
+                feat4: "Sons d'ambiance intégrés",
+                feat5: 'Livres du domaine public inclus',
+                upc1: 'Intégration Calibre',
+                upc2: 'Synthèse vocale (Gratuit/Payant)',
+                upc3: 'Serveur TTS personnalisé',
+                upc4: 'Support OPDS'
+            },
         };
 
         var currentLang = 'en';
