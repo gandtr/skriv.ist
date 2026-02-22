@@ -615,17 +615,190 @@
                 width: 100%;
             }
         }
-    </style>
-    <style>
-        /* ===== DEMO SECTION ===== */
-        .demo-section {
+
+        /* ===== PRICING TABLES ===== */
+        .pricing-section {
             padding: 4rem 0;
+            border-top: 1px solid var(--divider);
+            margin-top: 3rem;
             text-align: center;
         }
 
-        .demo-btn {
+        .pricing-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .pricing-grid {
+            display: grid;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid.single-row {
+            grid-template-columns: minmax(260px, 350px);
+            justify-content: center;
+        }
+
+        .pricing-grid.double-row {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .pricing-tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin: 3.5rem 0 2rem;
+            text-align: center;
+        }
+
+        .pricing-card {
+            background: var(--surface-primary);
+            border: 1px solid var(--surface-border);
+            border-radius: 12px;
+            padding: 2.5rem 1.5rem;
+            box-shadow: 0 4px 12px var(--surface-shadow-1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px var(--surface-shadow-2);
+        }
+
+        .pricing-card.popular {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 1px var(--accent-primary), 0 8px 16px var(--surface-shadow-1);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-primary);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .plan-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .plan-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .plan-period {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .plan-features li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .plan-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+
+        .plan-features li.disabled {
+            color: var(--text-tertiary);
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        .plan-features li.disabled::before {
+            content: "✗";
+            color: var(--text-tertiary);
+        }
+
+        .plan-features li a {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: var(--accent-primary);
+            text-underline-offset: 3px;
+            transition: color 0.2s ease;
+        }
+
+        .plan-features li a:hover {
+            color: var(--accent-primary);
+        }
+
+        .plan-cta {
             display: inline-block;
-            margin-bottom: 3rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+            width: 100%;
+        }
+
+        .plan-cta.primary {
+            background: linear-gradient(135deg, var(--button-gradient-1), var(--button-gradient-2));
+            color: var(--button-text);
+        }
+
+        .plan-cta.primary:hover {
+            box-shadow: 0 4px 12px rgba(106, 159, 192, 0.3);
+        }
+
+        .plan-cta.secondary {
+            background: transparent;
+            color: var(--accent-primary);
+            border: 2px solid var(--accent-primary);
+        }
+
+        .plan-cta.secondary:hover {
+            background: var(--accent-primary);
+            color: #fff;
+        }
+    </style>
+    <style>
+        .app-btn {
+            display: inline-block;
+            margin-bottom: 1rem;
             padding: 1.2rem 3rem;
             font-size: 1.1rem;
             font-weight: 700;
@@ -637,62 +810,9 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .demo-btn:hover {
+        .app-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px var(--surface-shadow-2);
-        }
-
-        .demo-features-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 4rem;
-            text-align: left;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .feature-column {
-            flex: 1;
-            min-width: 280px;
-        }
-
-        .feature-column h3 {
-            font-family: 'Playfair Display', serif; /* Matching header font */
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-            border-bottom: 2px solid var(--accent-secondary);
-            padding-bottom: 0.5rem;
-            display: inline-block;
-        }
-
-        .styled-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .styled-list li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.8rem;
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .styled-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent-primary);
-            font-weight: bold;
-            font-size: 1.2rem;
-            line-height: 1.4;
-        }
-
-        .styled-list.upcoming li::before {
-             color: var(--text-tertiary); /* Different color for upcoming */
         }
     </style>
 
@@ -769,36 +889,8 @@
                     A quiet, minimalist reading sanctuary designed to soften the noise and let your mind wander freely through the pages.
                 </p>
 
-                <form class="cta-group" id="waitlistForm">
-                    <input type="email" name="email" placeholder="Enter your email address..." data-i18n-placeholder="emailPlaceholder" required>
-                    <button type="submit" data-i18n="ctaButton">Join the Waitlist</button>
-                </form>
-                <p class="form-msg" id="formMsg"></p>
-            </section>
-
-            <section class="demo-section">
-                <a href="https://app.skriv.ist" class="demo-btn" target="_blank" data-i18n="demoButton">Try the Demo!</a>
-                
-                <div class="demo-features-container">
-                    <div class="feature-column">
-                        <h3 data-i18n="currentFeaturesTitle">Current Features</h3>
-                        <ul class="styled-list">
-                            <li data-i18n="feat1">No app install, add to home screen</li>
-                            <li data-i18n="feat2">iOS, Android, PC eBook sync (up to 10 books)</li>
-                            <li data-i18n="feat3">Light, Dark, Sepia themes, E-Paper mode</li>
-                            <li data-i18n="feat4">Integrated ambient sounds</li>
-                            <li data-i18n="feat5">Free public domain books provided</li>
-                        </ul>
-                    </div>
-                    <div class="feature-column">
-                        <h3 data-i18n="upcomingFeaturesTitle">Upcoming Features</h3>
-                        <ul class="styled-list upcoming">
-                            <li data-i18n="upc1">Calibre integration</li>
-                            <li data-i18n="upc2">TTS (Free & Paid versions)</li>
-                            <li data-i18n="upc3">Custom TTS server support</li>
-                            <li data-i18n="upc4">OPDS support</li>
-                        </ul>
-                    </div>
+                <div class="cta-group">
+                    <a href="https://app.skriv.ist" class="app-btn" data-i18n="ctaButton">Start Reading for Free</a>
                 </div>
             </section>
 
@@ -806,17 +898,70 @@
                 <div class="feature">
                     <div class="icon-organic"></div>
                     <h3 data-i18n="feature1Title">A Gentle Space</h3>
-                    <p data-i18n="feature1Desc">Free from algorithmic distractions, social feeds, and gamification. Just a calm canvas for your thoughts and the text.</p>
+                    <p data-i18n="feature1Desc">Free from algorithmic distractions, social feeds, and gamification. 4 beautiful reading themes including E-paper and Sepia.</p>
                 </div>
                 <div class="feature">
                     <div class="icon-organic" style="animation-delay: -2s;"></div>
                     <h3 data-i18n="feature2Title">Natural Sync</h3>
-                    <p data-i18n="feature2Desc">Your library flows effortlessly between your devices. Read offline in peace; we quietly handle the rest when you reconnect.</p>
+                    <p data-i18n="feature2Desc">Your library flows effortlessly between your devices. Install as an app to read offline in peace; we quietly sync your progress when you reconnect.</p>
                 </div>
                 <div class="feature">
                     <div class="icon-organic" style="animation-delay: -4s;"></div>
-                    <h3 data-i18n="feature3Title">Harmonic Formats</h3>
-                    <p data-i18n="feature3Desc">Bring your cherished collection home. We provide a beautiful, unified experience for your EPUBs.</p>
+                    <h3 data-i18n="feature3Title">Harmonic Integrations</h3>
+                    <p data-i18n="feature3Desc">Expand your collection beyond the local drive. Connect your remote Calibre library or browse OPDS catalogs beautifully.</p>
+                </div>
+            </section>
+
+            <section class="pricing-section">
+                <h2 data-i18n="pricingTitle">Simple, Quiet Pricing</h2>
+                
+                <div class="pricing-grid single-row">
+                    <!-- Free Tier -->
+                    <div class="pricing-card">
+                        <h3 class="plan-name" data-i18n="planFreeName">Free</h3>
+                        <div class="plan-price" data-i18n="planFreePrice">$0</div>
+                        <div class="plan-period" data-i18n="planFreePeriod">Forever</div>
+                        <ul class="plan-features">
+                            <li data-i18n="featFree1">Offline Web App (PWA)</li>
+                            <li data-i18n="featFree2">10 Cloud Books Limit</li>
+                            <li data-i18n="featFree3">Progress Sync Across Devices</li>
+                            <li data-i18n="featFree4">4 Reading Themes & Ambient Sounds</li>
+                            <li data-i18n="featFree5">Browser Text-To-Speech API</li>
+                            <li data-i18n="featFree6">Calibre Plugin</li>
+                        </ul>
+                        <a href="https://app.skriv.ist" class="plan-cta secondary" data-i18n="ctaFree">Start Reading</a>
+                    </div>
+                </div>
+
+                <div class="pricing-tagline" data-i18n="choosePath">Choose your path:</div>
+
+                <div class="pricing-grid double-row">
+                    <!-- Maker Tier -->
+                    <div class="pricing-card">
+                        <h3 class="plan-name" data-i18n="planMakerName">Maker</h3>
+                        <div class="plan-price" data-i18n="planMakerPrice">$9.99</div>
+                        <div class="plan-period" data-i18n="planMakerPeriod">One-Time Payment</div>
+                        <ul class="plan-features">
+                            <li data-i18n="featMaker1">Everything in Free</li>
+                            <li data-i18n="featMaker2">Remote OPDS Catalog Browsing</li>
+                            <li data-i18n="featMaker3">Custom TTS Service</li>
+                        </ul>
+                        <a href="https://app.skriv.ist" class="plan-cta secondary" data-i18n="ctaMaker">Upgrade in App</a>
+                    </div>
+
+                    <!-- Member Tier -->
+                    <div class="pricing-card popular">
+                        <div class="popular-badge" data-i18n="badgePopular">Most Popular</div>
+                        <h3 class="plan-name" data-i18n="planMemberName">Member</h3>
+                        <div class="plan-price" data-i18n="planMemberPrice">$4.99</div>
+                        <div class="plan-period" data-i18n="planMemberPeriod">Per Month (or $35.99/yr)</div>
+                        <ul class="plan-features">
+                            <li data-i18n="featMember1">Everything in Free</li>
+                            <li data-i18n="featMember2">Unlimited Cloud Books <br><small><i>(currently capped at 3000)</i></small></li>
+                            <li data-i18n="featMember3">TTS Service <br><small><i>(powered by pocket TTS)</i></small></li>
+                        </ul>
+                        <a href="https://app.skriv.ist" class="plan-cta primary" data-i18n="ctaPremium">Start Free Trial</a>
+                    </div>
                 </div>
             </section>
         </main>
@@ -834,213 +979,290 @@
             en: {
                 headline: 'Where stories find <br>their breath.',
                 subheadline: 'A quiet, minimalist reading sanctuary designed to soften the noise and let your mind wander freely through the pages.',
-                emailPlaceholder: 'Enter your email address...',
-                ctaButton: 'Join the Waitlist',
+                ctaButton: 'Start Reading for Free',
                 feature1Title: 'A Gentle Space',
-                feature1Desc: 'Free from algorithmic distractions, social feeds, and gamification. Just a calm canvas for your thoughts and the text.',
+                feature1Desc: 'Free from algorithmic distractions, social feeds, and gamification. 4 beautiful reading themes including E-paper and Sepia.',
                 feature2Title: 'Natural Sync',
-                feature2Desc: 'Your library flows effortlessly between your devices. Read offline in peace; we quietly handle the rest when you reconnect.',
-                feature3Title: 'Harmonic Formats',
-                feature3Desc: 'Bring your cherished collection home. We provide a beautiful, unified experience for your EPUBs.',
+                feature2Desc: 'Your library flows effortlessly between your devices. Install as an app to read offline in peace; we quietly sync your progress when you reconnect.',
+                feature3Title: 'Harmonic Integrations',
+                feature3Desc: 'Expand your collection beyond the local drive. Connect your remote Calibre library or browse OPDS catalogs beautifully.',
+                pricingTitle: 'Simple, Quiet Pricing',
+                choosePath: 'Choose your path:',
+                planFreeName: 'Free',
+                planFreePrice: '$0',
+                planFreePeriod: 'Forever',
+                featFree1: 'Offline Web App (PWA)',
+                featFree2: '10 Cloud Books Limit',
+                featFree3: 'Progress Sync Across Devices',
+                featFree4: '4 Reading Themes & Ambient Sounds',
+                featFree5: 'Browser Text-To-Speech API',
+                featFree6: '<a href="https://github.com/c0ze/skrivist.tools/tree/main/calibre-plugin" target="_blank" rel="noopener noreferrer">Calibre Plugin</a>',
+                ctaFree: 'Start Reading',
+                planMakerName: 'Maker',
+                planMakerPrice: '$9.99',
+                planMakerPeriod: 'One-Time Payment',
+                featMaker1: 'Everything in Free',
+                featMaker2: 'Remote OPDS Catalog Browsing',
+                featMaker3: '<a href="https://github.com/c0ze/skrivist.tools/blob/main/TTS_SERVER_API.md" target="_blank" rel="noopener noreferrer">Custom TTS Service</a>',
+                ctaMaker: 'Upgrade in App',
+                badgePopular: 'Most Popular',
+                planMemberName: 'Member',
+                planMemberPrice: '$4.99',
+                planMemberPeriod: 'Per Month (or $35.99/yr)',
+                featMember1: 'Everything in Free',
+                featMember2: 'Unlimited Cloud Books <br><small><i>(currently capped at 3000)</i></small>',
+                featMember3: 'TTS Service <br><small><i>(powered by <a href="https://github.com/kyutai-labs/pocket-tts" target="_blank" rel="noopener noreferrer">pocket TTS</a>)</i></small>',
+                ctaPremium: 'Start Free Trial',
                 footerCopy: '\u00a9 2025 skriv.ist | Crafted with care',
                 footerBy: 'By',
-                thankYou: 'Thank you. We will whisper when it is ready.',
-                errorMsg: 'Something went wrong. Please try again.',
-                sending: 'Sending...',
-                label: 'EN',
-                demoButton: 'Try the Demo!',
-                currentFeaturesTitle: 'Current Features',
-                upcomingFeaturesTitle: 'Upcoming Features',
-                feat1: 'No app install, add to home screen',
-                feat2: 'iOS, Android, PC eBook sync (up to 10 books)',
-                feat3: 'Light, Dark, Sepia themes, E-Paper mode',
-                feat4: 'Integrated ambient sounds',
-                feat5: 'Free public domain books provided',
-                upc1: 'Calibre integration',
-                upc2: 'TTS (Free & Paid versions)',
-                upc3: 'Custom TTS server support',
-                upc4: 'OPDS support'
+                label: 'EN'
             },
             ja: {
                 headline: '\u7269\u8a9e\u304c\u606f\u3065\u304f<br>\u5834\u6240\u3002',
                 subheadline: '\u9759\u304b\u3067\u30df\u30cb\u30de\u30eb\u306a\u8aad\u66f8\u306e\u8056\u57df\u3002\u96d1\u97f3\u3092\u3084\u308f\u3089\u3052\u3001\u30da\u30fc\u30b8\u306e\u4e2d\u3092\u81ea\u7531\u306b\u3055\u307e\u3088\u3048\u308b\u7a7a\u9593\u3067\u3059\u3002',
-                emailPlaceholder: '\u30e1\u30fc\u30eb\u30a2\u30c9\u30ec\u30b9\u3092\u5165\u529b...',
-                ctaButton: '\u30a6\u30a7\u30a4\u30c8\u30ea\u30b9\u30c8\u306b\u53c2\u52a0',
+                ctaButton: '無料で読み始める',
                 feature1Title: '\u7a4f\u3084\u304b\u306a\u7a7a\u9593',
-                feature1Desc: '\u30a2\u30eb\u30b4\u30ea\u30ba\u30e0\u3001SNS\u30d5\u30a3\u30fc\u30c9\u3001\u30b2\u30fc\u30df\u30d5\u30a3\u30b1\u30fc\u30b7\u30e7\u30f3\u306e\u306a\u3044\u4e16\u754c\u3002\u3042\u306a\u305f\u306e\u601d\u8003\u3068\u30c6\u30ad\u30b9\u30c8\u306e\u305f\u3081\u306e\u9759\u304b\u306a\u30ad\u30e3\u30f3\u30d0\u30b9\u3002',
+                feature1Desc: 'アルゴリズム、SNS、ゲーミフィケーションはありません。E-paperやセピアを含む4つの美しいテーマ。',
                 feature2Title: '\u81ea\u7136\u306a\u540c\u671f',
-                feature2Desc: '\u30e9\u30a4\u30d6\u30e9\u30ea\u304c\u30c7\u30d0\u30a4\u30b9\u9593\u3092\u30b7\u30fc\u30e0\u30ec\u30b9\u306b\u6d41\u308c\u307e\u3059\u3002\u30aa\u30d5\u30e9\u30a4\u30f3\u3067\u8aad\u66f8\u3092\u3002\u518d\u63a5\u7d9a\u6642\u306b\u9759\u304b\u306b\u540c\u671f\u3057\u307e\u3059\u3002',
-                feature3Title: '\u8abf\u548c\u306e\u30d5\u30a9\u30fc\u30de\u30c3\u30c8',
-                feature3Desc: '\u5927\u5207\u306a\u30b3\u30ec\u30af\u30b7\u30e7\u30f3\u3092\u3053\u3053\u306b\u3002EPUB\u306e\u305f\u3081\u306e\u7f8e\u3057\u304f\u7d71\u4e00\u3055\u308c\u305f\u4f53\u9a13\u3092\u63d0\u4f9b\u3057\u307e\u3059\u3002',
+                feature2Desc: 'ライブラリはデバイス間でシームレスに同期。アプリとしてインストールし、オフラインでも快適に。',
+                feature3Title: '調和する連携',
+                feature3Desc: 'コレクションをローカルから拡張。CalibreライブラリやOPDSカタログと美しく繋がります。',
+                pricingTitle: 'シンプルで静かな料金プラン',
+                choosePath: 'プランを選択：',
+                planFreeName: '無料',
+                planFreePrice: '$0',
+                planFreePeriod: '永久無料',
+                featFree1: 'オフラインWebアプリ（PWA）',
+                featFree2: '最大10冊のクラウド保存',
+                featFree3: 'デバイス間の進捗同期',
+                featFree4: '4つのテーマと環境音',
+                featFree5: 'ブラウザ搭載の音声読み上げ',
+                featFree6: '<a href="https://github.com/c0ze/skrivist.tools/tree/main/calibre-plugin" target="_blank" rel="noopener noreferrer">Calibre プラグイン</a>',
+                ctaFree: '読み始める',
+                planMakerName: 'メーカー',
+                planMakerPrice: '$9.99',
+                planMakerPeriod: '買い切り',
+                featMaker1: '無料プランの全機能',
+                featMaker2: 'OPDSカタログのブラウジング',
+                featMaker3: '<a href="https://github.com/c0ze/skrivist.tools/blob/main/TTS_SERVER_API.md" target="_blank" rel="noopener noreferrer">カスタム TTS サービス</a>',
+                ctaMaker: 'アプリ内でアップグレード',
+                badgePopular: '一番人気',
+                planMemberName: 'メンバー',
+                planMemberPrice: '$4.99',
+                planMemberPeriod: '月額（または年額$35.99）',
+                featMember1: '無料プランの全機能',
+                featMember2: '無制限のクラウド保存 <br><small><i>(現在は3000冊まで)</i></small>',
+                featMember3: 'TTS サービス <br><small><i>(<a href="https://github.com/kyutai-labs/pocket-tts" target="_blank" rel="noopener noreferrer">pocket TTS</a>対応)</i></small>',
+                ctaPremium: '無料トライアルを開始',
                 footerCopy: '\u00a9 2025 skriv.ist | \u4e01\u5be7\u306b\u4f5c\u3089\u308c\u307e\u3057\u305f',
                 footerBy: '',
-                thankYou: '\u3042\u308a\u304c\u3068\u3046\u3054\u3056\u3044\u307e\u3059\u3002\u6e96\u5099\u304c\u3067\u304d\u305f\u3089\u304a\u77e5\u3089\u305b\u3057\u307e\u3059\u3002',
-                errorMsg: '\u554f\u984c\u304c\u767a\u751f\u3057\u307e\u3057\u305f\u3002\u3082\u3046\u4e00\u5ea6\u304a\u8a66\u3057\u304f\u3060\u3055\u3044\u3002',
-                sending: '\u9001\u4fe1\u4e2d...',
-                label: 'JA',
-                demoButton: 'デモを試す',
-                currentFeaturesTitle: '現在の機能',
-                upcomingFeaturesTitle: '今後の機能',
-                feat1: 'アプリインストール不要、ホーム画面に追加',
-                feat2: 'iOS/Android/PC同期（最大10冊）',
-                feat3: 'ライト/ダーク/セピア/電子ペーパー',
-                feat4: '環境音統合',
-                feat5: 'パブリックドメイン書籍を提供',
-                upc1: 'Calibre連携',
-                upc2: '音声読み上げ（無料/有料）',
-                upc3: 'カスタムTTSサーバー',
-                upc4: 'OPDSサポート'
+                label: 'JA'
             },
             tr: {
                 headline: 'Hikayelerin nefes<br>buldu\u011fu yer.',
                 subheadline: 'G\u00fcr\u00fclt\u00fcy\u00fc yumu\u015fatan, zihninizi sayfalar aras\u0131nda \u00f6zg\u00fcrce dola\u015ft\u0131ran sessiz ve minimalist bir okuma s\u0131\u011f\u0131na\u011f\u0131.',
-                emailPlaceholder: 'E-posta adresinizi girin...',
-                ctaButton: 'Bekleme Listesine Kat\u0131l',
+                ctaButton: 'Ücretsiz Okumaya Başla',
                 feature1Title: 'Huzurlu Bir Alan',
-                feature1Desc: 'Algoritmik dikkat da\u011f\u0131t\u0131c\u0131lardan, sosyal medya ak\u0131\u015flar\u0131ndan ve oyunla\u015ft\u0131rmadan uzak. D\u00fc\u015f\u00fcnceleriniz ve metin i\u00e7in sakin bir tuval.',
+                feature1Desc: 'Algoritmik dikkat dağıtıcılardan ve oyunlaştırmadan uzak. E-Kağıt ve Sepya dahil 4 güzel okuma teması.',
                 feature2Title: 'Do\u011fal Senkronizasyon',
-                feature2Desc: 'K\u00fct\u00fcphaneniz cihazlar\u0131n\u0131z aras\u0131nda zahmetsizce akar. \u00c7evrimd\u0131\u015f\u0131 huzur i\u00e7inde okuyun; yeniden ba\u011fland\u0131\u011f\u0131n\u0131zda gerisini biz hallederiz.',
-                feature3Title: 'Uyumlu Formatlar',
-                feature3Desc: 'De\u011ferli koleksiyonunuzu eve getirin. EPUB\'lar\u0131n\u0131z i\u00e7in g\u00fczel ve birle\u015fik bir deneyim sunuyoruz.',
+                feature2Desc: 'Kütüphaneniz cihazlarınız arasında akar. Çevrimdışı huzur için uygulama olarak yükleyin; yeniden bağlandığınızda konumu senkronize ederiz.',
+                feature3Title: 'Uyumlu Entegrasyonlar',
+                feature3Desc: 'Koleksiyonunuzu yerel diskin ötesine taşıyın. Uzaktaki Calibre kitaplığınıza bağlanın veya OPDS kataloglarında kolayca gezinin.',
+                pricingTitle: 'Sade ve Sessiz Fiyatlandırma',
+                choosePath: 'Yolunu seç:',
+                planFreeName: 'Ücretsiz',
+                planFreePrice: '$0',
+                planFreePeriod: 'Sonsuza Dek',
+                featFree1: 'Çevrimdışı Web Uygulaması',
+                featFree2: '10 Bulut Kitap Sınırı',
+                featFree3: 'Cihazlar Arası Konum Senkronu',
+                featFree4: '4 Okuma Teması ve Ortam Sesleri',
+                featFree5: 'Tarayıcı Üstü Sesli Okuma',
+                featFree6: '<a href="https://github.com/c0ze/skrivist.tools/tree/main/calibre-plugin" target="_blank" rel="noopener noreferrer">Calibre Eklentisi</a>',
+                ctaFree: 'Okumaya Başla',
+                planMakerName: 'Yaratıcı',
+                planMakerPrice: '$9.99',
+                planMakerPeriod: 'Tek Seferlik Ödeme',
+                featMaker1: 'Ücretsizdeki Her Şey',
+                featMaker2: 'Uzaktan OPDS Katalog Gezintisi',
+                featMaker3: '<a href="https://github.com/c0ze/skrivist.tools/blob/main/TTS_SERVER_API.md" target="_blank" rel="noopener noreferrer">Özel TTS Hizmeti</a>',
+                ctaMaker: 'Uygulama İçinde Yükselt',
+                badgePopular: 'En Popüler',
+                planMemberName: 'Üye',
+                planMemberPrice: '$4.99',
+                planMemberPeriod: 'Aylık (veya $35.99/yıl)',
+                featMember1: 'Ücretsizdeki Her Şey',
+                featMember2: 'Sınırsız Bulut Kitap Depolama <br><small><i>(şu an 3000 ile sınırlı)</i></small>',
+                featMember3: 'TTS Hizmeti <br><small><i>(<a href="https://github.com/kyutai-labs/pocket-tts" target="_blank" rel="noopener noreferrer">pocket TTS</a> altyapısı ile)</i></small>',
+                ctaPremium: 'Ücretsiz Denemeyi Başlat',
                 footerCopy: '\u00a9 2025 skriv.ist | \u00d6zenle yap\u0131ld\u0131',
                 footerBy: '',
-                thankYou: 'Te\u015fekk\u00fcrler. Haz\u0131r oldu\u011funda size f\u0131s\u0131ldayaca\u011f\u0131z.',
-                errorMsg: 'Bir sorun olu\u015ftu. L\u00fctfen tekrar deneyin.',
-                sending: 'G\u00f6nderiliyor...',
-                label: 'TR',
-                demoButton: 'Demoyu Dene!',
-                currentFeaturesTitle: 'Mevcut Özellikler',
-                upcomingFeaturesTitle: 'Gelecek Özellikler',
-                feat1: 'Uygulama yüklemeye gerek yok, ana ekrana ekle',
-                feat2: 'iOS/Android/PC senk. (10 kitaba kadar)',
-                feat3: 'Açık/Koyu/Sepya/E-Kağıt modları',
-                feat4: 'Entegre ortam sesleri',
-                feat5: 'Ücretsiz kamu malı kitaplar',
-                upc1: 'Calibre entegrasyonu',
-                upc2: 'Metin Okuma (Ücretsiz/Ücretli)',
-                upc3: 'Özel TTS sunucusu',
-                upc4: 'OPDS desteği'
+                label: 'TR'
             },
             es: {
                 headline: 'Donde las historias<br>encuentran su aliento.',
-                subheadline: 'Un santuario de lectura tranquilo y minimalista, dise\u00f1ado para suavizar el ruido y dejar que tu mente vague libremente entre las p\u00e1ginas.',
-                emailPlaceholder: 'Introduce tu correo electr\u00f3nico...',
-                ctaButton: '\u00danete a la lista de espera',
+                subheadline: 'Un santuario de lectura tranquilo y minimalista, diseñado para suavizar el ruido y dejar que tu mente vague libremente entre las páginas.',
+                ctaButton: 'Empieza a leer gratis',
                 feature1Title: 'Un Espacio Sereno',
-                feature1Desc: 'Sin distracciones algor\u00edtmicas, sin redes sociales, sin gamificaci\u00f3n. Solo un lienzo tranquilo para tus pensamientos y el texto.',
-                feature2Title: 'Sincronizaci\u00f3n Natural',
-                feature2Desc: 'Tu biblioteca fluye sin esfuerzo entre tus dispositivos. Lee sin conexi\u00f3n en paz; nosotros nos encargamos del resto cuando te reconectes.',
-                feature3Title: 'Formatos Arm\u00f3nicos',
-                feature3Desc: 'Trae tu preciada colecci\u00f3n a casa. Ofrecemos una experiencia hermosa y unificada para tus EPUBs.',
+                feature1Desc: 'Sin distracciones algorítmicas, redes sociales, ni gamificación. 4 hermosos temas de lectura incluyendo Tinta Electrónica y Sepia.',
+                feature2Title: 'Sincronización Natural',
+                feature2Desc: 'Tu biblioteca fluye sin esfuerzo entre tus dispositivos. Instálala como aplicación para leer sin conexión en paz; sincronizamos tu progreso cuando te reconectas.',
+                feature3Title: 'Integraciones Armónicas',
+                feature3Desc: 'Lleva tu colección más allá del disco local. Conéctate a tu biblioteca remota de Calibre o explora catálogos OPDS maravillosamente.',
+                pricingTitle: 'Precios Simples y Tranquilos',
+                choosePath: 'Elige tu camino:',
+                planFreeName: 'Gratis',
+                planFreePrice: '$0',
+                planFreePeriod: 'Para siempre',
+                featFree1: 'App Web sin conexión (PWA)',
+                featFree2: 'Límite de 10 libros en la nube',
+                featFree3: 'Sincronización de progreso',
+                featFree4: '4 Temas de Lectura y Sonidos',
+                featFree5: 'Texto a Voz del Navagador',
+                featFree6: '<a href="https://github.com/c0ze/skrivist.tools/tree/main/calibre-plugin" target="_blank" rel="noopener noreferrer">Plugin de Calibre</a>',
+                ctaFree: 'Empezar a Leer',
+                planMakerName: 'Creador',
+                planMakerPrice: '$9.99',
+                planMakerPeriod: 'Pago único',
+                featMaker1: 'Todo lo de Gratis',
+                featMaker2: 'Catálogos Remotos OPDS',
+                featMaker3: '<a href="https://github.com/c0ze/skrivist.tools/blob/main/TTS_SERVER_API.md" target="_blank" rel="noopener noreferrer">Servicio TTS Personalizado</a>',
+                ctaMaker: 'Mejorar en la App',
+                badgePopular: 'Más Popular',
+                planMemberName: 'Miembro',
+                planMemberPrice: '$4.99',
+                planMemberPeriod: 'Al mes (o $35.99/año)',
+                featMember1: 'Todo lo de Gratis',
+                featMember2: 'Libros en la nube ilimitados <br><small><i>(actualmente límite de 3000)</i></small>',
+                featMember3: 'Servicio TTS <br><small><i>(impulsado por <a href="https://github.com/kyutai-labs/pocket-tts" target="_blank" rel="noopener noreferrer">pocket TTS</a>)</i></small>',
+                ctaPremium: 'Iniciar Prueba Gratuita',
                 footerCopy: '\u00a9 2025 skriv.ist | Hecho con cuidado',
                 footerBy: 'Por',
-                thankYou: 'Gracias. Te susurraremos cuando est\u00e9 listo.',
-                errorMsg: 'Algo sali\u00f3 mal. Por favor, int\u00e9ntalo de nuevo.',
-                sending: 'Enviando...',
-                label: 'ES',
-                demoButton: '¡Prueba la Demo!',
-                currentFeaturesTitle: 'Características Actuales',
-                upcomingFeaturesTitle: 'Próximas Características',
-                feat1: 'Sin instalación, añadir a pantalla de inicio',
-                feat2: 'Sincronización iOS/Android/PC (hasta 10 libros)',
-                feat3: 'Temas Claro/Oscuro/Sepia/Tinta Elect.',
-                feat4: 'Sonidos ambientales integrados',
-                feat5: 'Libros de dominio público incluidos',
-                upc1: 'Integración con Calibre',
-                upc2: 'Texto a Voz (Gratis/Pago)',
-                upc3: 'Servidor TTS personalizado',
-                upc4: 'Soporte OPDS'
+                label: 'ES'
             },
             pt: {
                 headline: 'Onde as hist\u00f3rias<br>encontram seu respiro.',
                 subheadline: 'Um santu\u00e1rio de leitura tranquilo e minimalista, projetado para suavizar o ru\u00eddo e deixar sua mente vagar livremente pelas p\u00e1ginas.',
-                emailPlaceholder: 'Digite seu endere\u00e7o de e-mail...',
-                ctaButton: 'Entrar na lista de espera',
+                ctaButton: 'Comece a Ler de Graça',
                 feature1Title: 'Um Espa\u00e7o Sereno',
-                feature1Desc: 'Livre de distra\u00e7\u00f5es algor\u00edtmicas, feeds sociais e gamifica\u00e7\u00e3o. Apenas uma tela calma para seus pensamentos e o texto.',
+                feature1Desc: 'Livre de distrações algorítmicas e gamificação. 4 belos temas de leitura, incluindo E-paper e Sépia.',
                 feature2Title: 'Sincroniza\u00e7\u00e3o Natural',
-                feature2Desc: 'Sua biblioteca flui sem esfor\u00e7o entre seus dispositivos. Leia offline em paz; n\u00f3s cuidamos do resto quando voc\u00ea reconectar.',
-                feature3Title: 'Formatos Harm\u00f4nicos',
-                feature3Desc: 'Traga sua cole\u00e7\u00e3o querida para casa. Oferecemos uma experi\u00eancia bela e unificada para seus EPUBs.',
+                feature2Desc: 'Sua biblioteca flui sem esforço entre seus dispositivos. Instale como app para ler offline em paz; sincronizamos seu progresso quando reconectar.',
+                feature3Title: 'Integrações Harmônicas',
+                feature3Desc: 'Expanda sua coleção além do disco local. Conecte sua biblioteca remota do Calibre ou navegue por catálogos OPDS lindamente.',
+                pricingTitle: 'Preços Simples e Silenciosos',
+                choosePath: 'Escolha seu caminho:',
+                planFreeName: 'Grátis',
+                planFreePrice: '$0',
+                planFreePeriod: 'Para Sempre',
+                featFree1: 'Web App Offline (PWA)',
+                featFree2: 'Limite de 10 Livros na Nuvem',
+                featFree3: 'Sincronização de Progresso',
+                featFree4: '4 Temas e Sons Ambientes',
+                featFree5: 'Texto para Voz do Navegador',
+                featFree6: '<a href="https://github.com/c0ze/skrivist.tools/tree/main/calibre-plugin" target="_blank" rel="noopener noreferrer">Plugin do Calibre</a>',
+                ctaFree: 'Começar a Ler',
+                planMakerName: 'Criador',
+                planMakerPrice: '$9.99',
+                planMakerPeriod: 'Pagamento Único',
+                featMaker1: 'Tudo do plano Grátis',
+                featMaker2: 'Catálogos Remotos OPDS',
+                featMaker3: '<a href="https://github.com/c0ze/skrivist.tools/blob/main/TTS_SERVER_API.md" target="_blank" rel="noopener noreferrer">Serviço TTS Personalizado</a>',
+                ctaMaker: 'Evoluir pelo App',
+                badgePopular: 'Mais Popular',
+                planMemberName: 'Membro',
+                planMemberPrice: '$4.99',
+                planMemberPeriod: 'Por mês (ou $35.99/ano)',
+                featMember1: 'Tudo do plano Grátis',
+                featMember2: 'Livros Ilimitados na Nuvem <br><small><i>(atualmente limitado a 3000)</i></small>',
+                featMember3: 'Serviço TTS <br><small><i>(alimentado por <a href="https://github.com/kyutai-labs/pocket-tts" target="_blank" rel="noopener noreferrer">pocket TTS</a>)</i></small>',
+                ctaPremium: 'Iniciar Teste Grátis',
                 footerCopy: '\u00a9 2025 skriv.ist | Feito com cuidado',
                 footerBy: 'Por',
-                thankYou: 'Obrigado. Vamos sussurrar quando estiver pronto.',
-                errorMsg: 'Algo deu errado. Por favor, tente novamente.',
-                sending: 'Enviando...',
-                label: 'PT',
-                demoButton: 'Experimente a Demo!',
-                currentFeaturesTitle: 'Funcionalidades Atuais',
-                upcomingFeaturesTitle: 'Funcionalidades Futuras',
-                feat1: 'Sem instalação, adicione à tela inicial',
-                feat2: 'Sincronização iOS/Android/PC (até 10 livros)',
-                feat3: 'Claro/Escuro/Sépia/E-Paper',
-                feat4: 'Sons ambientes integrados',
-                feat5: 'Livros de domínio público incluídos',
-                upc1: 'Integração com Calibre',
-                upc2: 'Texto para Fala (Grátis/Pago)',
-                upc3: 'Servidor TTS personalizado',
-                upc4: 'Suporte OPDS'
+                label: 'PT'
             },
             de: {
                 headline: 'Wo Geschichten<br>ihren Atem finden.',
                 subheadline: 'Ein ruhiges, minimalistisches Lese-Refugium, das den L\u00e4rm mildert und deinen Geist frei durch die Seiten wandern l\u00e4sst.',
-                emailPlaceholder: 'E-Mail-Adresse eingeben...',
-                ctaButton: 'Auf die Warteliste',
+                ctaButton: 'Kostenlos Lesen Beginnen',
                 feature1Title: 'Ein Sanfter Raum',
-                feature1Desc: 'Frei von algorithmischen Ablenkungen, Social-Media-Feeds und Gamification. Nur eine ruhige Leinwand f\u00fcr deine Gedanken und den Text.',
+                feature1Desc: 'Frei von algorithmischen Ablenkungen und Gamification. 4 wunderschöne Lesethemen, inklusive E-Paper und Sepia.',
                 feature2Title: 'Nat\u00fcrliche Synchronisation',
-                feature2Desc: 'Deine Bibliothek flie\u00dft m\u00fchelos zwischen deinen Ger\u00e4ten. Lies offline in Ruhe; wir k\u00fcmmern uns leise um den Rest, wenn du dich wieder verbindest.',
-                feature3Title: 'Harmonische Formate',
-                feature3Desc: 'Bring deine gesch\u00e4tzte Sammlung nach Hause. Wir bieten ein sch\u00f6nes, einheitliches Erlebnis f\u00fcr deine EPUBs.',
+                feature2Desc: 'Deine Bibliothek fließt mühelos zwischen Geräten. Als App installieren für ruhendes Offline-Lesen; wir synchronisieren leise bei erneuter Verbindung.',
+                feature3Title: 'Harmonische Integrationen',
+                feature3Desc: 'Erweitere deine Sammlung über die Festplatte hinaus. Verbinde deine entfernte Calibre-Bibliothek oder durchsuche OPDS-Kataloge.',
+                pricingTitle: 'Einfache, ruhige Preise',
+                choosePath: 'Wähle deinen Weg:',
+                planFreeName: 'Kostenlos',
+                planFreePrice: '0$',
+                planFreePeriod: 'Für immer',
+                featFree1: 'Offline Web-App (PWA)',
+                featFree2: '10 Bücher Cloud-Limit',
+                featFree3: 'Fortschritts-Synchronisation',
+                featFree4: '4 Themen & Umgebungsgeräusche',
+                featFree5: 'Browser Text-to-Speech API',
+                featFree6: '<a href="https://github.com/c0ze/skrivist.tools/tree/main/calibre-plugin" target="_blank" rel="noopener noreferrer">Calibre Plugin</a>',
+                ctaFree: 'Loslesen',
+                planMakerName: 'Macher',
+                planMakerPrice: '9.99$',
+                planMakerPeriod: 'Einmalzahlung',
+                featMaker1: 'Alles aus Kostenlos',
+                featMaker2: 'Externe OPDS-Kataloge',
+                featMaker3: '<a href="https://github.com/c0ze/skrivist.tools/blob/main/TTS_SERVER_API.md" target="_blank" rel="noopener noreferrer">Benutzerdefinierter TTS-Dienst</a>',
+                ctaMaker: 'Upgrade in App',
+                badgePopular: 'Am Beliebtesten',
+                planMemberName: 'Mitglied',
+                planMemberPrice: '4.99$',
+                planMemberPeriod: 'Pro Monat (oder 35.99$/Jahr)',
+                featMember1: 'Alles aus Kostenlos',
+                featMember2: 'Unbegrenzte Cloud-Bücher <br><small><i>(derzeit auf 3000 begrenzt)</i></small>',
+                featMember3: 'TTS-Dienst <br><small><i>(powered by <a href="https://github.com/kyutai-labs/pocket-tts" target="_blank" rel="noopener noreferrer">pocket TTS</a>)</i></small>',
+                ctaPremium: 'Kostenlos Testen',
                 footerCopy: '\u00a9 2025 skriv.ist | Mit Sorgfalt gefertigt',
                 footerBy: 'Von',
-                thankYou: 'Danke. Wir fl\u00fcstern dir, wenn es soweit ist.',
-                errorMsg: 'Etwas ist schiefgelaufen. Bitte versuche es erneut.',
-                sending: 'Wird gesendet...',
-                label: 'DE',
-                demoButton: 'Demo ausprobieren!',
-                currentFeaturesTitle: 'Aktuelle Funktionen',
-                upcomingFeaturesTitle: 'Geplante Funktionen',
-                feat1: 'Keine App-Installation, zum Homescreen',
-                feat2: 'Sync für iOS/Android/PC (bis zu 10 Bücher)',
-                feat3: 'Hell/Dunkel/Sepia/E-Paper-Modus',
-                feat4: 'Integrierte Umgebungsgeräusche',
-                feat5: 'Kostenlose gemeinfreie Bücher',
-                upc1: 'Calibre-Integration',
-                upc2: 'Text-to-Speech (Free/Pro)',
-                upc3: 'Eigener TTS-Server',
-                upc4: 'OPDS-Unterstützung'
+                label: 'DE'
             },
             fr: {
                 headline: 'L\u00e0 o\u00f9 les histoires<br>trouvent leur souffle.',
                 subheadline: 'Un sanctuaire de lecture tranquille et minimaliste, con\u00e7u pour adoucir le bruit et laisser votre esprit vagabonder librement \u00e0 travers les pages.',
-                emailPlaceholder: 'Entrez votre adresse e-mail...',
-                ctaButton: "Rejoindre la liste d'attente",
+                ctaButton: 'Commencer à Lire Gratuitement',
                 feature1Title: 'Un Espace Doux',
-                feature1Desc: "Sans distractions algorithmiques, sans fils d'actualit\u00e9, sans gamification. Juste un canevas calme pour vos pens\u00e9es et le texte.",
+                feature1Desc: 'Sans distractions algorithmiques ni gamification. 4 magnifiques thèmes de lecture dont E-paper et Sépia.',
                 feature2Title: 'Synchronisation Naturelle',
-                feature2Desc: 'Votre biblioth\u00e8que circule sans effort entre vos appareils. Lisez hors ligne en paix\u00a0; nous g\u00e9rons le reste discr\u00e8tement lorsque vous vous reconnectez.',
-                feature3Title: 'Formats Harmoniques',
-                feature3Desc: 'Ramenez votre pr\u00e9cieuse collection chez vous. Nous offrons une exp\u00e9rience belle et unifi\u00e9e pour vos EPUBs.',
+                feature2Desc: 'Votre bibliothèque circule sans effort. Installez en tant qu\'application pour lire hors ligne en paix; la synchronisation se fait discrètement au retour.',
+                feature3Title: 'Intégrations Harmoniques',
+                feature3Desc: 'Étendez votre collection au-delà du disque local. Connectez votre bibliothèque Calibre distante ou parcourez les catalogues OPDS avec élégance.',
+                pricingTitle: 'Prix Simples et Discrets',
+                choosePath: 'Choisissez votre voie :',
+                planFreeName: 'Gratuit',
+                planFreePrice: '0€',
+                planFreePeriod: 'Pour toujours',
+                featFree1: 'Application Web Hors ligne (PWA)',
+                featFree2: 'Limite de 10 Livres Cloud',
+                featFree3: 'Synchronisation de la progression',
+                featFree4: '4 Thèmes & Sons d\'ambiance',
+                featFree5: 'Synthèse vocale du navigateur',
+                featFree6: '<a href="https://github.com/c0ze/skrivist.tools/tree/main/calibre-plugin" target="_blank" rel="noopener noreferrer">Plugin Calibre</a>',
+                ctaFree: 'Commencer la lecture',
+                planMakerName: 'Créateur',
+                planMakerPrice: '9.99€',
+                planMakerPeriod: 'Paiement Unique',
+                featMaker1: 'Tout du plan Gratuit',
+                featMaker2: 'Catalogues OPDS Distants',
+                featMaker3: '<a href="https://github.com/c0ze/skrivist.tools/blob/main/TTS_SERVER_API.md" target="_blank" rel="noopener noreferrer">Service TTS Personnalisé</a>',
+                ctaMaker: 'Mettre à niveau',
+                badgePopular: 'Le Plus Populaire',
+                planMemberName: 'Membre',
+                planMemberPrice: '4.99€',
+                planMemberPeriod: 'Par Mois (ou 35.99€/an)',
+                featMember1: 'Tout du plan Gratuit',
+                featMember2: 'Livres Cloud Illimités <br><small><i>(actuellement limité à 3000)</i></small>',
+                featMember3: 'Service TTS <br><small><i>(propulsé par <a href="https://github.com/kyutai-labs/pocket-tts" target="_blank" rel="noopener noreferrer">pocket TTS</a>)</i></small>',
+                ctaPremium: 'Démarrer l\'essai gratuit',
                 footerCopy: '\u00a9 2025 skriv.ist | Fait avec soin',
                 footerBy: 'Par',
-                thankYou: 'Merci. Nous vous murmurerons quand tout sera pr\u00eat.',
-                errorMsg: 'Une erreur est survenue. Veuillez r\u00e9essayer.',
-                sending: 'Envoi en cours...',
-                label: 'FR',
-                demoButton: 'Essayer la Démo !',
-                currentFeaturesTitle: 'Fonctionnalités Actuelles',
-                upcomingFeaturesTitle: 'Fonctionnalités à Venir',
-                feat1: "Pas d'installation, ajouter à l'écran d'accueil",
-                feat2: 'Synchro iOS/Android/PC (max 10 livres)',
-                feat3: 'Thèmes Clair/Sombre/Sépia/E-Paper',
-                feat4: "Sons d'ambiance intégrés",
-                feat5: 'Livres du domaine public inclus',
-                upc1: 'Intégration Calibre',
-                upc2: 'Synthèse vocale (Gratuit/Payant)',
-                upc3: 'Serveur TTS personnalisé',
-                upc4: 'Support OPDS'
-            },
+                label: 'FR'
+            }
         };
 
         var currentLang = 'en';
@@ -1145,45 +1367,6 @@
             if (!getStoredTheme()) {
                 root.removeAttribute('data-theme');
             }
-        });
-
-        /* ===== FORM HANDLER (Formspree) ===== */
-        var form = document.getElementById('waitlistForm');
-        var formMsg = document.getElementById('formMsg');
-        var submitBtn = form.querySelector('button[type="submit"]');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            var strings = T[currentLang];
-            var emailInput = form.querySelector('input[name="email"]');
-            var originalBtnText = submitBtn.textContent;
-
-            /* Disable button and show sending state */
-            submitBtn.disabled = true;
-            submitBtn.textContent = strings.sending;
-            formMsg.textContent = '';
-            formMsg.className = 'form-msg';
-
-            fetch('https://formspree.io/f/mdalegzk', {
-                method: 'POST',
-                headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: emailInput.value })
-            }).then(function(response) {
-                if (response.ok) {
-                    formMsg.textContent = strings.thankYou;
-                    formMsg.className = 'form-msg success';
-                    emailInput.value = '';
-                } else {
-                    formMsg.textContent = strings.errorMsg;
-                    formMsg.className = 'form-msg error';
-                }
-            }).catch(function() {
-                formMsg.textContent = strings.errorMsg;
-                formMsg.className = 'form-msg error';
-            }).finally(function() {
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalBtnText;
-            });
         });
     })();
     </script>
