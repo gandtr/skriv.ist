@@ -1059,6 +1059,12 @@
             .cta-note {
                 margin-bottom: 3.5rem;
             }
+            /* portrait promo video fills the mobile hero without dominating it */
+            .hero-video {
+                width: auto;
+                max-width: 100%;
+                max-height: 70vh;
+            }
         }
     </style>
 
@@ -1566,6 +1572,24 @@
 
         var currentLang = 'en';
 
+        /* Pick the hero promo render that matches the viewport: a vertical
+           9:16 cut on narrow/mobile screens, the 16:9 landscape cut otherwise.
+           Tracks the same 600px breakpoint the CSS uses. A missing per-locale
+           file simply 404s in DevTools without affecting the UI. */
+        var heroPortraitMq = window.matchMedia('(max-width: 600px)');
+
+        function updateHeroVideo() {
+            var videoEl = document.getElementById('heroVideo');
+            var sourceEl = document.getElementById('heroVideoSource');
+            if (!videoEl || !sourceEl) return;
+            var suffix = heroPortraitMq.matches ? '-vertical' : '';
+            var newSrc = '/media/skrivist-promo-' + currentLang + suffix + '.mp4';
+            if (sourceEl.getAttribute('src') === newSrc) return;
+            sourceEl.setAttribute('src', newSrc);
+            videoEl.setAttribute('poster', '/media/poster-' + currentLang + suffix + '.jpg');
+            videoEl.load();
+        }
+
         function applyLang(lang) {
             if (!T[lang]) return;
             currentLang = lang;
@@ -1593,17 +1617,8 @@
             document.getElementById('langLabel').textContent = strings.label;
             document.documentElement.setAttribute('lang', lang);
 
-            /* Swap promo video source + poster to the locale-specific render.
-               Falls back to /media/skrivist-promo-en.mp4 if a per-locale file
-               isn't deployed yet — the <video> element will surface a 404
-               in DevTools but stays out of the user-facing UI. */
-            var videoEl = document.getElementById('heroVideo');
-            var sourceEl = document.getElementById('heroVideoSource');
-            if (videoEl && sourceEl) {
-                sourceEl.setAttribute('src', '/media/skrivist-promo-' + lang + '.mp4');
-                videoEl.setAttribute('poster', '/media/poster-' + lang + '.jpg');
-                videoEl.load();
-            }
+            /* Swap the promo video — locale + orientation aware */
+            updateHeroVideo();
 
             /* Update active state in dropdown */
             var options = document.querySelectorAll('.lang-option');
@@ -1647,6 +1662,14 @@
         if (storedLang && T[storedLang]) {
             applyLang(storedLang);
         }
+
+        /* Keep the hero video orientation in sync with the viewport */
+        if (heroPortraitMq.addEventListener) {
+            heroPortraitMq.addEventListener('change', updateHeroVideo);
+        } else if (heroPortraitMq.addListener) {
+            heroPortraitMq.addListener(updateHeroVideo);
+        }
+        updateHeroVideo();
 
         /* ===== THEME TOGGLE ===== */
         var toggle = document.querySelector('.theme-toggle');
