@@ -2,37 +2,44 @@
 
 ## Project Overview
 
-**skriv.ist** is a "coming soon" landing page for a minimalist, distraction-free ebook reader PWA. The site collects waitlist signups. Made by [Gand Technology Services](https://gand.tr).
+**skriv.ist** is the marketing landing page for a minimalist, distraction-free ebook reader PWA. The app is live — the page showcases the product (hero promo video, feature highlights, pricing tiers) and drives signups to the app at [app.skriv.ist](https://app.skriv.ist). Made by [Gand Technology Services](https://gand.tr).
 
 - **Live URL:** https://skriv.ist
+- **App:** https://app.skriv.ist
 - **Hosting:** GitHub Pages (static files, deploys on push to `master`)
-- **Repo:** `c0ze/skriv.ist`
+- **Repo:** `gandtr/skriv.ist`
 
 ## Tech Stack
 
 - Pure HTML + CSS (no frameworks, no build tools, no package manager)
 - Google Fonts: Playfair Display (headings), Lato (body)
-- Minimal inline JS (theme toggle + language switcher + form handler)
-- Everything lives in a single `index.html`
+- Minimal inline JS (theme toggle + language switcher + locale/orientation-aware hero video + scroll-reveal)
+- Everything lives in a single `index.html`; promo video assets live in `media/`
 
 ## Project Structure
 
 ```
 ├── index.html                 # The entire site (HTML + CSS + JS)
+├── media/                     # Hero promo video assets, per locale (en, ja, tr, es, pt, de, fr)
+│   ├── skrivist-promo-{lang}.mp4           # landscape 16:9 (desktop)
+│   ├── skrivist-promo-{lang}-vertical.mp4  # portrait 9:16 (mobile)
+│   └── poster-{lang}[-vertical].jpg        # poster frames
 ├── .project-instructions.md   # Design/SEO context for developers
 ├── CNAME                      # GitHub Pages custom domain config
 ├── robots.txt                 # Search engine directives
 └── CLAUDE.md                  # This file
 ```
 
+> Promo videos are produced in the sibling project `../skrivist-promo-video/` and its renders (`out/skrivist-promo-{lang}[-vertical].mp4`) are copied into `media/`.
+
 ## Design System
 
-**Aesthetic:** Nordic-inspired, refined minimalism. Frosted glass container, floating particles, morphing blob icons, layered shadows. Sharp but calm.
+**Aesthetic:** Nordic-inspired, refined minimalism — warm and approachable, but calm. Frosted glass container, floating particles (with occasional ✦ sparkles), morphing organic icons that cradle line-art glyphs, soft frosted feature cards, layered shadows, and gentle choreographed motion (hero entrance + scroll-reveal). All motion respects `prefers-reduced-motion`.
 
 **Typography:**
 - Playfair Display (serif, italic 400) for h1 headline
-- Playfair Display (serif, bold 700) for logo
-- Lato (sans-serif, 300/400) for body text and feature headings (uppercase)
+- Playfair Display (serif, bold 700) for logo and feature-card headings (Title Case)
+- Lato (sans-serif, 300/400) for body text and UI
 
 **Theme System:** Light and dark themes via CSS custom properties on `:root`. Three-state logic:
 - No `data-theme` attribute: follows OS preference via `prefers-color-scheme`
@@ -62,15 +69,16 @@
 - **Top bar** - `.top-bar` in top-right of container holds the language picker and theme toggle side by side.
 - **Theme toggle** - sun/moon SVG icons. `.theme-toggle` styles must override inherited `button` styles.
 - **Language picker** - dropdown with 7 languages (EN, JA, TR, ES, PT, DE, FR). Stored in `localStorage` key `skrivist-lang`. All translatable text uses `data-i18n` attributes; placeholders use `data-i18n-placeholder`.
-- **Waitlist CTA is the primary goal** - the email signup form is the core conversion element.
-- **Mobile responsive** - media queries at 600px breakpoint for mobile layout.
+- **Primary CTA** - "Start Reading for Free" links to the app at `app.skriv.ist`; the hero promo video and pricing tiers (Free / Maker / Member) support conversion. There is no email/waitlist form.
+- **Mobile responsive** - media queries at the 600px breakpoint for mobile layout.
+- **Hero promo video** - locale-aware (swaps per language) and orientation-aware: `updateHeroVideo()` serves the vertical 9:16 cut on mobile (≤600px) and the landscape 16:9 cut on desktop, keyed to the same 600px breakpoint as the CSS. Sources and posters follow `media/skrivist-promo-{lang}[-vertical].mp4` / `media/poster-{lang}[-vertical].jpg`.
 - **SEO is configured** - OG/Twitter cards, JSON-LD schema, keywords meta, robots.txt are all in place.
 
 ## Working With This Project
 
 - No install or build step. Edit `index.html` directly.
-- Push to `master` to deploy.
-- Test locally by opening `index.html` in a browser.
+- Push to `master` to deploy (GitHub Pages builds automatically).
+- Test locally by serving the folder (e.g. `python3 -m http.server`) — the hero video and posters use absolute `/media/...` paths, so opening via `file://` won't load them.
 - When adding colors, always add to both light and dark theme variable blocks (`:root`, `[data-theme="dark"]`, and `@media (prefers-color-scheme: dark)` block).
 - When adding translatable text, add `data-i18n="keyName"` attribute to the element and add the key to all 7 language objects in the `T` translations object in the JS block. For placeholders, use `data-i18n-placeholder="keyName"`.
 
