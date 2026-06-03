@@ -841,6 +841,227 @@
         }
     </style>
 
+    <style>
+        /* ===== REVAMP: warm-minimalism polish ===== */
+
+        /* --- new tokens (light) --- */
+        :root,
+        [data-theme="light"] {
+            --card-surface: rgba(255, 253, 249, 0.66);
+            --card-hover-shadow: rgba(50, 70, 90, 0.14);
+        }
+        /* --- new tokens (dark, forced) --- */
+        [data-theme="dark"] {
+            --card-surface: rgba(28, 39, 50, 0.55);
+            --card-hover-shadow: rgba(0, 0, 0, 0.45);
+        }
+        /* --- new tokens (dark, OS preference) --- */
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --card-surface: rgba(28, 39, 50, 0.55);
+                --card-hover-shadow: rgba(0, 0, 0, 0.45);
+            }
+        }
+
+        /* --- hero eyebrow pill --- */
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            margin-bottom: 1.75rem;
+            background: var(--input-focus-ring);
+            border: 1px solid var(--surface-border);
+            border-radius: 50px;
+            color: var(--accent-primary);
+            font-family: 'Lato', 'Noto Sans', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 400;
+            letter-spacing: 0.4px;
+            white-space: nowrap;
+        }
+
+        .eyebrow-spark {
+            font-size: 0.7rem;
+            line-height: 1;
+            animation: twinkle 3.5s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.45; transform: scale(0.85); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        /* --- CTA reassurance note --- */
+        .cta-note {
+            margin: 0 auto 4.5rem auto;
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: var(--text-tertiary);
+            letter-spacing: 0.3px;
+        }
+
+        /* --- main CTA arrow that slides on hover --- */
+        .app-btn {
+            position: relative;
+        }
+
+        .app-btn::after {
+            content: "\2192";
+            display: inline-block;
+            margin-left: 0.55em;
+            transition: transform 0.25s ease;
+        }
+
+        .app-btn:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* --- features become soft frosted cards --- */
+        .features-grid {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature {
+            background: var(--card-surface);
+            border: 1px solid var(--surface-border);
+            border-radius: 16px;
+            padding: 2.25rem 1.75rem;
+            box-shadow: 0 1px 2px var(--surface-shadow-1), 0 8px 22px var(--surface-shadow-1);
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 1px 2px var(--surface-shadow-1), 0 16px 34px var(--card-hover-shadow);
+            border-color: var(--accent-primary);
+        }
+
+        .feature h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.35rem;
+            letter-spacing: 0;
+            text-transform: none;
+            margin-bottom: 0.85rem;
+        }
+
+        .feature p {
+            font-size: 0.97rem;
+            line-height: 1.7;
+        }
+
+        /* --- organic icon now cradles a friendly line glyph --- */
+        .icon-organic {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-primary);
+            transition: transform 0.28s ease;
+        }
+
+        .feature:hover .icon-organic {
+            transform: scale(1.08) rotate(-3deg);
+        }
+
+        .feature-glyph {
+            width: 27px;
+            height: 27px;
+        }
+
+        /* --- whimsical sparkles drifting among the particles --- */
+        .sparkle {
+            position: absolute;
+            bottom: -40px;
+            color: var(--particle-color-1);
+            text-shadow: 0 0 10px var(--particle-glow);
+            pointer-events: none;
+            user-select: none;
+            opacity: 0;
+            animation: floatUpSway 20s infinite linear;
+        }
+
+        /* --- hero entrance choreography + scroll reveal --- */
+        @media (prefers-reduced-motion: no-preference) {
+            .hero-entrance {
+                opacity: 0;
+                animation: heroIn 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+            }
+
+            @keyframes heroIn {
+                from { opacity: 0; transform: translateY(26px); }
+                to { opacity: 1; transform: none; }
+            }
+
+            body.js-reveal .reveal {
+                opacity: 0;
+                transform: translateY(28px);
+                transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+            }
+
+            body.js-reveal .reveal.is-visible {
+                opacity: 1;
+                transform: none;
+            }
+
+            body.js-reveal .features-grid .feature:nth-child(2) { transition-delay: 0.08s; }
+            body.js-reveal .features-grid .feature:nth-child(3) { transition-delay: 0.16s; }
+        }
+
+        /* --- accessible focus rings --- */
+        a:focus-visible,
+        button:focus-visible,
+        .app-btn:focus-visible,
+        .plan-cta:focus-visible,
+        .lang-picker-btn:focus-visible,
+        .lang-option:focus-visible,
+        .theme-toggle:focus-visible {
+            outline: 2px solid var(--accent-primary);
+            outline-offset: 3px;
+            border-radius: 8px;
+        }
+
+        /* --- honor reduced-motion preferences --- */
+        @media (prefers-reduced-motion: reduce) {
+            .particle,
+            .sparkle,
+            .icon-organic,
+            .eyebrow-spark {
+                animation: none !important;
+            }
+            .hero-entrance {
+                opacity: 1 !important;
+                animation: none !important;
+            }
+            html {
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* --- mobile polish --- */
+        @media (max-width: 600px) {
+            .eyebrow {
+                font-size: 0.76rem;
+                padding: 5px 14px;
+                white-space: normal;
+                text-align: center;
+                line-height: 1.4;
+            }
+            .feature {
+                padding: 2rem 1.5rem;
+            }
+            .feature h3 {
+                font-size: 1.25rem;
+            }
+            .cta-note {
+                margin-bottom: 3.5rem;
+            }
+        }
+    </style>
+
     <!-- Anti-flash: apply stored theme before render -->
     <script>
     (function() {
@@ -866,6 +1087,10 @@
         <div class="particle" style="left: 75%; width: 10px; height: 10px; animation: floatUpSway 19s infinite linear; animation-delay: 6s;"></div>
         <div class="particle" style="left: 85%; width: 24px; height: 24px; animation-duration: 21s; animation-delay: 1.5s;"></div>
         <div class="particle" style="left: 92%; width: 13px; height: 13px; animation: floatUpDrift 13s infinite linear; animation-delay: 3.5s;"></div>
+        <div class="sparkle" style="left: 18%; font-size: 13px; animation-duration: 19s; animation-delay: 2s;" aria-hidden="true">&#10022;</div>
+        <div class="sparkle" style="left: 48%; font-size: 16px; animation-duration: 24s; animation-delay: 7s;" aria-hidden="true">&#10022;</div>
+        <div class="sparkle" style="left: 70%; font-size: 11px; animation-duration: 17s; animation-delay: 4s;" aria-hidden="true">&#10022;</div>
+        <div class="sparkle" style="left: 88%; font-size: 14px; animation-duration: 22s; animation-delay: 9s;" aria-hidden="true">&#10022;</div>
     </div>
 
     <div class="container">
@@ -909,14 +1134,19 @@
 
         <main style="text-align: center;">
             <section class="hero-section">
-                <h1 data-i18n="headline">Where stories find <br>their breath.</h1>
-                <p class="hero-sub" data-i18n="subheadline">
+                <div class="eyebrow hero-entrance">
+                    <span class="eyebrow-spark" aria-hidden="true">&#10022;</span>
+                    <span data-i18n="eyebrow">A quiet place to read</span>
+                </div>
+                <h1 class="hero-entrance" style="animation-delay: 0.08s;" data-i18n="headline">Where stories find <br>their breath.</h1>
+                <p class="hero-sub hero-entrance" style="animation-delay: 0.16s;" data-i18n="subheadline">
                     A quiet, minimalist reading sanctuary designed to soften the noise and let your mind wander freely through the pages.
                 </p>
 
                 <video
                     id="heroVideo"
-                    class="hero-video"
+                    class="hero-video hero-entrance"
+                    style="animation-delay: 0.24s;"
                     poster="/media/poster-en.jpg"
                     preload="metadata"
                     controls
@@ -926,33 +1156,51 @@
                     <source id="heroVideoSource" src="/media/skrivist-promo-en.mp4" type="video/mp4">
                 </video>
 
-                <div class="cta-group">
+                <div class="cta-group hero-entrance" style="animation-delay: 0.32s;">
                     <a href="https://app.skriv.ist" class="app-btn" data-i18n="ctaButton">Start Reading for Free</a>
                 </div>
+                <p class="cta-note hero-entrance" style="animation-delay: 0.4s;" data-i18n="ctaNote">Free forever tier &middot; works offline</p>
             </section>
 
             <section class="features-grid">
-                <div class="feature">
-                    <div class="icon-organic"></div>
+                <div class="feature reveal">
+                    <div class="icon-organic">
+                        <svg class="feature-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M2 4h6a3 3 0 0 1 3 3v13a2.5 2.5 0 0 0-2.5-2.5H2z"></path>
+                            <path d="M22 4h-6a3 3 0 0 0-3 3v13a2.5 2.5 0 0 1 2.5-2.5H22z"></path>
+                        </svg>
+                    </div>
                     <h3 data-i18n="feature1Title">A Gentle Space</h3>
                     <p data-i18n="feature1Desc">Free from algorithmic distractions, social feeds, and gamification. 4 beautiful reading themes including E-paper and Sepia.</p>
                 </div>
-                <div class="feature">
-                    <div class="icon-organic" style="animation-delay: -2s;"></div>
+                <div class="feature reveal">
+                    <div class="icon-organic" style="animation-delay: -2s;">
+                        <svg class="feature-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M21 2v6h-6"></path>
+                            <path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path>
+                            <path d="M3 22v-6h6"></path>
+                            <path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path>
+                        </svg>
+                    </div>
                     <h3 data-i18n="feature2Title">Natural Sync</h3>
                     <p data-i18n="feature2Desc">Your library flows effortlessly between your devices. Install as an app to read offline in peace; we quietly sync your progress when you reconnect.</p>
                 </div>
-                <div class="feature">
-                    <div class="icon-organic" style="animation-delay: -4s;"></div>
+                <div class="feature reveal">
+                    <div class="icon-organic" style="animation-delay: -4s;">
+                        <svg class="feature-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.5 1.5"></path>
+                            <path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.5-1.5"></path>
+                        </svg>
+                    </div>
                     <h3 data-i18n="feature3Title">Harmonic Integrations</h3>
                     <p data-i18n="feature3Desc">Expand your collection beyond the local drive. Connect your remote Calibre library or browse OPDS catalogs beautifully.</p>
                 </div>
             </section>
 
             <section class="pricing-section">
-                <h2 data-i18n="pricingTitle">Simple, Quiet Pricing</h2>
+                <h2 class="reveal" data-i18n="pricingTitle">Simple, Quiet Pricing</h2>
                 
-                <div class="pricing-grid single-row">
+                <div class="pricing-grid single-row reveal">
                     <!-- Free Tier -->
                     <div class="pricing-card">
                         <h3 class="plan-name" data-i18n="planFreeName">Free</h3>
@@ -970,9 +1218,9 @@
                     </div>
                 </div>
 
-                <div class="pricing-tagline" data-i18n="choosePath">Choose your path:</div>
+                <div class="pricing-tagline reveal" data-i18n="choosePath">Choose your path:</div>
 
-                <div class="pricing-grid double-row">
+                <div class="pricing-grid double-row reveal">
                     <!-- Maker Tier -->
                     <div class="pricing-card">
                         <h3 class="plan-name" data-i18n="planMakerName">Maker</h3>
@@ -1017,6 +1265,8 @@
                 headline: 'Where stories find <br>their breath.',
                 subheadline: 'A quiet, minimalist reading sanctuary designed to soften the noise and let your mind wander freely through the pages.',
                 ctaButton: 'Start Reading for Free',
+                eyebrow: 'A quiet place to read',
+                ctaNote: 'Free forever tier · works offline',
                 feature1Title: 'A Gentle Space',
                 feature1Desc: 'Free from algorithmic distractions, social feeds, and gamification. 4 beautiful reading themes including E-paper and Sepia.',
                 feature2Title: 'Natural Sync',
@@ -1058,6 +1308,8 @@
                 headline: '\u7269\u8a9e\u304c\u606f\u3065\u304f<br>\u5834\u6240\u3002',
                 subheadline: '\u9759\u304b\u3067\u30df\u30cb\u30de\u30eb\u306a\u8aad\u66f8\u306e\u8056\u57df\u3002\u96d1\u97f3\u3092\u3084\u308f\u3089\u3052\u3001\u30da\u30fc\u30b8\u306e\u4e2d\u3092\u81ea\u7531\u306b\u3055\u307e\u3088\u3048\u308b\u7a7a\u9593\u3067\u3059\u3002',
                 ctaButton: '無料で読み始める',
+                eyebrow: '静かに読書できる場所',
+                ctaNote: '永久無料プラン · オフライン対応',
                 feature1Title: '\u7a4f\u3084\u304b\u306a\u7a7a\u9593',
                 feature1Desc: 'アルゴリズム、SNS、ゲーミフィケーションはありません。E-paperやセピアを含む4つの美しいテーマ。',
                 feature2Title: '\u81ea\u7136\u306a\u540c\u671f',
@@ -1099,6 +1351,8 @@
                 headline: 'Hikayelerin nefes<br>buldu\u011fu yer.',
                 subheadline: 'G\u00fcr\u00fclt\u00fcy\u00fc yumu\u015fatan, zihninizi sayfalar aras\u0131nda \u00f6zg\u00fcrce dola\u015ft\u0131ran sessiz ve minimalist bir okuma s\u0131\u011f\u0131na\u011f\u0131.',
                 ctaButton: 'Ücretsiz Okumaya Başla',
+                eyebrow: 'Sakin bir okuma alanı',
+                ctaNote: 'Sonsuza dek ücretsiz · çevrimdışı çalışır',
                 feature1Title: 'Huzurlu Bir Alan',
                 feature1Desc: 'Algoritmik dikkat dağıtıcılardan ve oyunlaştırmadan uzak. E-Kağıt ve Sepya dahil 4 güzel okuma teması.',
                 feature2Title: 'Do\u011fal Senkronizasyon',
@@ -1140,6 +1394,8 @@
                 headline: 'Donde las historias<br>encuentran su aliento.',
                 subheadline: 'Un santuario de lectura tranquilo y minimalista, diseñado para suavizar el ruido y dejar que tu mente vague libremente entre las páginas.',
                 ctaButton: 'Empieza a leer gratis',
+                eyebrow: 'Un lugar tranquilo para leer',
+                ctaNote: 'Plan gratis para siempre · funciona sin conexión',
                 feature1Title: 'Un Espacio Sereno',
                 feature1Desc: 'Sin distracciones algorítmicas, redes sociales, ni gamificación. 4 hermosos temas de lectura incluyendo Tinta Electrónica y Sepia.',
                 feature2Title: 'Sincronización Natural',
@@ -1181,6 +1437,8 @@
                 headline: 'Onde as hist\u00f3rias<br>encontram seu respiro.',
                 subheadline: 'Um santu\u00e1rio de leitura tranquilo e minimalista, projetado para suavizar o ru\u00eddo e deixar sua mente vagar livremente pelas p\u00e1ginas.',
                 ctaButton: 'Comece a Ler de Graça',
+                eyebrow: 'Um lugar tranquilo para ler',
+                ctaNote: 'Plano grátis para sempre · funciona offline',
                 feature1Title: 'Um Espa\u00e7o Sereno',
                 feature1Desc: 'Livre de distrações algorítmicas e gamificação. 4 belos temas de leitura, incluindo E-paper e Sépia.',
                 feature2Title: 'Sincroniza\u00e7\u00e3o Natural',
@@ -1222,6 +1480,8 @@
                 headline: 'Wo Geschichten<br>ihren Atem finden.',
                 subheadline: 'Ein ruhiges, minimalistisches Lese-Refugium, das den L\u00e4rm mildert und deinen Geist frei durch die Seiten wandern l\u00e4sst.',
                 ctaButton: 'Kostenlos Lesen Beginnen',
+                eyebrow: 'Ein ruhiger Ort zum Lesen',
+                ctaNote: 'Für immer kostenlos · funktioniert offline',
                 feature1Title: 'Ein Sanfter Raum',
                 feature1Desc: 'Frei von algorithmischen Ablenkungen und Gamification. 4 wunderschöne Lesethemen, inklusive E-Paper und Sepia.',
                 feature2Title: 'Nat\u00fcrliche Synchronisation',
@@ -1263,6 +1523,8 @@
                 headline: 'L\u00e0 o\u00f9 les histoires<br>trouvent leur souffle.',
                 subheadline: 'Un sanctuaire de lecture tranquille et minimaliste, con\u00e7u pour adoucir le bruit et laisser votre esprit vagabonder librement \u00e0 travers les pages.',
                 ctaButton: 'Commencer à Lire Gratuitement',
+                eyebrow: 'Un endroit calme pour lire',
+                ctaNote: 'Gratuit pour toujours · fonctionne hors ligne',
                 feature1Title: 'Un Espace Doux',
                 feature1Desc: 'Sans distractions algorithmiques ni gamification. 4 magnifiques thèmes de lecture dont E-paper et Sépia.',
                 feature2Title: 'Synchronisation Naturelle',
@@ -1417,6 +1679,30 @@
                 root.removeAttribute('data-theme');
             }
         });
+    })();
+    </script>
+
+    <!-- Scroll reveal: gentle fade-up as sections enter the viewport -->
+    <script>
+    (function() {
+        if (!('IntersectionObserver' in window)) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        document.body.classList.add('js-reveal');
+
+        var io = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        var els = document.querySelectorAll('.reveal');
+        for (var i = 0; i < els.length; i++) {
+            io.observe(els[i]);
+        }
     })();
     </script>
 
