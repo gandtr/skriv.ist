@@ -6,7 +6,7 @@
 
 - **Live URL:** https://skriv.ist
 - **App:** https://app.skriv.ist
-- **Hosting:** GitHub Pages (static files, deploys on push to `master`)
+- **Hosting:** Cloudflare Pages (project `skriv-ist`, static files). Deploys are **manual**: dispatch the "Deploy" GitHub Actions workflow (`gh workflow run deploy.yml` or Actions UI). Pushes do not deploy.
 - **Repo:** `gandtr/skriv.ist`
 
 ## Tech Stack
@@ -24,8 +24,9 @@
 │   ├── skrivist-promo-{lang}.mp4           # landscape 16:9 (desktop)
 │   ├── skrivist-promo-{lang}-vertical.mp4  # portrait 9:16 (mobile)
 │   └── poster-{lang}[-vertical].jpg        # poster frames
+├── .github/workflows/deploy.yml  # Manual-dispatch Cloudflare Pages deploy
 ├── .project-instructions.md   # Design/SEO context for developers
-├── CNAME                      # GitHub Pages custom domain config
+├── CNAME                      # Legacy GitHub Pages domain config (kept until DNS cutover completes)
 ├── robots.txt                 # Search engine directives
 └── CLAUDE.md                  # This file
 ```
@@ -77,7 +78,7 @@
 ## Working With This Project
 
 - No install or build step. Edit `index.html` directly.
-- Push to `master` to deploy (GitHub Pages builds automatically).
+- Deploying: merge to `master`, then dispatch the "Deploy" workflow (`gh workflow run deploy.yml`). Nothing deploys automatically.
 - Test locally by serving the folder (e.g. `python3 -m http.server`) — the hero video and posters use absolute `/media/...` paths, so opening via `file://` won't load them.
 - When adding colors, always add to both light and dark theme variable blocks (`:root`, `[data-theme="dark"]`, and `@media (prefers-color-scheme: dark)` block).
 - When adding translatable text, add `data-i18n="keyName"` attribute to the element and add the key to all 7 language objects in the `T` translations object in the JS block. For placeholders, use `data-i18n-placeholder="keyName"`.

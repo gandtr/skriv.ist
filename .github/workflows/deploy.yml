@@ -1,0 +1,57 @@
+name: Deploy
+
+run-name: Deploy to Cloudflare Pages
+
+# Explicit, manual deploy — does NOT fire on push (family convention:
+# deploys are always dispatched by hand, never automatic).
+#
+#   gh workflow run deploy.yml
+#
+# Or from the Actions UI: "Deploy" → "Run workflow".
+#
+# Publishes the static site to the Cloudflare Pages project `skriv-ist`.
+# The project is created on first run if it doesn't exist yet.
+#
+# Secrets (repo or org level):
+#   CLOUDFLARE_API_TOKEN  — needs Cloudflare Pages:Edit
+#   CLOUDFLARE_ACCOUNT_ID
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-pages
+  cancel-in-progress: false
+
+env:
+  PAGES_PROJECT: skriv-ist
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+
+      - name: Assemble site bundle
+        run: |
+          mkdir -p dist
+          cp index.html robots.txt dist/
+          cp -r media dist/media
+
+      - name: Ensure Pages project exists
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if ! npx wrangler@4 pages project list | grep -q "^│ ${PAGES_PROJECT} "; then
+            npx wrangler@4 pages project create "${PAGES_PROJECT}" --production-branch=master
+          fi
+
+      - name: Deploy to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler@4 pages deploy dist --project-name="${PAGES_PROJECT}" --branch=master
