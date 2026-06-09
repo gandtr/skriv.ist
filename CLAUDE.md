@@ -26,7 +26,6 @@
 │   └── poster-{lang}[-vertical].jpg        # poster frames
 ├── .github/workflows/deploy.yml  # Manual-dispatch Cloudflare Pages deploy
 ├── .project-instructions.md   # Design/SEO context for developers
-├── CNAME                      # Legacy GitHub Pages domain config (kept until DNS cutover completes)
 ├── robots.txt                 # Search engine directives
 └── CLAUDE.md                  # This file
 ```
