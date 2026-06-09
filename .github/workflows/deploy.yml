@@ -34,6 +34,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        with:
+          persist-credentials: false
 
       - name: Assemble site bundle
         run: |
@@ -46,7 +48,10 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          if ! npx wrangler@4 pages project list | grep -q "^│ ${PAGES_PROJECT} "; then
+          # JSON lookup (wrangler >=4.64 supports --json) instead of parsing
+          # the human table output, which is brittle across CLI versions.
+          if ! npx wrangler@4 pages project list --json \
+            | node -e "const d=JSON.parse(require('fs').readFileSync(0,'utf8')); process.exit(Array.isArray(d) && d.some(p => p && (p.name === process.env.PAGES_PROJECT || p.project_name === process.env.PAGES_PROJECT)) ? 0 : 1)"; then
             npx wrangler@4 pages project create "${PAGES_PROJECT}" --production-branch=master
           fi
 
