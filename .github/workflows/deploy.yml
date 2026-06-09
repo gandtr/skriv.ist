@@ -55,11 +55,14 @@ jobs:
           # that shows the project absent (exit 3) may trigger a create, so
           # auth/network/API errors are never masked by an unintended create.
           projects_json="$(npx wrangler@4 pages project list --json)"
+          # NB: wrangler's --json emits TABLE-shaped objects — the key is
+          # "Project Name" (workers-sdk src/pages/projects.ts). Raw keys
+          # kept as fallback in case wrangler ever emits API-shaped output.
           if printf '%s' "$projects_json" | node -e "
               const d = JSON.parse(require('fs').readFileSync(0, 'utf8'));
               if (!Array.isArray(d)) { console.error('unexpected wrangler project list shape'); process.exit(2); }
               const t = process.env.PAGES_PROJECT;
-              process.exit(d.some(p => p && (p.name === t || p.project_name === t)) ? 0 : 3);
+              process.exit(d.some(p => p && (p['Project Name'] === t || p.name === t || p.project_name === t)) ? 0 : 3);
             "; then
             echo "Pages project ${PAGES_PROJECT} already exists"
           else
