@@ -634,9 +634,55 @@
             margin-bottom: 0.75rem;
         }
 
-        .footer-sibling {
-            margin-top: 0.85rem;
-            font-size: 0.85rem;
+        .comics-section {
+            margin-top: 4rem;
+            padding: 3rem 2rem 2.75rem;
+            text-align: center;
+            background: var(--card-surface);
+            border: 1px solid var(--surface-border);
+            border-radius: 16px;
+            box-shadow: 0 1px 2px var(--surface-shadow-1), 0 8px 22px var(--surface-shadow-1);
+        }
+
+        .comics-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.6rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 0.75rem;
+        }
+
+        .comics-section p {
+            max-width: 34rem;
+            margin: 0 auto 1.6rem;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.55;
+        }
+
+        .comics-cta {
+            display: inline-block;
+            padding: 1rem 2.4rem;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--button-text);
+            background: linear-gradient(135deg, var(--button-gradient-1), var(--button-gradient-2));
+            border-radius: 50px;
+            box-shadow: 0 4px 12px var(--surface-shadow-1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .comics-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--surface-shadow-2);
+        }
+
+        @media (max-width: 600px) {
+            .comics-section {
+                margin-top: 3rem;
+                padding: 2.25rem 1.35rem 2rem;
+            }
         }
 
         /* ===== RESPONSIVE ===== */
@@ -1249,6 +1295,12 @@
                 </div>
             </section>
 
+            <section class="comics-section reveal">
+                <h2 data-i18n="comicsTitle">A free comics reader</h2>
+                <p data-i18n="comicsDesc">comics.skriv.ist reads CBZ, CBR and PDF panel by panel, in your browser. Independent of skriv.ist. Nothing is uploaded.</p>
+                <a href="https://comics.skriv.ist" class="comics-cta" data-i18n="comicsCta">Open comics.skriv.ist</a>
+            </section>
+
             <section class="pricing-section">
                 <h2 class="reveal" data-i18n="pricingTitle">Simple, Quiet Pricing</h2>
                 
@@ -1310,7 +1362,6 @@
                 <a href="/support" data-i18n="footerSupport">Support</a>
             </nav>
             <p><span data-i18n="footerCopy">&copy; 2026 skriv.ist | Crafted with care</span> | <span data-i18n="footerBy">By</span> <a href="https://gand.tr">gand.tr</a></p>
-            <p class="footer-sibling" data-i18n="footerComics">Also: <a href="https://comics.skriv.ist">comics.skriv.ist</a> · a free comics reader, independent of skriv.ist.</p>
         </footer>
     </div>
 
@@ -1331,6 +1382,9 @@
                 feature2Desc: 'Your library flows effortlessly between your devices. Install as an app to read offline in peace; we quietly sync your progress when you reconnect.',
                 feature3Title: 'Harmonic Integrations',
                 feature3Desc: 'Expand your collection beyond the local drive. Connect your remote Calibre library or browse OPDS catalogs beautifully.',
+                comicsTitle: 'A free comics reader',
+                comicsDesc: 'comics.skriv.ist reads CBZ, CBR and PDF panel by panel, in your browser. Independent of skriv.ist. Nothing is uploaded.',
+                comicsCta: 'Open comics.skriv.ist',
                 pricingTitle: 'Simple, Quiet Pricing',
                 choosePath: 'Choose your path:',
                 planFreeName: 'Free',
@@ -1363,7 +1417,6 @@
                 footerPrivacy: 'Privacy',
                 footerTerms: 'Terms',
                 footerSupport: 'Support',
-                footerComics: 'Also: <a href="https://comics.skriv.ist">comics.skriv.ist</a> · a free comics reader, independent of skriv.ist.',
                 ariaLanguage: 'Change language',
                 ariaTheme: 'Toggle dark mode',
                 ariaVideo: 'skriv.ist promotional video',
@@ -1382,6 +1435,9 @@
                 feature2Desc: 'ライブラリはデバイス間でシームレスに同期。アプリとしてインストールし、オフラインでも快適に。',
                 feature3Title: '調和する連携',
                 feature3Desc: 'コレクションをローカルから拡張。CalibreライブラリやOPDSカタログと美しく繋がります。',
+                comicsTitle: '無料のコミックリーダー',
+                comicsDesc: 'comics.skriv.ist は、ブラウザだけで CBZ・CBR・PDF をコマ送りします。skriv.ist とは別のプロダクトです。ファイルはアップロードされません。',
+                comicsCta: 'comics.skriv.ist を開く',
                 pricingTitle: 'シンプルで静かな料金プラン',
                 choosePath: 'プランを選択：',
                 planFreeName: '無料',
@@ -1414,7 +1470,6 @@
                 footerPrivacy: 'プライバシー',
                 footerTerms: '利用規約',
                 footerSupport: 'サポート',
-                footerComics: 'あわせて <a href="https://comics.skriv.ist">comics.skriv.ist</a> · 無料のコミックリーダー。skriv.ist とは別のプロダクトです。',
                 ariaLanguage: '言語を変更',
                 ariaTheme: 'ダークモードを切り替え',
                 ariaVideo: 'skriv.ist プロモーション動画',
@@ -1433,6 +1488,9 @@
                 feature2Desc: 'Kütüphaneniz cihazlarınız arasında akar. Çevrimdışı huzur için uygulama olarak yükleyin; yeniden bağlandığınızda konumu senkronize ederiz.',
                 feature3Title: 'Uyumlu Entegrasyonlar',
                 feature3Desc: 'Koleksiyonunuzu yerel diskin ötesine taşıyın. Uzaktaki Calibre kitaplığınıza bağlanın veya OPDS kataloglarında kolayca gezinin.',
+                comicsTitle: 'Ücretsiz çizgi roman okuyucu',
+                comicsDesc: 'comics.skriv.ist, CBZ, CBR ve PDF dosyalarını tarayıcıda kare kare okutur. skriv.ist\'ten bağımsız. Hiçbir şey yüklenmez.',
+                comicsCta: 'comics.skriv.ist\'i aç',
                 pricingTitle: 'Sade ve Sessiz Fiyatlandırma',
                 choosePath: 'Yolunu seç:',
                 planFreeName: 'Ücretsiz',
@@ -1465,7 +1523,6 @@
                 footerPrivacy: 'Gizlilik',
                 footerTerms: 'Koşullar',
                 footerSupport: 'Destek',
-                footerComics: 'Ayrıca: <a href="https://comics.skriv.ist">comics.skriv.ist</a> · ücretsiz bir çizgi roman okuyucu, skriv.ist\'ten bağımsız.',
                 ariaLanguage: 'Dili değiştir',
                 ariaTheme: 'Karanlık modu aç veya kapat',
                 ariaVideo: 'skriv.ist tanıtım videosu',
@@ -1484,6 +1541,9 @@
                 feature2Desc: 'Tu biblioteca fluye sin esfuerzo entre tus dispositivos. Instálala como aplicación para leer sin conexión en paz; sincronizamos tu progreso cuando te reconectas.',
                 feature3Title: 'Integraciones Armónicas',
                 feature3Desc: 'Lleva tu colección más allá del disco local. Conéctate a tu biblioteca remota de Calibre o explora catálogos OPDS maravillosamente.',
+                comicsTitle: 'Un lector de cómics gratuito',
+                comicsDesc: 'comics.skriv.ist lee CBZ, CBR y PDF viñeta a viñeta, en el navegador. Independiente de skriv.ist. Nada se sube.',
+                comicsCta: 'Abrir comics.skriv.ist',
                 pricingTitle: 'Precios Simples y Tranquilos',
                 choosePath: 'Elige tu camino:',
                 planFreeName: 'Gratis',
@@ -1516,7 +1576,6 @@
                 footerPrivacy: 'Privacidad',
                 footerTerms: 'Términos',
                 footerSupport: 'Soporte',
-                footerComics: 'También: <a href="https://comics.skriv.ist">comics.skriv.ist</a> · un lector de cómics gratuito, independiente de skriv.ist.',
                 ariaLanguage: 'Cambiar idioma',
                 ariaTheme: 'Activar o desactivar el modo oscuro',
                 ariaVideo: 'Vídeo promocional de skriv.ist',
@@ -1535,6 +1594,9 @@
                 feature2Desc: 'Sua biblioteca flui sem esforço entre seus dispositivos. Instale como app para ler offline em paz; sincronizamos seu progresso quando reconectar.',
                 feature3Title: 'Integrações Harmônicas',
                 feature3Desc: 'Expanda sua coleção além do disco local. Conecte sua biblioteca remota do Calibre ou navegue por catálogos OPDS lindamente.',
+                comicsTitle: 'Um leitor de quadrinhos gratuito',
+                comicsDesc: 'comics.skriv.ist lê CBZ, CBR e PDF quadro a quadro, no navegador. Independente do skriv.ist. Nada é enviado.',
+                comicsCta: 'Abrir comics.skriv.ist',
                 pricingTitle: 'Preços Simples e Silenciosos',
                 choosePath: 'Escolha seu caminho:',
                 planFreeName: 'Grátis',
@@ -1567,7 +1629,6 @@
                 footerPrivacy: 'Privacidade',
                 footerTerms: 'Termos',
                 footerSupport: 'Suporte',
-                footerComics: 'Também: <a href="https://comics.skriv.ist">comics.skriv.ist</a> · um leitor de quadrinhos gratuito, independente do skriv.ist.',
                 ariaLanguage: 'Alterar idioma',
                 ariaTheme: 'Ativar ou desativar o modo escuro',
                 ariaVideo: 'Vídeo promocional do skriv.ist',
@@ -1586,6 +1647,9 @@
                 feature2Desc: 'Deine Bibliothek fließt mühelos zwischen Geräten. Als App installieren für ruhendes Offline-Lesen; wir synchronisieren leise bei erneuter Verbindung.',
                 feature3Title: 'Harmonische Integrationen',
                 feature3Desc: 'Erweitere deine Sammlung über die Festplatte hinaus. Verbinde deine entfernte Calibre-Bibliothek oder durchsuche OPDS-Kataloge.',
+                comicsTitle: 'Ein kostenloser Comic-Reader',
+                comicsDesc: 'comics.skriv.ist liest CBZ, CBR und PDF Bild für Bild im Browser. Unabhängig von skriv.ist. Es wird nichts hochgeladen.',
+                comicsCta: 'comics.skriv.ist öffnen',
                 pricingTitle: 'Einfache, ruhige Preise',
                 choosePath: 'Wähle deinen Weg:',
                 planFreeName: 'Kostenlos',
@@ -1618,7 +1682,6 @@
                 footerPrivacy: 'Datenschutz',
                 footerTerms: 'Nutzungsbedingungen',
                 footerSupport: 'Support',
-                footerComics: 'Außerdem: <a href="https://comics.skriv.ist">comics.skriv.ist</a> · ein kostenloser Comic-Reader, unabhängig von skriv.ist.',
                 ariaLanguage: 'Sprache ändern',
                 ariaTheme: 'Dunkelmodus umschalten',
                 ariaVideo: 'skriv.ist Werbevideo',
@@ -1637,6 +1700,9 @@
                 feature2Desc: 'Votre bibliothèque circule sans effort. Installez en tant qu\'application pour lire hors ligne en paix; la synchronisation se fait discrètement au retour.',
                 feature3Title: 'Intégrations Harmoniques',
                 feature3Desc: 'Étendez votre collection au-delà du disque local. Connectez votre bibliothèque Calibre distante ou parcourez les catalogues OPDS avec élégance.',
+                comicsTitle: 'Un lecteur de BD gratuit',
+                comicsDesc: 'comics.skriv.ist lit les CBZ, CBR et PDF case par case, dans le navigateur. Indépendant de skriv.ist. Rien n\'est envoyé.',
+                comicsCta: 'Ouvrir comics.skriv.ist',
                 pricingTitle: 'Prix Simples et Discrets',
                 choosePath: 'Choisissez votre voie :',
                 planFreeName: 'Gratuit',
@@ -1669,7 +1735,6 @@
                 footerPrivacy: 'Confidentialité',
                 footerTerms: 'Conditions',
                 footerSupport: 'Support',
-                footerComics: 'Aussi : <a href="https://comics.skriv.ist">comics.skriv.ist</a> · un lecteur de BD gratuit, indépendant de skriv.ist.',
                 ariaLanguage: 'Changer de langue',
                 ariaTheme: 'Activer ou désactiver le mode sombre',
                 ariaVideo: 'Vidéo promotionnelle de skriv.ist',
