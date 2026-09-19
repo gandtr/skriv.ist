@@ -6,6 +6,7 @@
 
 - [Skriv.ist landing](https://skriv.ist/): Product introduction and features
 - [Skriv.ist app](https://app.skriv.ist/): Start reading for free
+- [comics.skriv.ist](https://comics.skriv.ist/): Free comics reader, independent of skriv.ist; files never leave the browser
 
 ## Features
 
