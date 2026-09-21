@@ -18,3 +18,5 @@
 
 - [Gand studio](https://gand.tr/)
 - [contact@gand.tr](mailto:contact@gand.tr)
+
+- [books.skriv.ist](https://books.skriv.ist/): Local-only EPUB and PDF reader with OPDS, reading progress, and offline PWA installation; no account or cloud library

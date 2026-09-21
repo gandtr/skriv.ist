@@ -25,40 +25,50 @@
     <meta name="twitter:description" content="A calm, distraction-free reading app. Where stories find their breath." />
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "skriv.ist",
-      "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "Web",
-      "description": "skriv.ist is a minimalist reading app designed for deep focus. Enjoy a distraction-free environment, offline PWA access, and seamless EPUB cloud sync.",
-      "url": "https://skriv.ist/",
-      "offers": {
+{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "skriv.ist",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Web",
+    "description": "skriv.ist is a minimalist reading app designed for deep focus. Enjoy a distraction-free environment, offline PWA access, and seamless EPUB cloud sync.",
+    "url": "https://skriv.ist/",
+    "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
-      },
-      "creator": {
+    },
+    "creator": {
         "@type": "Organization",
         "name": "Gand Technology Services",
         "url": "https://gand.tr"
-      },
-      "isRelatedTo": {
-        "@type": "SoftwareApplication",
-        "name": "comics.skriv.ist",
-        "url": "https://comics.skriv.ist",
-        "applicationCategory": "MultimediaApplication",
-        "operatingSystem": "Web",
-        "description": "A free comics reader. Independent of skriv.ist; files never leave the browser."
-      },
-      "featureList": [
+    },
+    "isRelatedTo": [
+        {
+            "@type": "SoftwareApplication",
+            "name": "comics.skriv.ist",
+            "url": "https://comics.skriv.ist",
+            "applicationCategory": "MultimediaApplication",
+            "operatingSystem": "Web",
+            "description": "A free comics reader. Independent of skriv.ist; files never leave the browser."
+        },
+        {
+            "@type": "SoftwareApplication",
+            "name": "books.skriv.ist",
+            "url": "https://books.skriv.ist",
+            "applicationCategory": "MultimediaApplication",
+            "operatingSystem": "Web",
+            "description": "Local-only EPUB and PDF reader with OPDS and offline access. No account or cloud library."
+        }
+    ],
+    "featureList": [
         "Minimalist reading app",
         "Distraction-free reading environment",
         "Offline PWA access",
         "Cloud progress sync across devices",
         "EPUB support via OPDS and Calibre"
-      ]
-    }
+    ]
+}
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1296,6 +1306,12 @@
             </section>
 
             <section class="comics-section reveal">
+                <h2 data-i18n="booksTitle">Your books, on your device</h2>
+                <p data-i18n="booksDesc">Read EPUBs and PDFs, connect an OPDS catalogue, and keep your reading progress locally. No account or cloud library.</p>
+                <a href="https://books.skriv.ist" class="comics-cta" data-i18n="booksCta">Open books.skriv.ist</a>
+            </section>
+
+            <section class="comics-section reveal">
                 <h2 data-i18n="comicsTitle">A free comics reader</h2>
                 <p data-i18n="comicsDesc">comics.skriv.ist reads CBZ, CBR and PDF panel by panel, in your browser. Independent of skriv.ist. Nothing is uploaded.</p>
                 <a href="https://comics.skriv.ist" class="comics-cta" data-i18n="comicsCta">Open comics.skriv.ist</a>
@@ -1371,6 +1387,10 @@
         /* ===== TRANSLATIONS ===== */
         var T = {
             en: {
+                booksTitle: "Your books, on your device",
+                booksDesc: "Read EPUBs and PDFs, connect an OPDS catalogue, and keep your reading progress locally. No account or cloud library.",
+                booksCta: "Open books.skriv.ist",
+
                 headline: 'Where stories find <br>their breath.',
                 subheadline: 'A quiet, minimalist reading sanctuary designed to soften the noise and let your mind wander freely through the pages.',
                 ctaButton: 'Start Reading for Free',
@@ -1424,6 +1444,10 @@
                 label: 'EN'
             },
             ja: {
+                booksTitle: "あなたの本を、あなたの端末で",
+                booksDesc: "EPUB・PDFの読書、OPDSカタログへの接続、読書進捗の保存を端末内で。アカウントもクラウドライブラリも不要です。",
+                booksCta: "books.skriv.ist を開く",
+
                 headline: '物語が息づく<br>場所。',
                 subheadline: '静かでミニマルな読書の聖域。雑音をやわらげ、ページの中を自由にさまよえる空間です。',
                 ctaButton: '無料で読み始める',
@@ -1477,6 +1501,10 @@
                 label: 'JA'
             },
             tr: {
+                booksTitle: "Kitaplarınız, kendi cihazınızda",
+                booksDesc: "EPUB ve PDF okuyun, bir OPDS kataloğuna bağlanın ve okuma ilerlemenizi cihazınızda saklayın. Hesap veya bulut kitaplığı gerekmez.",
+                booksCta: "books.skriv.ist’i aç",
+
                 headline: 'Hikayelerin nefes<br>bulduğu yer.',
                 subheadline: 'Gürültüyü yumuşatan, zihninizi sayfalar arasında özgürce dolaştıran sessiz ve minimalist bir okuma sığınağı.',
                 ctaButton: 'Ücretsiz Okumaya Başla',
@@ -1530,6 +1558,10 @@
                 label: 'TR'
             },
             es: {
+                booksTitle: "Tus libros, en tu dispositivo",
+                booksDesc: "Lee EPUB y PDF, conecta un catálogo OPDS y guarda tu progreso localmente. Sin cuenta ni biblioteca en la nube.",
+                booksCta: "Abrir books.skriv.ist",
+
                 headline: 'Donde las historias<br>encuentran su aliento.',
                 subheadline: 'Un santuario de lectura tranquilo y minimalista, diseñado para suavizar el ruido y dejar que tu mente vague libremente entre las páginas.',
                 ctaButton: 'Empieza a leer gratis',
@@ -1583,6 +1615,10 @@
                 label: 'ES'
             },
             pt: {
+                booksTitle: "Seus livros, no seu dispositivo",
+                booksDesc: "Leia EPUBs e PDFs, conecte um catálogo OPDS e guarde seu progresso localmente. Sem conta nem biblioteca na nuvem.",
+                booksCta: "Abrir books.skriv.ist",
+
                 headline: 'Onde as histórias<br>encontram seu respiro.',
                 subheadline: 'Um santuário de leitura tranquilo e minimalista, projetado para suavizar o ruído e deixar sua mente vagar livremente pelas páginas.',
                 ctaButton: 'Comece a Ler de Graça',
@@ -1636,6 +1672,10 @@
                 label: 'PT'
             },
             de: {
+                booksTitle: "Deine Bücher, auf deinem Gerät",
+                booksDesc: "Lies EPUBs und PDFs, verbinde einen OPDS-Katalog und speichere deinen Lesefortschritt lokal. Ohne Konto oder Cloud-Bibliothek.",
+                booksCta: "books.skriv.ist öffnen",
+
                 headline: 'Wo Geschichten<br>ihren Atem finden.',
                 subheadline: 'Ein ruhiges, minimalistisches Lese-Refugium, das den Lärm mildert und deinen Geist frei durch die Seiten wandern lässt.',
                 ctaButton: 'Kostenlos Lesen Beginnen',
@@ -1689,6 +1729,10 @@
                 label: 'DE'
             },
             fr: {
+                booksTitle: "Vos livres, sur votre appareil",
+                booksDesc: "Lisez des EPUB et des PDF, connectez un catalogue OPDS et conservez votre progression localement. Sans compte ni bibliothèque dans le cloud.",
+                booksCta: "Ouvrir books.skriv.ist",
+
                 headline: 'Là où les histoires<br>trouvent leur souffle.',
                 subheadline: 'Un sanctuaire de lecture tranquilo et minimaliste, conçu pour adoucir le bruit et laisser votre esprit vagabonder librement à travers les pages.',
                 ctaButton: 'Commencer à Lire Gratuitement',
