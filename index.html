@@ -33,11 +33,30 @@
     "operatingSystem": "Web",
     "description": "skriv.ist is a minimalist reading app designed for deep focus. Enjoy a distraction-free environment, offline PWA access, and seamless EPUB cloud sync.",
     "url": "https://skriv.ist/",
-    "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-    },
+    "offers": [
+        {
+            "@type": "Offer",
+            "name": "Comics",
+            "price": "0",
+            "priceCurrency": "USD",
+            "url": "https://comics.skriv.ist"
+        },
+        {
+            "@type": "Offer",
+            "name": "Books",
+            "price": "0",
+            "priceCurrency": "USD",
+            "url": "https://books.skriv.ist"
+        },
+        {
+            "@type": "Offer",
+            "name": "Skrivist Cloud",
+            "price": "4.90",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/PreOrder",
+            "url": "https://skriv.ist/#pricing"
+        }
+    ],
     "creator": {
         "@type": "Organization",
         "name": "Gand Technology Services",
@@ -644,57 +663,6 @@
             margin-bottom: 0.75rem;
         }
 
-        .comics-section {
-            margin-top: 4rem;
-            padding: 3rem 2rem 2.75rem;
-            text-align: center;
-            background: var(--card-surface);
-            border: 1px solid var(--surface-border);
-            border-radius: 16px;
-            box-shadow: 0 1px 2px var(--surface-shadow-1), 0 8px 22px var(--surface-shadow-1);
-        }
-
-        .comics-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.6rem, 3vw, 2rem);
-            font-weight: 700;
-            color: var(--text-primary);
-            margin: 0 0 0.75rem;
-        }
-
-        .comics-section p {
-            max-width: 34rem;
-            margin: 0 auto 1.6rem;
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            line-height: 1.55;
-        }
-
-        .comics-cta {
-            display: inline-block;
-            padding: 1rem 2.4rem;
-            font-size: 1.05rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: var(--button-text);
-            background: linear-gradient(135deg, var(--button-gradient-1), var(--button-gradient-2));
-            border-radius: 50px;
-            box-shadow: 0 4px 12px var(--surface-shadow-1);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .comics-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px var(--surface-shadow-2);
-        }
-
-        @media (max-width: 600px) {
-            .comics-section {
-                margin-top: 3rem;
-                padding: 2.25rem 1.35rem 2rem;
-            }
-        }
-
         /* ===== RESPONSIVE ===== */
         @media (max-width: 600px) {
             .container {
@@ -748,21 +716,10 @@
             margin: 0 auto;
         }
 
-        .pricing-grid.single-row {
-            grid-template-columns: minmax(260px, 350px);
-            justify-content: center;
-        }
-
         .pricing-grid.double-row {
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        }
-
-        .pricing-tagline {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--text-primary);
-            margin: 3.5rem 0 2rem;
-            text-align: center;
+            /* Container caps out at 860px, so three cards need a smaller
+               minimum than the old two-card layout to stay in one row. */
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
         }
 
         .pricing-card {
@@ -904,6 +861,13 @@
             background: var(--accent-primary);
             color: #fff;
         }
+
+        .plan-note {
+            margin-top: 0.85rem;
+            font-size: 0.78rem;
+            color: var(--text-tertiary);
+            text-align: center;
+        }
     </style>
     <style>
         .app-btn {
@@ -986,6 +950,21 @@
             letter-spacing: 0.3px;
         }
 
+        /* Two stacked notes (reassurance + comics cross-link): only the
+           last one carries the big bottom margin before the feature grid. */
+        .cta-note:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-note a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        .cta-note a:hover {
+            text-decoration: underline;
+        }
+
         /* --- main CTA arrow that slides on hover --- */
         .app-btn {
             position: relative;
@@ -1035,6 +1014,29 @@
         .feature p {
             font-size: 0.97rem;
             line-height: 1.7;
+        }
+
+        .feature-note {
+            margin-top: 0.9rem;
+            font-size: 0.82rem;
+            line-height: 1.6;
+            color: var(--text-tertiary);
+        }
+
+        .feature-note a {
+            color: var(--link-color);
+        }
+
+        .badge-soon {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 20px;
+            background: var(--input-focus-ring);
+            color: var(--accent-primary);
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
         }
 
         /* --- organic icon now cradles a friendly line glyph --- */
@@ -1149,7 +1151,7 @@
             .feature h3 {
                 font-size: 1.25rem;
             }
-            .cta-note {
+            .cta-note:last-child {
                 margin-bottom: 3.5rem;
             }
             /* portrait promo video fills the mobile hero without dominating it */
@@ -1265,9 +1267,10 @@
                 </video>
 
                 <div class="cta-group hero-entrance" style="animation-delay: 0.32s;">
-                    <a href="https://app.skriv.ist" class="app-btn" data-i18n="ctaButton">Start Reading for Free</a>
+                    <a href="https://books.skriv.ist" class="app-btn" data-i18n="ctaButton">Start reading, free</a>
                 </div>
-                <p class="cta-note hero-entrance" style="animation-delay: 0.4s;" data-i18n="ctaNote">Free forever tier &middot; works offline</p>
+                <p class="cta-note hero-entrance" style="animation-delay: 0.4s;" data-i18n="ctaNote">Free &middot; local &middot; no account</p>
+                <p class="cta-note hero-entrance" style="animation-delay: 0.44s;" data-i18n="ctaComics">Reading comics? <a href="https://comics.skriv.ist">comics.skriv.ist</a></p>
             </section>
 
             <section class="features-grid">
@@ -1292,6 +1295,7 @@
                     </div>
                     <h3 data-i18n="feature2Title">Natural Sync</h3>
                     <p data-i18n="feature2Desc">Your library flows effortlessly between your devices. Install as an app to read offline in peace; we quietly sync your progress when you reconnect.</p>
+                    <p class="feature-note"><span class="badge-soon" data-i18n="badgeCloudSoon">Cloud &middot; coming soon</span></p>
                 </div>
                 <div class="feature reveal">
                     <div class="icon-organic" style="animation-delay: -4s;">
@@ -1302,70 +1306,54 @@
                     </div>
                     <h3 data-i18n="feature3Title">Harmonic Integrations</h3>
                     <p data-i18n="feature3Desc">Expand your collection beyond the local drive. Connect your remote Calibre library or browse OPDS catalogs beautifully.</p>
+                    <p class="feature-note"><span data-i18n="feature3OpdsNote">OPDS works today in <a href="https://books.skriv.ist">Books</a>, free.</span> <span class="badge-soon" data-i18n="badgeCloudSoon">Cloud &middot; coming soon</span></p>
                 </div>
             </section>
 
-            <section class="comics-section reveal">
-                <h2 data-i18n="booksTitle">Your books, on your device</h2>
-                <p data-i18n="booksDesc">Read EPUBs and PDFs, connect an OPDS catalogue, and keep your reading progress locally. No account or cloud library.</p>
-                <a href="https://books.skriv.ist" class="comics-cta" data-i18n="booksCta">Open books.skriv.ist</a>
-            </section>
-
-            <section class="comics-section reveal">
-                <h2 data-i18n="comicsTitle">A free comics reader</h2>
-                <p data-i18n="comicsDesc">comics.skriv.ist reads CBZ, CBR and PDF panel by panel, in your browser. Independent of skriv.ist. Nothing is uploaded.</p>
-                <a href="https://comics.skriv.ist" class="comics-cta" data-i18n="comicsCta">Open comics.skriv.ist</a>
-            </section>
-
-            <section class="pricing-section">
+            <section class="pricing-section" id="pricing">
                 <h2 class="reveal" data-i18n="pricingTitle">Simple, Quiet Pricing</h2>
-                
-                <div class="pricing-grid single-row reveal">
-                    <!-- Free Tier -->
-                    <div class="pricing-card">
-                        <h3 class="plan-name" data-i18n="planFreeName">Free</h3>
-                        <div class="plan-price" data-i18n="planFreePrice">$0</div>
-                        <div class="plan-period" data-i18n="planFreePeriod">Forever</div>
-                        <ul class="plan-features">
-                            <li data-i18n="featFree1">Offline Web App (PWA)</li>
-                            <li data-i18n="featFree2">10 Cloud Books Limit</li>
-                            <li data-i18n="featFree3">Progress Sync Across Devices</li>
-                            <li data-i18n="featFree4">4 Reading Themes & Ambient Sounds</li>
-                            <li data-i18n="featFree5">Browser Text-To-Speech API</li>
-                            <li data-i18n="featFree6"><a href="https://github.com/gandtr/skrivist.tools/tree/main/calibre-plugin" target="_blank" rel="noopener noreferrer">Calibre Plugin</a></li>
-                        </ul>
-                        <a href="https://app.skriv.ist" class="plan-cta secondary" data-i18n="ctaFree">Start Reading</a>
-                    </div>
-                </div>
-
-                <div class="pricing-tagline reveal" data-i18n="choosePath">Choose your path:</div>
 
                 <div class="pricing-grid double-row reveal">
-                    <!-- Maker Tier -->
+                    <!-- Comics -->
                     <div class="pricing-card">
-                        <h3 class="plan-name" data-i18n="planMakerName">Maker</h3>
-                        <div class="plan-price" data-i18n="planMakerPrice">$9.99</div>
-                        <div class="plan-period" data-i18n="planMakerPeriod">One-Time Payment</div>
+                        <h3 class="plan-name">Comics</h3>
+                        <div class="plan-price" data-i18n="planComicsPrice">Free</div>
                         <ul class="plan-features">
-                            <li data-i18n="featMaker1">Everything in Free</li>
-                            <li data-i18n="featMaker2">Remote OPDS Catalog Browsing</li>
-                            <li data-i18n="featMaker3"><a href="https://github.com/gandtr/skrivist.tools/blob/main/TTS_SERVER_API.md" target="_blank" rel="noopener noreferrer">Custom TTS Service</a></li>
+                            <li data-i18n="featComics1">Local comics reader in your browser</li>
+                            <li data-i18n="featComics2">CBZ, CBR and PDF</li>
+                            <li data-i18n="featComics3">No account</li>
                         </ul>
-                        <a href="https://app.skriv.ist" class="plan-cta secondary" data-i18n="ctaMaker">Upgrade in App</a>
+                        <a href="https://comics.skriv.ist" class="plan-cta secondary" data-i18n="ctaComicsCard">Open comics.skriv.ist</a>
                     </div>
 
-                    <!-- Member Tier -->
+                    <!-- Books -->
                     <div class="pricing-card popular">
-                        <div class="popular-badge" data-i18n="badgePopular">Most Popular</div>
-                        <h3 class="plan-name" data-i18n="planMemberName">Member</h3>
-                        <div class="plan-price" data-i18n="planMemberPrice">$4.99</div>
-                        <div class="plan-period" data-i18n="planMemberPeriod">Per Month (or $35.99/yr)</div>
+                        <h3 class="plan-name">Books</h3>
+                        <div class="plan-price" data-i18n="planBooksPrice">Free</div>
                         <ul class="plan-features">
-                            <li data-i18n="featMember1">Everything in Free</li>
-                            <li data-i18n="featMember2">Unlimited Cloud Books <br><small><i>(currently capped at 3000)</i></small></li>
-                            <li data-i18n="featMember3">TTS Service <br><small><i>(powered by pocket TTS)</i></small></li>
+                            <li data-i18n="featBooks1">EPUB and PDF reader in your browser</li>
+                            <li data-i18n="featBooks2">OPDS catalogues</li>
+                            <li data-i18n="featBooks3">Reading progress</li>
+                            <li data-i18n="featBooks4">Installs offline (PWA)</li>
+                            <li data-i18n="featBooks5">No account, nothing leaves your device</li>
                         </ul>
-                        <a href="https://app.skriv.ist" class="plan-cta primary" data-i18n="ctaPremium">Start Free Trial</a>
+                        <a href="https://books.skriv.ist" class="plan-cta primary" data-i18n="ctaBooksCard">Open books.skriv.ist</a>
+                    </div>
+
+                    <!-- Cloud (waitlist) -->
+                    <div class="pricing-card">
+                        <div class="popular-badge" data-i18n="badgeComingSoon">Coming soon</div>
+                        <h3 class="plan-name">Cloud</h3>
+                        <div class="plan-price" data-i18n="planCloudPrice">$4.90</div>
+                        <div class="plan-period" data-i18n="planCloudPeriod">Per Month</div>
+                        <ul class="plan-features">
+                            <li data-i18n="featCloud1">Your library synced across devices</li>
+                            <li data-i18n="featCloud2">Hosted text-to-speech voices</li>
+                            <li data-i18n="featCloud3">OPDS + Calibre plugin</li>
+                            <li data-i18n="featCloud4">Google or Apple sign-in</li>
+                        </ul>
+                        <a href="mailto:contact@skriv.ist?subject=Skrivist%20Cloud%20waitlist" class="plan-cta secondary" data-i18n="ctaCloudCard">Join the waitlist</a>
+                        <p class="plan-note" data-i18n="cloudWaitlistNote">We'll email you once when Cloud opens.</p>
                     </div>
                 </div>
             </section>
@@ -1376,6 +1364,7 @@
                 <a href="/privacy" data-i18n="footerPrivacy">Privacy</a>
                 <a href="/terms" data-i18n="footerTerms">Terms</a>
                 <a href="/support" data-i18n="footerSupport">Support</a>
+                <a href="https://app.skriv.ist" data-i18n="footerApp">Open app</a>
             </nav>
             <p><span data-i18n="footerCopy">&copy; 2026 skriv.ist | Crafted with care</span> | <span data-i18n="footerBy">By</span> <a href="https://gand.tr">gand.tr</a></p>
         </footer>
@@ -1387,56 +1376,48 @@
         /* ===== TRANSLATIONS ===== */
         var T = {
             en: {
-                booksTitle: "Your books, on your device",
-                booksDesc: "Read EPUBs and PDFs, connect an OPDS catalogue, and keep your reading progress locally. No account or cloud library.",
-                booksCta: "Open books.skriv.ist",
-
                 headline: 'Where stories find <br>their breath.',
                 subheadline: 'A quiet, minimalist reading sanctuary designed to soften the noise and let your mind wander freely through the pages.',
-                ctaButton: 'Start Reading for Free',
+                ctaButton: 'Start reading, free',
                 eyebrow: 'A quiet place to read',
-                ctaNote: 'Free forever tier · works offline',
+                ctaNote: 'Free · local · no account',
+                ctaComics: 'Reading comics? <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: 'A Gentle Space',
                 feature1Desc: 'Free from algorithmic distractions, social feeds, and gamification. 4 beautiful reading themes including E-paper and Sepia.',
                 feature2Title: 'Natural Sync',
                 feature2Desc: 'Your library flows effortlessly between your devices. Install as an app to read offline in peace; we quietly sync your progress when you reconnect.',
                 feature3Title: 'Harmonic Integrations',
                 feature3Desc: 'Expand your collection beyond the local drive. Connect your remote Calibre library or browse OPDS catalogs beautifully.',
-                comicsTitle: 'A free comics reader',
-                comicsDesc: 'comics.skriv.ist reads CBZ, CBR and PDF panel by panel, in your browser. Independent of skriv.ist. Nothing is uploaded.',
-                comicsCta: 'Open comics.skriv.ist',
+                feature3OpdsNote: 'OPDS works today in <a href="https://books.skriv.ist">Books</a>, free.',
+                badgeCloudSoon: 'Cloud · coming soon',
                 pricingTitle: 'Simple, Quiet Pricing',
-                choosePath: 'Choose your path:',
-                planFreeName: 'Free',
-                planFreePrice: '$0',
-                planFreePeriod: 'Forever',
-                featFree1: 'Offline Web App (PWA)',
-                featFree2: '10 Cloud Books Limit',
-                featFree3: 'Progress Sync Across Devices',
-                featFree4: '4 Reading Themes & Ambient Sounds',
-                featFree5: 'Browser Text-To-Speech API',
-                featFree6: '<a href="https://github.com/gandtr/skrivist.tools/tree/main/calibre-plugin" target="_blank" rel="noopener noreferrer">Calibre Plugin</a>',
-                ctaFree: 'Start Reading',
-                planMakerName: 'Maker',
-                planMakerPrice: '$9.99',
-                planMakerPeriod: 'One-Time Payment',
-                featMaker1: 'Everything in Free',
-                featMaker2: 'Remote OPDS Catalog Browsing',
-                featMaker3: '<a href="https://github.com/gandtr/skrivist.tools/blob/main/TTS_SERVER_API.md" target="_blank" rel="noopener noreferrer">Custom TTS Service</a>',
-                ctaMaker: 'Upgrade in App',
-                badgePopular: 'Most Popular',
-                planMemberName: 'Member',
-                planMemberPrice: '$4.99',
-                planMemberPeriod: 'Per Month (or $35.99/yr)',
-                featMember1: 'Everything in Free',
-                featMember2: 'Unlimited Cloud Books <br><small><i>(currently capped at 3000)</i></small>',
-                featMember3: 'TTS Service <br><small><i>(powered by <a href="https://github.com/kyutai-labs/pocket-tts" target="_blank" rel="noopener noreferrer">pocket TTS</a>)</i></small>',
-                ctaPremium: 'Start Free Trial',
+                planComicsPrice: 'Free',
+                featComics1: 'Local comics reader in your browser',
+                featComics2: 'CBZ, CBR and PDF',
+                featComics3: 'No account',
+                ctaComicsCard: 'Open comics.skriv.ist',
+                planBooksPrice: 'Free',
+                featBooks1: 'EPUB and PDF reader in your browser',
+                featBooks2: 'OPDS catalogues',
+                featBooks3: 'Reading progress',
+                featBooks4: 'Installs offline (PWA)',
+                featBooks5: 'No account, nothing leaves your device',
+                ctaBooksCard: 'Open books.skriv.ist',
+                badgeComingSoon: 'Coming soon',
+                planCloudPrice: '$4.90',
+                planCloudPeriod: 'Per Month',
+                featCloud1: 'Your library synced across devices',
+                featCloud2: 'Hosted text-to-speech voices',
+                featCloud3: 'OPDS + Calibre plugin',
+                featCloud4: 'Google or Apple sign-in',
+                ctaCloudCard: 'Join the waitlist',
+                cloudWaitlistNote: "We'll email you once when Cloud opens.",
                 footerCopy: '© 2026 skriv.ist | Crafted with care',
                 footerBy: 'By',
                 footerPrivacy: 'Privacy',
                 footerTerms: 'Terms',
                 footerSupport: 'Support',
+                footerApp: 'Open app',
                 ariaLanguage: 'Change language',
                 ariaTheme: 'Toggle dark mode',
                 ariaVideo: 'skriv.ist promotional video',
@@ -1444,56 +1425,48 @@
                 label: 'EN'
             },
             ja: {
-                booksTitle: "あなたの本を、あなたの端末で",
-                booksDesc: "EPUB・PDFの読書、OPDSカタログへの接続、読書進捗の保存を端末内で。アカウントもクラウドライブラリも不要です。",
-                booksCta: "books.skriv.ist を開く",
-
                 headline: '物語が息づく<br>場所。',
                 subheadline: '静かでミニマルな読書の聖域。雑音をやわらげ、ページの中を自由にさまよえる空間です。',
                 ctaButton: '無料で読み始める',
                 eyebrow: '静かに読書できる場所',
-                ctaNote: '永久無料プラン · オフライン対応',
+                ctaNote: '無料・ローカル・アカウント不要',
+                ctaComics: '漫画を読むなら？ <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: '穏やかな空間',
                 feature1Desc: 'アルゴリズム、SNS、ゲーミフィケーションはありません。E-paperやセピアを含む4つの美しいテーマ。',
                 feature2Title: '自然な同期',
                 feature2Desc: 'ライブラリはデバイス間でシームレスに同期。アプリとしてインストールし、オフラインでも快適に。',
                 feature3Title: '調和する連携',
                 feature3Desc: 'コレクションをローカルから拡張。CalibreライブラリやOPDSカタログと美しく繋がります。',
-                comicsTitle: '無料のコミックリーダー',
-                comicsDesc: 'comics.skriv.ist は、ブラウザだけで CBZ・CBR・PDF をコマ送りします。skriv.ist とは別のプロダクトです。ファイルはアップロードされません。',
-                comicsCta: 'comics.skriv.ist を開く',
+                feature3OpdsNote: '<a href="https://books.skriv.ist">Books</a> では OPDS が今すぐ無料で使えます。',
+                badgeCloudSoon: 'Cloud・近日公開',
                 pricingTitle: 'シンプルで静かな料金プラン',
-                choosePath: 'プランを選択：',
-                planFreeName: '無料',
-                planFreePrice: '$0',
-                planFreePeriod: '永久無料',
-                featFree1: 'オフラインWebアプリ（PWA）',
-                featFree2: '最大10冊のクラウド保存',
-                featFree3: 'デバイス間の進捗同期',
-                featFree4: '4つのテーマと環境音',
-                featFree5: 'ブラウザ搭載の音声読み上げ',
-                featFree6: '<a href="https://github.com/gandtr/skrivist.tools/tree/main/calibre-plugin" target="_blank" rel="noopener noreferrer">Calibre プラグイン</a>',
-                ctaFree: '読み始める',
-                planMakerName: 'Maker',
-                planMakerPrice: '$9.99',
-                planMakerPeriod: '買い切り',
-                featMaker1: '無料プランの全機能',
-                featMaker2: 'OPDSカタログのブラウジング',
-                featMaker3: '<a href="https://github.com/gandtr/skrivist.tools/blob/main/TTS_SERVER_API.md" target="_blank" rel="noopener noreferrer">カスタム TTS サービス</a>',
-                ctaMaker: 'アプリ内でアップグレード',
-                badgePopular: '一番人気',
-                planMemberName: 'メンバー',
-                planMemberPrice: '$4.99',
-                planMemberPeriod: '月額（または年額$35.99）',
-                featMember1: '無料プランの全機能',
-                featMember2: '無制限のクラウド保存 <br><small><i>(現在は3000冊まで)</i></small>',
-                featMember3: 'TTS サービス <br><small><i>(<a href="https://github.com/kyutai-labs/pocket-tts" target="_blank" rel="noopener noreferrer">pocket TTS</a>対応)</i></small>',
-                ctaPremium: '無料トライアルを開始',
+                planComicsPrice: '無料',
+                featComics1: 'ブラウザで動くローカルコミックリーダー',
+                featComics2: 'CBZ・CBR・PDF に対応',
+                featComics3: 'アカウント不要',
+                ctaComicsCard: 'comics.skriv.ist を開く',
+                planBooksPrice: '無料',
+                featBooks1: 'ブラウザで動く EPUB・PDF リーダー',
+                featBooks2: 'OPDS カタログ対応',
+                featBooks3: '読書の進捗を保存',
+                featBooks4: 'オフラインでインストール可能（PWA）',
+                featBooks5: 'アカウント不要、データは端末の外に出ません',
+                ctaBooksCard: 'books.skriv.ist を開く',
+                badgeComingSoon: '近日公開',
+                planCloudPrice: '$4.90',
+                planCloudPeriod: '月額',
+                featCloud1: '端末間でライブラリを同期',
+                featCloud2: 'クラウド音声読み上げ',
+                featCloud3: 'OPDS + Calibre プラグイン',
+                featCloud4: 'Google または Apple でサインイン',
+                ctaCloudCard: '順番待ちリストに登録',
+                cloudWaitlistNote: 'Cloud が公開されたら一度だけメールでお知らせします。',
                 footerCopy: '© 2026 skriv.ist | 丁寧に作られました',
                 footerBy: '制作:',
                 footerPrivacy: 'プライバシー',
                 footerTerms: '利用規約',
                 footerSupport: 'サポート',
+                footerApp: 'アプリを開く',
                 ariaLanguage: '言語を変更',
                 ariaTheme: 'ダークモードを切り替え',
                 ariaVideo: 'skriv.ist プロモーション動画',
@@ -1501,56 +1474,48 @@
                 label: 'JA'
             },
             tr: {
-                booksTitle: "Kitaplarınız, kendi cihazınızda",
-                booksDesc: "EPUB ve PDF okuyun, bir OPDS kataloğuna bağlanın ve okuma ilerlemenizi cihazınızda saklayın. Hesap veya bulut kitaplığı gerekmez.",
-                booksCta: "books.skriv.ist’i aç",
-
                 headline: 'Hikayelerin nefes<br>bulduğu yer.',
                 subheadline: 'Gürültüyü yumuşatan, zihninizi sayfalar arasında özgürce dolaştıran sessiz ve minimalist bir okuma sığınağı.',
-                ctaButton: 'Ücretsiz Okumaya Başla',
+                ctaButton: 'Okumaya başla, ücretsiz',
                 eyebrow: 'Sakin bir okuma alanı',
-                ctaNote: 'Sonsuza dek ücretsiz · çevrimdışı çalışır',
+                ctaNote: 'Ücretsiz · yerel · hesap gerektirmez',
+                ctaComics: 'Çizgi roman mı okuyorsun? <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: 'Huzurlu Bir Alan',
                 feature1Desc: 'Algoritmik dikkat dağıtıcılardan ve oyunlaştırmadan uzak. E-Kağıt ve Sepya dahil 4 güzel okuma teması.',
                 feature2Title: 'Doğal Senkronizasyon',
                 feature2Desc: 'Kütüphaneniz cihazlarınız arasında akar. Çevrimdışı huzur için uygulama olarak yükleyin; yeniden bağlandığınızda konumu senkronize ederiz.',
                 feature3Title: 'Uyumlu Entegrasyonlar',
                 feature3Desc: 'Koleksiyonunuzu yerel diskin ötesine taşıyın. Uzaktaki Calibre kitaplığınıza bağlanın veya OPDS kataloglarında kolayca gezinin.',
-                comicsTitle: 'Ücretsiz çizgi roman okuyucu',
-                comicsDesc: 'comics.skriv.ist, CBZ, CBR ve PDF dosyalarını tarayıcıda kare kare okutur. skriv.ist\'ten bağımsız. Hiçbir şey yüklenmez.',
-                comicsCta: 'comics.skriv.ist\'i aç',
+                feature3OpdsNote: '<a href="https://books.skriv.ist">Books</a>\'ta OPDS bugünden ücretsiz çalışır.',
+                badgeCloudSoon: 'Cloud · yakında',
                 pricingTitle: 'Sade ve Sessiz Fiyatlandırma',
-                choosePath: 'Yolunu seç:',
-                planFreeName: 'Ücretsiz',
-                planFreePrice: '$0',
-                planFreePeriod: 'Sonsuza Dek',
-                featFree1: 'Çevrimdışı Web Uygulaması',
-                featFree2: '10 Bulut Kitap Sınırı',
-                featFree3: 'Cihazlar Arası Konum Senkronu',
-                featFree4: '4 Okuma Teması ve Ortam Sesleri',
-                featFree5: 'Tarayıcı Üstü Sesli Okuma',
-                featFree6: '<a href="https://github.com/gandtr/skrivist.tools/tree/main/calibre-plugin" target="_blank" rel="noopener noreferrer">Calibre Eklentisi</a>',
-                ctaFree: 'Okumaya Başla',
-                planMakerName: 'Maker',
-                planMakerPrice: '$9.99',
-                planMakerPeriod: 'Tek Seferlik Ödeme',
-                featMaker1: 'Ücretsizdeki Her Şey',
-                featMaker2: 'Uzaktan OPDS Katalog Gezintisi',
-                featMaker3: '<a href="https://github.com/gandtr/skrivist.tools/blob/main/TTS_SERVER_API.md" target="_blank" rel="noopener noreferrer">Özel TTS Hizmeti</a>',
-                ctaMaker: 'Uygulama İçinde Yükselt',
-                badgePopular: 'En Popüler',
-                planMemberName: 'Üye',
-                planMemberPrice: '$4.99',
-                planMemberPeriod: 'Aylık (veya $35.99/yıl)',
-                featMember1: 'Ücretsizdeki Her Şey',
-                featMember2: 'Sınırsız Bulut Kitap Depolama <br><small><i>(şu an 3000 ile sınırlı)</i></small>',
-                featMember3: 'TTS Hizmeti <br><small><i>(<a href="https://github.com/kyutai-labs/pocket-tts" target="_blank" rel="noopener noreferrer">pocket TTS</a> altyapısı ile)</i></small>',
-                ctaPremium: 'Ücretsiz Denemeyi Başlat',
+                planComicsPrice: 'Ücretsiz',
+                featComics1: 'Tarayıcında çalışan yerel çizgi roman okuyucu',
+                featComics2: 'CBZ, CBR ve PDF',
+                featComics3: 'Hesap gerekmez',
+                ctaComicsCard: 'comics.skriv.ist\'i aç',
+                planBooksPrice: 'Ücretsiz',
+                featBooks1: 'Tarayıcında çalışan EPUB ve PDF okuyucu',
+                featBooks2: 'OPDS katalogları',
+                featBooks3: 'Okuma ilerlemesi',
+                featBooks4: 'Çevrimdışı kurulabilir (PWA)',
+                featBooks5: 'Hesap gerekmez, hiçbir şey cihazından çıkmaz',
+                ctaBooksCard: 'books.skriv.ist\'i aç',
+                badgeComingSoon: 'Yakında',
+                planCloudPrice: '$4.90',
+                planCloudPeriod: 'Aylık',
+                featCloud1: 'Kitaplığın cihazlar arasında senkronize',
+                featCloud2: 'Barındırılan sesli okuma',
+                featCloud3: 'OPDS + Calibre eklentisi',
+                featCloud4: 'Google veya Apple ile giriş',
+                ctaCloudCard: 'Bekleme listesine katıl',
+                cloudWaitlistNote: 'Cloud açıldığında sana bir kez e-posta göndereceğiz.',
                 footerCopy: '© 2026 skriv.ist | Özenle yapıldı',
                 footerBy: 'Yapım:',
                 footerPrivacy: 'Gizlilik',
                 footerTerms: 'Koşullar',
                 footerSupport: 'Destek',
+                footerApp: 'Uygulamayı aç',
                 ariaLanguage: 'Dili değiştir',
                 ariaTheme: 'Karanlık modu aç veya kapat',
                 ariaVideo: 'skriv.ist tanıtım videosu',
@@ -1558,56 +1523,48 @@
                 label: 'TR'
             },
             es: {
-                booksTitle: "Tus libros, en tu dispositivo",
-                booksDesc: "Lee EPUB y PDF, conecta un catálogo OPDS y guarda tu progreso localmente. Sin cuenta ni biblioteca en la nube.",
-                booksCta: "Abrir books.skriv.ist",
-
                 headline: 'Donde las historias<br>encuentran su aliento.',
                 subheadline: 'Un santuario de lectura tranquilo y minimalista, diseñado para suavizar el ruido y dejar que tu mente vague libremente entre las páginas.',
-                ctaButton: 'Empieza a leer gratis',
+                ctaButton: 'Empieza a leer, gratis',
                 eyebrow: 'Un lugar tranquilo para leer',
-                ctaNote: 'Plan gratis para siempre · funciona sin conexión',
+                ctaNote: 'Gratis · local · sin cuenta',
+                ctaComics: '¿Lees cómics? <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: 'Un Espacio Sereno',
                 feature1Desc: 'Sin distracciones algorítmicas, redes sociales, ni gamificación. 4 hermosos temas de lectura incluyendo Tinta Electrónica y Sepia.',
                 feature2Title: 'Sincronización Natural',
                 feature2Desc: 'Tu biblioteca fluye sin esfuerzo entre tus dispositivos. Instálala como aplicación para leer sin conexión en paz; sincronizamos tu progreso cuando te reconectas.',
                 feature3Title: 'Integraciones Armónicas',
                 feature3Desc: 'Lleva tu colección más allá del disco local. Conéctate a tu biblioteca remota de Calibre o explora catálogos OPDS maravillosamente.',
-                comicsTitle: 'Un lector de cómics gratuito',
-                comicsDesc: 'comics.skriv.ist lee CBZ, CBR y PDF viñeta a viñeta, en el navegador. Independiente de skriv.ist. Nada se sube.',
-                comicsCta: 'Abrir comics.skriv.ist',
+                feature3OpdsNote: 'OPDS ya funciona hoy en <a href="https://books.skriv.ist">Books</a>, gratis.',
+                badgeCloudSoon: 'Cloud · próximamente',
                 pricingTitle: 'Precios Simples y Tranquilos',
-                choosePath: 'Elige tu camino:',
-                planFreeName: 'Gratis',
-                planFreePrice: '$0',
-                planFreePeriod: 'Para siempre',
-                featFree1: 'App Web sin conexión (PWA)',
-                featFree2: 'Límite de 10 libros en la nube',
-                featFree3: 'Sincronización de progreso',
-                featFree4: '4 Temas de Lectura y Sonidos',
-                featFree5: 'Texto a Voz del Navagador',
-                featFree6: '<a href="https://github.com/gandtr/skrivist.tools/tree/main/calibre-plugin" target="_blank" rel="noopener noreferrer">Plugin de Calibre</a>',
-                ctaFree: 'Empezar a Leer',
-                planMakerName: 'Maker',
-                planMakerPrice: '$9.99',
-                planMakerPeriod: 'Pago único',
-                featMaker1: 'Todo lo de Gratis',
-                featMaker2: 'Catálogos Remotos OPDS',
-                featMaker3: '<a href="https://github.com/gandtr/skrivist.tools/blob/main/TTS_SERVER_API.md" target="_blank" rel="noopener noreferrer">Servicio TTS Personalizado</a>',
-                ctaMaker: 'Mejorar en la App',
-                badgePopular: 'Más Popular',
-                planMemberName: 'Miembro',
-                planMemberPrice: '$4.99',
-                planMemberPeriod: 'Al mes (o $35.99/año)',
-                featMember1: 'Todo lo de Gratis',
-                featMember2: 'Libros en la nube ilimitados <br><small><i>(actualmente límite de 3000)</i></small>',
-                featMember3: 'Servicio TTS <br><small><i>(impulsado por <a href="https://github.com/kyutai-labs/pocket-tts" target="_blank" rel="noopener noreferrer">pocket TTS</a>)</i></small>',
-                ctaPremium: 'Iniciar Prueba Gratuita',
+                planComicsPrice: 'Gratis',
+                featComics1: 'Lector de cómics local en tu navegador',
+                featComics2: 'CBZ, CBR y PDF',
+                featComics3: 'Sin cuenta',
+                ctaComicsCard: 'Abrir comics.skriv.ist',
+                planBooksPrice: 'Gratis',
+                featBooks1: 'Lector de EPUB y PDF en tu navegador',
+                featBooks2: 'Catálogos OPDS',
+                featBooks3: 'Progreso de lectura',
+                featBooks4: 'Se instala sin conexión (PWA)',
+                featBooks5: 'Sin cuenta, nada sale de tu dispositivo',
+                ctaBooksCard: 'Abrir books.skriv.ist',
+                badgeComingSoon: 'Próximamente',
+                planCloudPrice: '$4.90',
+                planCloudPeriod: 'Al mes',
+                featCloud1: 'Tu biblioteca sincronizada entre dispositivos',
+                featCloud2: 'Voces de texto a voz alojadas',
+                featCloud3: 'OPDS + plugin de Calibre',
+                featCloud4: 'Inicio de sesión con Google o Apple',
+                ctaCloudCard: 'Unirse a la lista de espera',
+                cloudWaitlistNote: 'Te avisaremos por correo una vez cuando Cloud esté disponible.',
                 footerCopy: '© 2026 skriv.ist | Hecho con cuidado',
                 footerBy: 'Por',
                 footerPrivacy: 'Privacidad',
                 footerTerms: 'Términos',
                 footerSupport: 'Soporte',
+                footerApp: 'Abrir la app',
                 ariaLanguage: 'Cambiar idioma',
                 ariaTheme: 'Activar o desactivar el modo oscuro',
                 ariaVideo: 'Vídeo promocional de skriv.ist',
@@ -1615,56 +1572,48 @@
                 label: 'ES'
             },
             pt: {
-                booksTitle: "Seus livros, no seu dispositivo",
-                booksDesc: "Leia EPUBs e PDFs, conecte um catálogo OPDS e guarde seu progresso localmente. Sem conta nem biblioteca na nuvem.",
-                booksCta: "Abrir books.skriv.ist",
-
                 headline: 'Onde as histórias<br>encontram seu respiro.',
                 subheadline: 'Um santuário de leitura tranquilo e minimalista, projetado para suavizar o ruído e deixar sua mente vagar livremente pelas páginas.',
-                ctaButton: 'Comece a Ler de Graça',
+                ctaButton: 'Comece a ler, grátis',
                 eyebrow: 'Um lugar tranquilo para ler',
-                ctaNote: 'Plano grátis para sempre · funciona offline',
+                ctaNote: 'Grátis · local · sem conta',
+                ctaComics: 'Lê quadrinhos? <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: 'Um Espaço Sereno',
                 feature1Desc: 'Livre de distrações algorítmicas e gamificação. 4 belos temas de leitura, incluindo E-paper e Sépia.',
                 feature2Title: 'Sincronização Natural',
                 feature2Desc: 'Sua biblioteca flui sem esforço entre seus dispositivos. Instale como app para ler offline em paz; sincronizamos seu progresso quando reconectar.',
                 feature3Title: 'Integrações Harmônicas',
                 feature3Desc: 'Expanda sua coleção além do disco local. Conecte sua biblioteca remota do Calibre ou navegue por catálogos OPDS lindamente.',
-                comicsTitle: 'Um leitor de quadrinhos gratuito',
-                comicsDesc: 'comics.skriv.ist lê CBZ, CBR e PDF quadro a quadro, no navegador. Independente do skriv.ist. Nada é enviado.',
-                comicsCta: 'Abrir comics.skriv.ist',
+                feature3OpdsNote: 'O OPDS já funciona hoje no <a href="https://books.skriv.ist">Books</a>, de graça.',
+                badgeCloudSoon: 'Cloud · em breve',
                 pricingTitle: 'Preços Simples e Silenciosos',
-                choosePath: 'Escolha seu caminho:',
-                planFreeName: 'Grátis',
-                planFreePrice: '$0',
-                planFreePeriod: 'Para Sempre',
-                featFree1: 'Web App Offline (PWA)',
-                featFree2: 'Limite de 10 Livros na Nuvem',
-                featFree3: 'Sincronização de Progresso',
-                featFree4: '4 Temas e Sons Ambientes',
-                featFree5: 'Texto para Voz do Navegador',
-                featFree6: '<a href="https://github.com/gandtr/skrivist.tools/tree/main/calibre-plugin" target="_blank" rel="noopener noreferrer">Plugin do Calibre</a>',
-                ctaFree: 'Começar a Ler',
-                planMakerName: 'Maker',
-                planMakerPrice: '$9.99',
-                planMakerPeriod: 'Pagamento Único',
-                featMaker1: 'Tudo do plano Grátis',
-                featMaker2: 'Catálogos Remotos OPDS',
-                featMaker3: '<a href="https://github.com/gandtr/skrivist.tools/blob/main/TTS_SERVER_API.md" target="_blank" rel="noopener noreferrer">Serviço TTS Personalizado</a>',
-                ctaMaker: 'Evoluir pelo App',
-                badgePopular: 'Mais Popular',
-                planMemberName: 'Membro',
-                planMemberPrice: '$4.99',
-                planMemberPeriod: 'Por mês (ou $35.99/ano)',
-                featMember1: 'Tudo do plano Grátis',
-                featMember2: 'Livros Ilimitados na Nuvem <br><small><i>(atualmente limitado a 3000)</i></small>',
-                featMember3: 'Serviço TTS <br><small><i>(alimentado por <a href="https://github.com/kyutai-labs/pocket-tts" target="_blank" rel="noopener noreferrer">pocket TTS</a>)</i></small>',
-                ctaPremium: 'Iniciar Teste Grátis',
+                planComicsPrice: 'Grátis',
+                featComics1: 'Leitor de quadrinhos local no seu navegador',
+                featComics2: 'CBZ, CBR e PDF',
+                featComics3: 'Sem conta',
+                ctaComicsCard: 'Abrir comics.skriv.ist',
+                planBooksPrice: 'Grátis',
+                featBooks1: 'Leitor de EPUB e PDF no seu navegador',
+                featBooks2: 'Catálogos OPDS',
+                featBooks3: 'Progresso de leitura',
+                featBooks4: 'Instala offline (PWA)',
+                featBooks5: 'Sem conta, nada sai do seu dispositivo',
+                ctaBooksCard: 'Abrir books.skriv.ist',
+                badgeComingSoon: 'Em breve',
+                planCloudPrice: '$4.90',
+                planCloudPeriod: 'Por mês',
+                featCloud1: 'Sua biblioteca sincronizada entre dispositivos',
+                featCloud2: 'Vozes de texto para fala hospedadas',
+                featCloud3: 'OPDS + plugin do Calibre',
+                featCloud4: 'Login com Google ou Apple',
+                ctaCloudCard: 'Entrar na lista de espera',
+                cloudWaitlistNote: 'Vamos te avisar por e-mail uma vez quando o Cloud abrir.',
                 footerCopy: '© 2026 skriv.ist | Feito com cuidado',
                 footerBy: 'Por',
                 footerPrivacy: 'Privacidade',
                 footerTerms: 'Termos',
                 footerSupport: 'Suporte',
+                footerApp: 'Abrir o app',
                 ariaLanguage: 'Alterar idioma',
                 ariaTheme: 'Ativar ou desativar o modo escuro',
                 ariaVideo: 'Vídeo promocional do skriv.ist',
@@ -1672,56 +1621,48 @@
                 label: 'PT'
             },
             de: {
-                booksTitle: "Deine Bücher, auf deinem Gerät",
-                booksDesc: "Lies EPUBs und PDFs, verbinde einen OPDS-Katalog und speichere deinen Lesefortschritt lokal. Ohne Konto oder Cloud-Bibliothek.",
-                booksCta: "books.skriv.ist öffnen",
-
                 headline: 'Wo Geschichten<br>ihren Atem finden.',
                 subheadline: 'Ein ruhiges, minimalistisches Lese-Refugium, das den Lärm mildert und deinen Geist frei durch die Seiten wandern lässt.',
-                ctaButton: 'Kostenlos Lesen Beginnen',
+                ctaButton: 'Lesen beginnen, kostenlos',
                 eyebrow: 'Ein ruhiger Ort zum Lesen',
-                ctaNote: 'Für immer kostenlos · funktioniert offline',
+                ctaNote: 'Kostenlos · lokal · kein Konto nötig',
+                ctaComics: 'Comics lesen? <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: 'Ein Sanfter Raum',
                 feature1Desc: 'Frei von algorithmischen Ablenkungen und Gamification. 4 wunderschöne Lesethemen, inklusive E-Paper und Sepia.',
                 feature2Title: 'Natürliche Synchronisation',
                 feature2Desc: 'Deine Bibliothek fließt mühelos zwischen Geräten. Als App installieren für ruhendes Offline-Lesen; wir synchronisieren leise bei erneuter Verbindung.',
                 feature3Title: 'Harmonische Integrationen',
                 feature3Desc: 'Erweitere deine Sammlung über die Festplatte hinaus. Verbinde deine entfernte Calibre-Bibliothek oder durchsuche OPDS-Kataloge.',
-                comicsTitle: 'Ein kostenloser Comic-Reader',
-                comicsDesc: 'comics.skriv.ist liest CBZ, CBR und PDF Bild für Bild im Browser. Unabhängig von skriv.ist. Es wird nichts hochgeladen.',
-                comicsCta: 'comics.skriv.ist öffnen',
+                feature3OpdsNote: 'OPDS funktioniert schon heute in <a href="https://books.skriv.ist">Books</a>, kostenlos.',
+                badgeCloudSoon: 'Cloud · demnächst',
                 pricingTitle: 'Einfache, ruhige Preise',
-                choosePath: 'Wähle deinen Weg:',
-                planFreeName: 'Kostenlos',
-                planFreePrice: '0$',
-                planFreePeriod: 'Für immer',
-                featFree1: 'Offline Web-App (PWA)',
-                featFree2: '10 Bücher Cloud-Limit',
-                featFree3: 'Fortschritts-Synchronisation',
-                featFree4: '4 Themen & Umgebungsgeräusche',
-                featFree5: 'Browser Text-to-Speech API',
-                featFree6: '<a href="https://github.com/gandtr/skrivist.tools/tree/main/calibre-plugin" target="_blank" rel="noopener noreferrer">Calibre Plugin</a>',
-                ctaFree: 'Loslesen',
-                planMakerName: 'Maker',
-                planMakerPrice: '9.99$',
-                planMakerPeriod: 'Einmalzahlung',
-                featMaker1: 'Alles aus Kostenlos',
-                featMaker2: 'Externe OPDS-Kataloge',
-                featMaker3: '<a href="https://github.com/gandtr/skrivist.tools/blob/main/TTS_SERVER_API.md" target="_blank" rel="noopener noreferrer">Benutzerdefinierter TTS-Dienst</a>',
-                ctaMaker: 'In der App upgraden',
-                badgePopular: 'Am Beliebtesten',
-                planMemberName: 'Mitglied',
-                planMemberPrice: '4.99$',
-                planMemberPeriod: 'Pro Monat (oder 35.99$/Jahr)',
-                featMember1: 'Alles aus Kostenlos',
-                featMember2: 'Unbegrenzte Cloud-Bücher <br><small><i>(derzeit auf 3000 begrenzt)</i></small>',
-                featMember3: 'TTS-Dienst <br><small><i>(auf Basis von <a href="https://github.com/kyutai-labs/pocket-tts" target="_blank" rel="noopener noreferrer">pocket TTS</a>)</i></small>',
-                ctaPremium: 'Kostenlos Testen',
+                planComicsPrice: 'Kostenlos',
+                featComics1: 'Lokaler Comic-Reader in deinem Browser',
+                featComics2: 'CBZ, CBR und PDF',
+                featComics3: 'Kein Konto nötig',
+                ctaComicsCard: 'comics.skriv.ist öffnen',
+                planBooksPrice: 'Kostenlos',
+                featBooks1: 'EPUB- und PDF-Reader in deinem Browser',
+                featBooks2: 'OPDS-Kataloge',
+                featBooks3: 'Lesefortschritt',
+                featBooks4: 'Offline installierbar (PWA)',
+                featBooks5: 'Kein Konto nötig, nichts verlässt dein Gerät',
+                ctaBooksCard: 'books.skriv.ist öffnen',
+                badgeComingSoon: 'Demnächst',
+                planCloudPrice: '4,90 $',
+                planCloudPeriod: 'Pro Monat',
+                featCloud1: 'Deine Bibliothek geräteübergreifend synchronisiert',
+                featCloud2: 'Gehostete Text-zu-Sprache-Stimmen',
+                featCloud3: 'OPDS + Calibre-Plugin',
+                featCloud4: 'Anmeldung mit Google oder Apple',
+                ctaCloudCard: 'Warteliste beitreten',
+                cloudWaitlistNote: 'Wir schreiben dir einmal per E-Mail, wenn Cloud startet.',
                 footerCopy: '© 2026 skriv.ist | Mit Sorgfalt gefertigt',
                 footerBy: 'Von',
                 footerPrivacy: 'Datenschutz',
                 footerTerms: 'Nutzungsbedingungen',
                 footerSupport: 'Support',
+                footerApp: 'App öffnen',
                 ariaLanguage: 'Sprache ändern',
                 ariaTheme: 'Dunkelmodus umschalten',
                 ariaVideo: 'skriv.ist Werbevideo',
@@ -1729,56 +1670,48 @@
                 label: 'DE'
             },
             fr: {
-                booksTitle: "Vos livres, sur votre appareil",
-                booksDesc: "Lisez des EPUB et des PDF, connectez un catalogue OPDS et conservez votre progression localement. Sans compte ni bibliothèque dans le cloud.",
-                booksCta: "Ouvrir books.skriv.ist",
-
                 headline: 'Là où les histoires<br>trouvent leur souffle.',
                 subheadline: 'Un sanctuaire de lecture tranquilo et minimaliste, conçu pour adoucir le bruit et laisser votre esprit vagabonder librement à travers les pages.',
-                ctaButton: 'Commencer à Lire Gratuitement',
+                ctaButton: 'Commencer à lire, gratuit',
                 eyebrow: 'Un endroit calme pour lire',
-                ctaNote: 'Gratuit pour toujours · fonctionne hors ligne',
+                ctaNote: 'Gratuit · local · sans compte',
+                ctaComics: 'Vous lisez des BD ? <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: 'Un Espace Doux',
                 feature1Desc: 'Sans distractions algorithmiques ni gamification. 4 magnifiques thèmes de lecture dont E-paper et Sépia.',
                 feature2Title: 'Synchronisation Naturelle',
                 feature2Desc: 'Votre bibliothèque circule sans effort. Installez en tant qu\'application pour lire hors ligne en paix; la synchronisation se fait discrètement au retour.',
                 feature3Title: 'Intégrations Harmoniques',
                 feature3Desc: 'Étendez votre collection au-delà du disque local. Connectez votre bibliothèque Calibre distante ou parcourez les catalogues OPDS avec élégance.',
-                comicsTitle: 'Un lecteur de BD gratuit',
-                comicsDesc: 'comics.skriv.ist lit les CBZ, CBR et PDF case par case, dans le navigateur. Indépendant de skriv.ist. Rien n\'est envoyé.',
-                comicsCta: 'Ouvrir comics.skriv.ist',
+                feature3OpdsNote: 'OPDS fonctionne dès aujourd\'hui dans <a href="https://books.skriv.ist">Books</a>, gratuitement.',
+                badgeCloudSoon: 'Cloud · bientôt disponible',
                 pricingTitle: 'Prix Simples et Discrets',
-                choosePath: 'Choisissez votre voie :',
-                planFreeName: 'Gratuit',
-                planFreePrice: '0 $',
-                planFreePeriod: 'Pour toujours',
-                featFree1: 'Application Web Hors ligne (PWA)',
-                featFree2: 'Limite de 10 Livres Cloud',
-                featFree3: 'Synchronisation de la progression',
-                featFree4: '4 Thèmes & Sons d\'ambiance',
-                featFree5: 'Synthèse vocale du navigateur',
-                featFree6: '<a href="https://github.com/gandtr/skrivist.tools/tree/main/calibre-plugin" target="_blank" rel="noopener noreferrer">Plugin Calibre</a>',
-                ctaFree: 'Commencer la lecture',
-                planMakerName: 'Maker',
-                planMakerPrice: '9,99 $',
-                planMakerPeriod: 'Paiement Unique',
-                featMaker1: 'Tout du plan Gratuit',
-                featMaker2: 'Catalogues OPDS Distants',
-                featMaker3: '<a href="https://github.com/gandtr/skrivist.tools/blob/main/TTS_SERVER_API.md" target="_blank" rel="noopener noreferrer">Service TTS Personnalisé</a>',
-                ctaMaker: 'Mettre à niveau',
-                badgePopular: 'Le Plus Populaire',
-                planMemberName: 'Membre',
-                planMemberPrice: '4,99 $',
-                planMemberPeriod: 'Par Mois (ou 35,99 $/an)',
-                featMember1: 'Tout du plan Gratuit',
-                featMember2: 'Livres Cloud Illimités <br><small><i>(actuellement limité à 3000)</i></small>',
-                featMember3: 'Service TTS <br><small><i>(propulsé par <a href="https://github.com/kyutai-labs/pocket-tts" target="_blank" rel="noopener noreferrer">pocket TTS</a>)</i></small>',
-                ctaPremium: 'Démarrer l\'essai gratuit',
+                planComicsPrice: 'Gratuit',
+                featComics1: 'Lecteur de BD local dans votre navigateur',
+                featComics2: 'CBZ, CBR et PDF',
+                featComics3: 'Sans compte',
+                ctaComicsCard: 'Ouvrir comics.skriv.ist',
+                planBooksPrice: 'Gratuit',
+                featBooks1: 'Lecteur EPUB et PDF dans votre navigateur',
+                featBooks2: 'Catalogues OPDS',
+                featBooks3: 'Progression de lecture',
+                featBooks4: 'Installation hors ligne (PWA)',
+                featBooks5: 'Sans compte, rien ne quitte votre appareil',
+                ctaBooksCard: 'Ouvrir books.skriv.ist',
+                badgeComingSoon: 'Bientôt disponible',
+                planCloudPrice: '4,90 $',
+                planCloudPeriod: 'Par Mois',
+                featCloud1: 'Votre bibliothèque synchronisée entre appareils',
+                featCloud2: 'Voix de synthèse vocale hébergées',
+                featCloud3: 'OPDS + plugin Calibre',
+                featCloud4: 'Connexion avec Google ou Apple',
+                ctaCloudCard: 'Rejoindre la liste d\'attente',
+                cloudWaitlistNote: 'Nous vous enverrons un e-mail une seule fois quand Cloud ouvrira.',
                 footerCopy: '© 2026 skriv.ist | Fait avec soin',
                 footerBy: 'Par',
                 footerPrivacy: 'Confidentialité',
                 footerTerms: 'Conditions',
                 footerSupport: 'Support',
+                footerApp: 'Ouvrir l\'app',
                 ariaLanguage: 'Changer de langue',
                 ariaTheme: 'Activer ou désactiver le mode sombre',
                 ariaVideo: 'Vidéo promotionnelle de skriv.ist',
