@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**skriv.ist** is the marketing landing page for a minimalist, distraction-free ebook reader PWA. The app is live — the page showcases the product (hero promo video, feature highlights, pricing tiers) and drives signups to the app at [app.skriv.ist](https://app.skriv.ist). Made by [Gand Technology Services](https://gand.tr).
+**skriv.ist** is the marketing landing page for three reading products: [comics.skriv.ist](https://comics.skriv.ist) and [books.skriv.ist](https://books.skriv.ist) (free, local-only, no account), and Skrivist Cloud (subscription sync/TTS, not yet for sale — waitlist only). The page showcases all three (hero promo video, feature highlights, three product cards) and drives the primary CTA to [books.skriv.ist](https://books.skriv.ist). The original app at [app.skriv.ist](https://app.skriv.ist) still runs unchanged for existing accounts but is no longer promoted; a footer link keeps it reachable. Made by [Gand Technology Services](https://gand.tr).
 
 - **Live URL:** https://skriv.ist
 - **App:** https://app.skriv.ist
@@ -77,7 +77,7 @@
 - **Top bar** - `.top-bar` in top-right of container holds the language picker and theme toggle side by side.
 - **Theme toggle** - sun/moon SVG icons. `.theme-toggle` styles must override inherited `button` styles.
 - **Language picker** - dropdown with 7 languages (EN, JA, TR, ES, PT, DE, FR). Stored in `localStorage` key `skrivist-lang`. All translatable text uses `data-i18n` attributes; placeholders use `data-i18n-placeholder`; accessible names use `data-i18n-aria`.
-- **Primary CTA** - "Start Reading for Free" links to the app at `app.skriv.ist`; the hero promo video and pricing tiers (Free / Maker / Member) support conversion. There is no email/waitlist form.
+- **Primary CTA** - "Start reading, free" links to `books.skriv.ist`; the hero promo video and three product cards (Comics free / Books free / Cloud) support conversion. Cloud is not for sale yet — its card links to a `mailto:` waitlist address (`contact@skriv.ist`), not a signup form.
 - **Mobile responsive** - media queries at the 600px breakpoint for mobile layout.
 - **Hero promo video** - locale-aware (swaps per language) and orientation-aware: `updateHeroVideo()` serves the vertical 9:16 cut on mobile (≤600px) and the landscape 16:9 cut on desktop, keyed to the same 600px breakpoint as the CSS. Sources and posters follow `media/skrivist-promo-{lang}[-vertical].mp4` / `media/poster-{lang}[-vertical].jpg`.
 - **SEO is configured** - canonical tag, OG/Twitter cards, JSON-LD schema, keywords meta, robots.txt + sitemap.xml, and 404.html are all in place. New static files must also be added to the "Assemble site bundle" step in `deploy.yml`. The www→apex 301 lives in a Cloudflare zone **Redirect Rule** (dashboard: Rules → Redirect Rules), NOT in a Pages `_redirects` file — Pages `_redirects` cannot match on hostname.

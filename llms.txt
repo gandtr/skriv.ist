@@ -5,8 +5,10 @@
 ## Products
 
 - [Skriv.ist landing](https://skriv.ist/): Product introduction and features
-- [Skriv.ist app](https://app.skriv.ist/): Start reading for free
 - [comics.skriv.ist](https://comics.skriv.ist/): Free comics reader, independent of skriv.ist; files never leave the browser
+- [books.skriv.ist](https://books.skriv.ist/): Local-only EPUB and PDF reader with OPDS, reading progress, and offline PWA installation; no account or cloud library
+- Skrivist Cloud: Coming soon — $4.90/month for library sync across devices, hosted text-to-speech, and the Calibre plugin. Not for sale yet; join the waitlist by emailing contact@skriv.ist
+- [Skriv.ist app](https://app.skriv.ist/): The original app, for existing accounts only; no longer promoted
 
 ## Features
 
@@ -18,5 +20,3 @@
 
 - [Gand studio](https://gand.tr/)
 - [contact@gand.tr](mailto:contact@gand.tr)
-
-- [books.skriv.ist](https://books.skriv.ist/): Local-only EPUB and PDF reader with OPDS, reading progress, and offline PWA installation; no account or cloud library
