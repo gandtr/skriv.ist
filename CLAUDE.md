@@ -33,6 +33,9 @@
 ├── robots.txt                 # Search engine directives (+ sitemap reference)
 ├── sitemap.xml                # Sitemap for https://skriv.ist/
 ├── 404.html                   # Real 404 page — disables Cloudflare Pages' SPA fallback
+├── llms.txt                   # Plain-text product summary for LLM crawlers
+├── favicon.ico, apple-touch-icon.png  # Rendered from media/favicon.svg (ImageMagick)
+├── site.webmanifest           # Minimal web app manifest (name + icons)
 └── CLAUDE.md                  # This file
 ```
 

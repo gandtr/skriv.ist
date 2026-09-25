@@ -40,7 +40,7 @@ jobs:
       - name: Assemble site bundle
         run: |
           mkdir -p dist
-          cp index.html 404.html robots.txt sitemap.xml llms.txt privacy.html terms.html support.html dist/
+          cp index.html 404.html robots.txt sitemap.xml llms.txt privacy.html terms.html support.html favicon.ico apple-touch-icon.png site.webmanifest dist/
           cp -r media dist/media
 
       - name: Ensure Pages project exists

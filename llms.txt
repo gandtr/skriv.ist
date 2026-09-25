@@ -1,22 +1,22 @@
-# Skriv.ist
+# Skrivist
 
-> Skriv.ist is a minimalist, distraction-free ebook reader PWA — a calm reading sanctuary with no algorithms and no social feeds. Made by Gand (gand.tr), an indie studio between Istanbul and Tokyo.
+> Skrivist (skriv.ist) is a family of calm, distraction-free reading apps: two free readers that run entirely in the browser (Comics and Books) and Skrivist Cloud, a paid sync and text-to-speech service that is coming soon. Made by Gand (https://gand.tr).
 
 ## Products
 
-- [Skriv.ist landing](https://skriv.ist/): Product introduction and features
-- [comics.skriv.ist](https://comics.skriv.ist/): Free comics reader, independent of skriv.ist; files never leave the browser
-- [books.skriv.ist](https://books.skriv.ist/): Local-only EPUB and PDF reader with OPDS, reading progress, and offline PWA installation; no account or cloud library
-- Skrivist Cloud: Coming soon — $4.90/month for library sync across devices, hosted text-to-speech, and the Calibre plugin. Not for sale yet; join the waitlist by emailing contact@skriv.ist
-- [Skriv.ist app](https://app.skriv.ist/): The original app, for existing accounts only; no longer promoted
+- [Skrivist Comics](https://comics.skriv.ist/): Free comic reader in the browser. Reads CBZ, CBR and PDF, finds the panels and steps through them panel by panel. Also browses OPDS catalogues, Kavita and Armarium libraries. No account; files never leave the device; works offline once cached.
+- [Skrivist Books](https://books.skriv.ist/): Free EPUB and PDF reader in the browser. OPDS 1 and OPDS 2 catalogues, read-only browsing of a local Calibre library folder, reading progress, notes with Obsidian and Anki export, and offline install as a PWA. No account; books stay on the device.
+- Skrivist Cloud (https://app.skriv.ist/): Coming soon, not for sale yet. $4.90/month with a 7-day trial. Library sync across devices, hosted text-to-speech voices, OPDS, and the Calibre plugin. Sign-in with Google only. Join the waitlist by emailing contact@skriv.ist.
+- [Skrivist Calibre plugin](https://github.com/gandtr/skrivist.tools): Sends EPUB books from Calibre to a Skrivist Cloud library.
 
-## Features
+## Pages
 
-- Distraction-free reading: no algorithms, no social
-- Natural sync: offline-first sync across devices
-- Harmonic formats: EPUB support
+- [Home](https://skriv.ist/): Product overview and pricing
+- [Privacy](https://skriv.ist/privacy)
+- [Terms](https://skriv.ist/terms)
+- [Support](https://skriv.ist/support)
 
 ## Contact
 
-- [Gand studio](https://gand.tr/)
-- [contact@gand.tr](mailto:contact@gand.tr)
+- [contact@skriv.ist](mailto:contact@skriv.ist)
+- [Gand](https://gand.tr/)
