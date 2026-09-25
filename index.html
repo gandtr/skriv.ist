@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>skriv.ist - Minimalist Reading App & E-Book Sanctuary</title>
-    <meta name="description" content="skriv.ist is a minimalist reading app designed for deep focus. Enjoy a distraction-free environment, offline PWA access, and seamless EPUB cloud sync.">
+    <title>Skrivist — Free EPUB, PDF &amp; Comic Reader in Your Browser</title>
+    <meta name="description" content="Read EPUB, PDF, CBZ and CBR locally in your browser. No account, OPDS catalogues. Skrivist Cloud (coming soon) adds sync and TTS for $4.90/mo.">
     <meta name="keywords" content="skriv.ist, minimalist reading app, epub reader, ebook reader, distraction-free reader, reading sanctuary, offline reading, web novel reader, e-ink web reader">
     <link rel="canonical" href="https://skriv.ist/">
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/media/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-    <meta property="og:title" content="skriv.ist - Minimalist Reading App & E-Book Sanctuary" />
-    <meta property="og:description" content="A calm, distraction-free reading app. Where stories find their breath." />
+    <meta property="og:title" content="Skrivist — Free EPUB, PDF &amp; Comic Reader in Your Browser" />
+    <meta property="og:description" content="Read EPUB, PDF, CBZ and CBR locally in your browser. No account, OPDS catalogues. Skrivist Cloud (coming soon) adds sync and TTS for $4.90/mo." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://skriv.ist/" />
     <meta property="og:site_name" content="skriv.ist" />
@@ -21,71 +24,91 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://skriv.ist/media/poster-en.jpg" />
-    <meta name="twitter:title" content="skriv.ist - Minimalist Reading App & E-Book Sanctuary" />
-    <meta name="twitter:description" content="A calm, distraction-free reading app. Where stories find their breath." />
+    <meta name="twitter:title" content="Skrivist — Free EPUB, PDF &amp; Comic Reader in Your Browser" />
+    <meta name="twitter:description" content="Read EPUB, PDF, CBZ and CBR locally in your browser. No account, OPDS catalogues. Skrivist Cloud (coming soon) adds sync and TTS for $4.90/mo." />
 
     <script type="application/ld+json">
 {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "skriv.ist",
-    "applicationCategory": "MultimediaApplication",
-    "operatingSystem": "Web",
-    "description": "skriv.ist is a minimalist reading app designed for deep focus. Enjoy a distraction-free environment, offline PWA access, and seamless EPUB cloud sync.",
-    "url": "https://skriv.ist/",
-    "offers": [
+    "@graph": [
         {
-            "@type": "Offer",
-            "name": "Comics",
-            "price": "0",
-            "priceCurrency": "USD",
-            "url": "https://comics.skriv.ist"
+            "@type": "Organization",
+            "@id": "https://gand.tr/#organization",
+            "name": "Gand",
+            "url": "https://gand.tr",
+            "sameAs": [
+                "https://github.com/gandtr"
+            ]
         },
         {
-            "@type": "Offer",
-            "name": "Books",
-            "price": "0",
-            "priceCurrency": "USD",
-            "url": "https://books.skriv.ist"
-        },
-        {
-            "@type": "Offer",
-            "name": "Skrivist Cloud",
-            "price": "4.90",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/PreOrder",
-            "url": "https://skriv.ist/#pricing"
-        }
-    ],
-    "creator": {
-        "@type": "Organization",
-        "name": "Gand Technology Services",
-        "url": "https://gand.tr"
-    },
-    "isRelatedTo": [
-        {
-            "@type": "SoftwareApplication",
-            "name": "comics.skriv.ist",
-            "url": "https://comics.skriv.ist",
-            "applicationCategory": "MultimediaApplication",
-            "operatingSystem": "Web",
-            "description": "A free comics reader. Independent of skriv.ist; files never leave the browser."
+            "@type": "WebSite",
+            "@id": "https://skriv.ist/#website",
+            "name": "Skrivist",
+            "alternateName": "skriv.ist",
+            "url": "https://skriv.ist/",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://gand.tr/#organization" }
         },
         {
             "@type": "SoftwareApplication",
-            "name": "books.skriv.ist",
-            "url": "https://books.skriv.ist",
+            "name": "skriv.ist",
             "applicationCategory": "MultimediaApplication",
             "operatingSystem": "Web",
-            "description": "Local-only EPUB and PDF reader with OPDS and offline access. No account or cloud library."
+            "description": "Read EPUB, PDF, CBZ and CBR locally in your browser. No account, OPDS catalogues. Skrivist Cloud (coming soon) adds sync and TTS for $4.90/mo.",
+            "url": "https://skriv.ist/",
+            "offers": [
+                {
+                    "@type": "Offer",
+                    "name": "Comics",
+                    "price": "0",
+                    "priceCurrency": "USD",
+                    "url": "https://comics.skriv.ist"
+                },
+                {
+                    "@type": "Offer",
+                    "name": "Books",
+                    "price": "0",
+                    "priceCurrency": "USD",
+                    "url": "https://books.skriv.ist"
+                },
+                {
+                    "@type": "Offer",
+                    "name": "Skrivist Cloud",
+                    "price": "4.90",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/PreOrder",
+                    "url": "https://skriv.ist/#pricing"
+                }
+            ],
+            "creator": { "@id": "https://gand.tr/#organization" },
+            "publisher": { "@id": "https://gand.tr/#organization" },
+            "isRelatedTo": [
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "comics.skriv.ist",
+                    "url": "https://comics.skriv.ist",
+                    "applicationCategory": "MultimediaApplication",
+                    "operatingSystem": "Web",
+                    "description": "A free CBZ, CBR and PDF comic reader. Independent of skriv.ist; files never leave the browser."
+                },
+                {
+                    "@type": "SoftwareApplication",
+                    "name": "books.skriv.ist",
+                    "url": "https://books.skriv.ist",
+                    "applicationCategory": "MultimediaApplication",
+                    "operatingSystem": "Web",
+                    "description": "Local-only EPUB and PDF reader with OPDS and offline access. No account or cloud library."
+                }
+            ],
+            "featureList": [
+                "Minimalist reading app",
+                "Distraction-free reading environment",
+                "Offline PWA access",
+                "EPUB support via OPDS and Calibre",
+                "Cloud progress sync across devices (Skrivist Cloud, coming soon)",
+                "Hosted text-to-speech (Skrivist Cloud, coming soon)"
+            ]
         }
-    ],
-    "featureList": [
-        "Minimalist reading app",
-        "Distraction-free reading environment",
-        "Offline PWA access",
-        "Cloud progress sync across devices",
-        "EPUB support via OPDS and Calibre"
     ]
 }
     </script>
@@ -488,6 +511,18 @@
             letter-spacing: -0.5px;
             font-weight: 400;
             font-style: italic;
+        }
+
+        /* Plain statement of what the product is, under the brand h1 */
+        .hero-what {
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            max-width: 650px;
+            margin: -0.5rem auto 1rem auto;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+            line-height: 1.6;
+            text-wrap: balance;
         }
 
         .hero-sub {
@@ -1247,6 +1282,7 @@
                     <span data-i18n="eyebrow">A quiet place to read</span>
                 </div>
                 <h1 class="hero-entrance" style="animation-delay: 0.08s;" data-i18n="headline">Where stories find <br>their breath.</h1>
+                <p class="hero-what hero-entrance" style="animation-delay: 0.12s;" data-i18n="heroWhat">Free EPUB, PDF and comic reader. Runs in your browser; nothing leaves your device.</p>
                 <p class="hero-sub hero-entrance" style="animation-delay: 0.16s;" data-i18n="subheadline">
                     A quiet, minimalist reading sanctuary designed to soften the noise and let your mind wander freely through the pages.
                 </p>
@@ -1349,8 +1385,8 @@
                         <ul class="plan-features">
                             <li data-i18n="featCloud1">Your library synced across devices</li>
                             <li data-i18n="featCloud2">Hosted text-to-speech voices</li>
-                            <li data-i18n="featCloud3">OPDS + Calibre plugin</li>
-                            <li data-i18n="featCloud4">Google or Apple sign-in</li>
+                            <li data-i18n="featCloud3">OPDS + <a href="https://github.com/gandtr/skrivist.tools">Calibre plugin</a></li>
+                            <li data-i18n="featCloud4">Google sign-in</li>
                         </ul>
                         <a href="mailto:contact@skriv.ist?subject=Skrivist%20Cloud%20waitlist" class="plan-cta secondary" data-i18n="ctaCloudCard">Join the waitlist</a>
                         <p class="plan-note" data-i18n="cloudWaitlistNote">We'll email you once when Cloud opens.</p>
@@ -1377,6 +1413,7 @@
         var T = {
             en: {
                 headline: 'Where stories find <br>their breath.',
+                heroWhat: 'Free EPUB, PDF and comic reader. Runs in your browser; nothing leaves your device.',
                 subheadline: 'A quiet, minimalist reading sanctuary designed to soften the noise and let your mind wander freely through the pages.',
                 ctaButton: 'Start reading, free',
                 eyebrow: 'A quiet place to read',
@@ -1408,8 +1445,8 @@
                 planCloudPeriod: 'Per Month',
                 featCloud1: 'Your library synced across devices',
                 featCloud2: 'Hosted text-to-speech voices',
-                featCloud3: 'OPDS + Calibre plugin',
-                featCloud4: 'Google or Apple sign-in',
+                featCloud3: 'OPDS + <a href="https://github.com/gandtr/skrivist.tools">Calibre plugin</a>',
+                featCloud4: 'Google sign-in',
                 ctaCloudCard: 'Join the waitlist',
                 cloudWaitlistNote: "We'll email you once when Cloud opens.",
                 footerCopy: '© 2026 skriv.ist | Crafted with care',
@@ -1426,6 +1463,7 @@
             },
             ja: {
                 headline: '物語が息づく<br>場所。',
+                heroWhat: '無料の EPUB・PDF・コミックリーダー。ブラウザで動き、データは端末の外に出ません。',
                 subheadline: '静かでミニマルな読書の聖域。雑音をやわらげ、ページの中を自由にさまよえる空間です。',
                 ctaButton: '無料で読み始める',
                 eyebrow: '静かに読書できる場所',
@@ -1457,8 +1495,8 @@
                 planCloudPeriod: '月額',
                 featCloud1: '端末間でライブラリを同期',
                 featCloud2: 'クラウド音声読み上げ',
-                featCloud3: 'OPDS + Calibre プラグイン',
-                featCloud4: 'Google または Apple でサインイン',
+                featCloud3: 'OPDS + <a href="https://github.com/gandtr/skrivist.tools">Calibre プラグイン</a>',
+                featCloud4: 'Google でサインイン',
                 ctaCloudCard: '順番待ちリストに登録',
                 cloudWaitlistNote: 'Cloud が公開されたら一度だけメールでお知らせします。',
                 footerCopy: '© 2026 skriv.ist | 丁寧に作られました',
@@ -1475,6 +1513,7 @@
             },
             tr: {
                 headline: 'Hikayelerin nefes<br>bulduğu yer.',
+                heroWhat: 'Ücretsiz EPUB, PDF ve çizgi roman okuyucu. Tarayıcında çalışır; hiçbir şey cihazından çıkmaz.',
                 subheadline: 'Gürültüyü yumuşatan, zihninizi sayfalar arasında özgürce dolaştıran sessiz ve minimalist bir okuma sığınağı.',
                 ctaButton: 'Okumaya başla, ücretsiz',
                 eyebrow: 'Sakin bir okuma alanı',
@@ -1506,8 +1545,8 @@
                 planCloudPeriod: 'Aylık',
                 featCloud1: 'Kitaplığın cihazlar arasında senkronize',
                 featCloud2: 'Barındırılan sesli okuma',
-                featCloud3: 'OPDS + Calibre eklentisi',
-                featCloud4: 'Google veya Apple ile giriş',
+                featCloud3: 'OPDS + <a href="https://github.com/gandtr/skrivist.tools">Calibre eklentisi</a>',
+                featCloud4: 'Google ile giriş',
                 ctaCloudCard: 'Bekleme listesine katıl',
                 cloudWaitlistNote: 'Cloud açıldığında sana bir kez e-posta göndereceğiz.',
                 footerCopy: '© 2026 skriv.ist | Özenle yapıldı',
@@ -1524,6 +1563,7 @@
             },
             es: {
                 headline: 'Donde las historias<br>encuentran su aliento.',
+                heroWhat: 'Lector gratuito de EPUB, PDF y cómics. Funciona en tu navegador; nada sale de tu dispositivo.',
                 subheadline: 'Un santuario de lectura tranquilo y minimalista, diseñado para suavizar el ruido y dejar que tu mente vague libremente entre las páginas.',
                 ctaButton: 'Empieza a leer, gratis',
                 eyebrow: 'Un lugar tranquilo para leer',
@@ -1555,8 +1595,8 @@
                 planCloudPeriod: 'Al mes',
                 featCloud1: 'Tu biblioteca sincronizada entre dispositivos',
                 featCloud2: 'Voces de texto a voz alojadas',
-                featCloud3: 'OPDS + plugin de Calibre',
-                featCloud4: 'Inicio de sesión con Google o Apple',
+                featCloud3: 'OPDS + <a href="https://github.com/gandtr/skrivist.tools">plugin de Calibre</a>',
+                featCloud4: 'Inicio de sesión con Google',
                 ctaCloudCard: 'Unirse a la lista de espera',
                 cloudWaitlistNote: 'Te avisaremos por correo una vez cuando Cloud esté disponible.',
                 footerCopy: '© 2026 skriv.ist | Hecho con cuidado',
@@ -1573,6 +1613,7 @@
             },
             pt: {
                 headline: 'Onde as histórias<br>encontram seu respiro.',
+                heroWhat: 'Leitor grátis de EPUB, PDF e quadrinhos. Funciona no seu navegador; nada sai do seu dispositivo.',
                 subheadline: 'Um santuário de leitura tranquilo e minimalista, projetado para suavizar o ruído e deixar sua mente vagar livremente pelas páginas.',
                 ctaButton: 'Comece a ler, grátis',
                 eyebrow: 'Um lugar tranquilo para ler',
@@ -1604,8 +1645,8 @@
                 planCloudPeriod: 'Por mês',
                 featCloud1: 'Sua biblioteca sincronizada entre dispositivos',
                 featCloud2: 'Vozes de texto para fala hospedadas',
-                featCloud3: 'OPDS + plugin do Calibre',
-                featCloud4: 'Login com Google ou Apple',
+                featCloud3: 'OPDS + <a href="https://github.com/gandtr/skrivist.tools">plugin do Calibre</a>',
+                featCloud4: 'Login com Google',
                 ctaCloudCard: 'Entrar na lista de espera',
                 cloudWaitlistNote: 'Vamos te avisar por e-mail uma vez quando o Cloud abrir.',
                 footerCopy: '© 2026 skriv.ist | Feito com cuidado',
@@ -1622,6 +1663,7 @@
             },
             de: {
                 headline: 'Wo Geschichten<br>ihren Atem finden.',
+                heroWhat: 'Kostenloser EPUB-, PDF- und Comic-Reader. Läuft in deinem Browser; nichts verlässt dein Gerät.',
                 subheadline: 'Ein ruhiges, minimalistisches Lese-Refugium, das den Lärm mildert und deinen Geist frei durch die Seiten wandern lässt.',
                 ctaButton: 'Lesen beginnen, kostenlos',
                 eyebrow: 'Ein ruhiger Ort zum Lesen',
@@ -1653,8 +1695,8 @@
                 planCloudPeriod: 'Pro Monat',
                 featCloud1: 'Deine Bibliothek geräteübergreifend synchronisiert',
                 featCloud2: 'Gehostete Text-zu-Sprache-Stimmen',
-                featCloud3: 'OPDS + Calibre-Plugin',
-                featCloud4: 'Anmeldung mit Google oder Apple',
+                featCloud3: 'OPDS + <a href="https://github.com/gandtr/skrivist.tools">Calibre-Plugin</a>',
+                featCloud4: 'Anmeldung mit Google',
                 ctaCloudCard: 'Warteliste beitreten',
                 cloudWaitlistNote: 'Wir schreiben dir einmal per E-Mail, wenn Cloud startet.',
                 footerCopy: '© 2026 skriv.ist | Mit Sorgfalt gefertigt',
@@ -1671,6 +1713,7 @@
             },
             fr: {
                 headline: 'Là où les histoires<br>trouvent leur souffle.',
+                heroWhat: 'Lecteur EPUB, PDF et BD gratuit. Fonctionne dans votre navigateur ; rien ne quitte votre appareil.',
                 subheadline: 'Un sanctuaire de lecture tranquilo et minimaliste, conçu pour adoucir le bruit et laisser votre esprit vagabonder librement à travers les pages.',
                 ctaButton: 'Commencer à lire, gratuit',
                 eyebrow: 'Un endroit calme pour lire',
@@ -1702,8 +1745,8 @@
                 planCloudPeriod: 'Par Mois',
                 featCloud1: 'Votre bibliothèque synchronisée entre appareils',
                 featCloud2: 'Voix de synthèse vocale hébergées',
-                featCloud3: 'OPDS + plugin Calibre',
-                featCloud4: 'Connexion avec Google ou Apple',
+                featCloud3: 'OPDS + <a href="https://github.com/gandtr/skrivist.tools">plugin Calibre</a>',
+                featCloud4: 'Connexion avec Google',
                 ctaCloudCard: 'Rejoindre la liste d\'attente',
                 cloudWaitlistNote: 'Nous vous enverrons un e-mail une seule fois quand Cloud ouvrira.',
                 footerCopy: '© 2026 skriv.ist | Fait avec soin',
