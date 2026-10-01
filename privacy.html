@@ -206,32 +206,36 @@
 
         <main id="main">
             <h1>Privacy Policy</h1>
-            <p class="last-updated">Last updated: September 24, 2026</p>
+            <p class="last-updated">Last updated: October 2, 2026</p>
 
-            <p>This Privacy Policy explains how <strong>Gand Technology Services</strong> ("Gand", "we", "us", or "our") collects, uses, stores, and protects your personal information when you use the <strong>skriv.ist</strong> website and reading application (the "Service"). By using the Service, you agree to the practices described in this policy.</p>
+            <p>This Privacy Policy explains how <strong>Gand Technology Services</strong> ("Gand", "we", "us", or "our") collects, uses, stores, and protects your personal information when you use the <strong>skriv.ist</strong> website and the Skrivist readers (together, the "Service"): <strong>Skrivist Comics</strong> (comics.skriv.ist), <strong>Skrivist Books</strong> (books.skriv.ist), and <strong>Skrivist Cloud</strong> (app.skriv.ist and the Skrivist mobile app). By using the Service, you agree to the practices described in this policy.</p>
 
             <h2>1. Information we collect</h2>
 
+            <h3>Skrivist Comics and Skrivist Books</h3>
+            <p>Comics and Books have no accounts and no cloud library. The files you open, your reading progress, and your settings are kept in your browser's storage on your device; we do not receive them. If you connect an OPDS catalogue or a library server, your browser talks to that server directly. Its address and any sign-in details you choose to save are kept in your browser, and that server's operator handles your requests under its own privacy practices. Page visits are counted with Cloudflare Web Analytics, which does not use cookies or identify individuals.</p>
+            <p>The rest of this section is about Skrivist Cloud.</p>
+
             <h3>Account information</h3>
-            <p>When you sign in, we collect the information provided by your authentication provider (vigil.center single sign-on): a unique user identifier and your display identity (name and handle). The sign-in flow does not share your email address with the Service. We use this solely to identify your account and sync your library across devices.</p>
+            <p>Skrivist Cloud requires an account. Today you sign in through vigil.center, Gand's single sign-on service, with your Google account (or, for some accounts, an email address and password). From vigil.center we receive a unique user identifier and your display identity (name and handle). The sign-in flow does not share your email address with Skrivist. We use this information only to identify your account and sync your library across devices.</p>
 
             <h3>Your books and reading data</h3>
-            <p>To provide cloud sync, we store the EPUB files you upload, cover images, book metadata, reading progress (current location), completion status, and your per-book reading preferences (theme, font, ambient sound, voice). Free-tier accounts have a limited number of cloud books; paid accounts have a higher limit.</p>
+            <p>To provide cloud sync, we store the EPUB files you upload, cover images, book metadata, reading progress (current location), completion status, and your per-book reading preferences (theme, font, ambient sound, voice). If you add books in app.skriv.ist before signing in, they stay on that device until you sign in; when you sign in, they are uploaded to your cloud library, up to its storage limit.</p>
 
             <h3>Text-to-speech</h3>
-            <p>Skrivist offers three read-aloud modes. Browser text-to-speech uses your browser's or operating system's speech voices; depending on the voice you select, the passage may be processed on your device or by that voice provider's service — see your browser's documentation. Skrivist TTS (subscribers) sends the passage being read, the selected voice, and the content language to our speech service to synthesize audio; audio for your own books is not stored on our servers (it may be cached on your device), while audio for the public-domain books in the free library may be cached in shared storage so other readers do not need to re-synthesize it. A custom TTS server (Maker plan) receives the same passage data at the server you configure, which is outside our control.</p>
+            <p>Skrivist offers two read-aloud modes. Browser text-to-speech uses your browser's or operating system's speech voices; depending on the voice you select, the passage may be processed on your device or by that voice provider's service — see your browser's documentation. Skrivist's hosted voices send the passage being read, the selected voice, and the content language to our speech service to synthesize audio. Audio for your own books is not stored on our servers (it may be cached on your device), while audio for the public-domain books in the free library may be cached in shared storage so other readers do not need to re-synthesize it.</p>
 
             <h3>Local device data</h3>
-            <p>The Service is designed to work offline. Books and reading data may be cached locally on your device using IndexedDB or similar browser storage. Theme and language preferences are stored in your browser's localStorage.</p>
+            <p>Skrivist Cloud is designed to work offline. Books and reading data may be cached locally on your device using IndexedDB or similar browser storage. Theme and language preferences are stored in your browser's localStorage.</p>
 
             <h3>Usage and diagnostic data</h3>
-            <p>The app contains no advertising or behavioral-analytics trackers. Our website uses Cloudflare Web Analytics, which does not use cookies or identify individuals. Our servers keep operational logs (request metadata, error details, and in some cases your account identifier and book titles — for example when the cloud-library quota job removes over-limit books) so we can troubleshoot the Service; logs are retained for a limited period, typically 30 days.</p>
+            <p>The Service contains no advertising or behavioral-analytics trackers. Our websites use Cloudflare Web Analytics, which does not use cookies or identify individuals. Our servers keep operational logs (request metadata, error details, and in some cases your account identifier and book titles — for example when books are removed from cloud storage) so we can troubleshoot the Service; logs are retained for a limited period, typically 30 days.</p>
 
             <h3>Payment information</h3>
-            <p>Purchases and subscriptions are processed by our payment partner, Polar. We do not collect or store your credit card details. Polar provides us with transaction identifiers and subscription status so we can manage your entitlements.</p>
+            <p>When you subscribe to Skrivist Cloud, payment is processed by our payment partner, Polar. We do not collect or store your card details. Polar provides us with transaction identifiers and subscription status so we can manage your subscription.</p>
 
             <h3>Cloud waitlist</h3>
-            <p>Cloud waitlist: if you email contact@skriv.ist to join the Cloud waitlist, we keep your email address only to tell you when Cloud opens, then delete it. Ask us any time to remove it.</p>
+            <p>If you email contact@skriv.ist to join the Cloud waitlist, we keep your email address only to tell you when Cloud opens, then delete it. Ask us any time to remove it.</p>
 
             <h2>2. How we use your information</h2>
             <ul>
@@ -246,20 +250,21 @@
             <h2>3. How we share your information</h2>
             <p>We do not sell your personal information. We share data only with trusted service providers who help us operate the Service:</p>
             <ul>
-                <li><strong>Google Firebase</strong> — authentication, cloud database (Firestore), and cloud storage</li>
+                <li><strong>Google Cloud and Firebase</strong> — authentication, cloud database (Firestore), cloud storage, and the servers that run our API and hosted voices</li>
                 <li><strong>Polar</strong> — payment processing and subscription management</li>
                 <li><strong>Cloudflare</strong> — website hosting, analytics, and security</li>
             </ul>
             <p>We may also disclose information if required by law, to protect our rights, or to prevent harm.</p>
 
             <h2>4. Data retention</h2>
-            <p>We keep your account data and uploaded books for as long as your account is active. Cloud storage is subject to your plan's limit (10 cloud books on the Free plan). If your cloud library exceeds the limit — for example after a subscription ends — the app shows warnings on successive days; if the excess remains after the warning period (currently three daily warnings), the least recently updated excess books are removed from cloud storage, including their EPUB files and covers. Copies stored on your devices are not affected. If you delete your account, we will remove your personal information and uploaded content from our active systems within a reasonable period, typically within 30 days. Some anonymized or aggregated data may be retained for analytics and security purposes.</p>
+            <p>We keep your Skrivist Cloud account data and uploaded books for as long as your account is active. Accounts without an active Cloud subscription can keep up to 10 books in cloud storage. If a cloud library is over its limit — for example after a subscription ends — the app shows a warning on three successive days; if the library is still over the limit after that, the least recently updated extra books are removed from cloud storage, including their EPUB files and covers. Copies stored on your devices are not affected. If you delete your account, we will remove your personal information and uploaded content from our active systems within a reasonable period, typically within 30 days. Some anonymized or aggregated data may be retained for analytics and security purposes.</p>
+            <p>Data kept by Skrivist Comics and Skrivist Books lives only in your browser. Clearing the site's data in your browser removes it.</p>
 
             <h2>5. Your rights and choices</h2>
             <p>Depending on your location, you may have the right to access, correct, export, or delete your personal information. You can request account deletion at any time by contacting us. You may also manage cookies and local storage through your browser settings.</p>
 
             <h2>6. Security</h2>
-            <p>We use industry-standard measures to protect your data, including encryption in transit (HTTPS/TLS) and access controls. However, no online service can guarantee absolute security. Please use a strong, unique password for your authentication provider.</p>
+            <p>We use industry-standard measures to protect your data, including encryption in transit (HTTPS/TLS) and access controls. However, no online service can guarantee absolute security. Keep the account you sign in with secure, for example with a strong, unique password and two-step verification.</p>
 
             <h2>7. Children's privacy</h2>
             <p>The Service is not intended for children under 13 years of age (or the minimum legal age in your jurisdiction). We do not knowingly collect personal information from children. If you believe we have collected information from a child, please contact us and we will delete it.</p>
@@ -272,7 +277,7 @@
 
             <h2>10. Contact us</h2>
             <div class="contact-box">
-                <p>If you have questions, concerns, or requests regarding this Privacy Policy or your data, please contact us at <a href="mailto:contact@gand.tr">contact@gand.tr</a>.</p>
+                <p>If you have questions, concerns, or requests regarding this Privacy Policy or your data, please contact us at <a href="mailto:contact@skriv.ist">contact@skriv.ist</a>.</p>
             </div>
         </main>
 
