@@ -26,7 +26,7 @@
 ├── media/                     # Hero promo video assets, per locale (en, ja, tr, es, pt, de, fr)
 │   ├── skrivist-promo-{lang}.mp4           # landscape 16:9 (desktop)
 │   ├── skrivist-promo-{lang}-vertical.mp4  # portrait 9:16 (mobile)
-│   ├── captions-{lang}[-vertical].vtt      # WebVTT captions (derived from promo VO scripts)
+│   ├── captions-{lang}[-vertical].vtt      # WebVTT captions (`npm run captions` in ../skrivist-promo-video)
 │   └── poster-{lang}[-vertical].jpg        # poster frames
 ├── .github/workflows/deploy.yml  # Manual-dispatch Cloudflare Pages deploy
 ├── .project-instructions.md   # Design/SEO context for developers
@@ -39,7 +39,7 @@
 └── CLAUDE.md                  # This file
 ```
 
-> Promo videos are produced in the sibling project `../skrivist-promo-video/` and its renders (`out/skrivist-promo-{lang}[-vertical].mp4`) are copied into `media/`.
+> Promo videos are produced in the sibling project `../skrivist-promo-video/`; its renders (`out/skrivist-promo-{lang}[-vertical].mp4`) and captions (`out/captions-{lang}[-vertical].vtt`) are copied into `media/`.
 
 ## Design System
 
@@ -81,6 +81,7 @@
 - **Theme toggle** - sun/moon SVG icons. `.theme-toggle` styles must override inherited `button` styles.
 - **Language picker** - dropdown with 7 languages (EN, JA, TR, ES, PT, DE, FR). Stored in `localStorage` key `skrivist-lang`. All translatable text uses `data-i18n` attributes; placeholders use `data-i18n-placeholder`; accessible names use `data-i18n-aria`.
 - **Primary CTA** - "Start reading, free" links to `books.skriv.ist`; the hero promo video and three product cards (Comics free / Books free / Cloud) support conversion. Cloud is not for sale yet — its card links to a `mailto:` waitlist address (`contact@skriv.ist`), not a signup form.
+- **Legal pages describe what is live today** - `privacy.html`, `terms.html` and `support.html` must match the running app.skriv.ist, not the pivot plan. Until the pivot's auth/billing cutover (skrivist.app spec `2026-09-24-skrivist-pivot-design.md`, phases 3-4), Cloud sign-in still goes through vigil.center (no email shared), Cloud is not on sale, and accounts without a subscription keep the 10-book cloud limit with the three-warnings removal. At cutover, update: privacy "Account information" (Google sign-in: email, name, photo) and "Data retention" (90 days after a subscription lapses, then deleted), terms §3, and the support page's account-deletion paragraph. Support contact is `contact@skriv.ist`.
 - **Mobile responsive** - media queries at the 600px breakpoint for mobile layout.
 - **Hero promo video** - locale-aware (swaps per language) and orientation-aware: `updateHeroVideo()` serves the vertical 9:16 cut on mobile (≤600px) and the landscape 16:9 cut on desktop, keyed to the same 600px breakpoint as the CSS. Sources and posters follow `media/skrivist-promo-{lang}[-vertical].mp4` / `media/poster-{lang}[-vertical].jpg`.
 - **SEO is configured** - canonical tag, OG/Twitter cards, JSON-LD schema, keywords meta, robots.txt + sitemap.xml, and 404.html are all in place. New static files must also be added to the "Assemble site bundle" step in `deploy.yml`. The www→apex 301 lives in a Cloudflare zone **Redirect Rule** (dashboard: Rules → Redirect Rules), NOT in a Pages `_redirects` file — Pages `_redirects` cannot match on hostname.
@@ -88,7 +89,7 @@
 ## Working With This Project
 
 - No install or build step. Edit `index.html` directly.
-- Deploying: merge to `master`, then dispatch the "Deploy" workflow (`gh workflow run deploy.yml`). Nothing deploys automatically.
+- Deploying: commit to `main`, then dispatch the "Deploy" workflow (`gh workflow run deploy.yml`). Nothing deploys automatically.
 - Test locally by serving the folder (e.g. `python3 -m http.server`) — the hero video and posters use absolute `/media/...` paths, so opening via `file://` won't load them.
 - When adding colors, always add to both light and dark theme variable blocks (`:root`, `[data-theme="dark"]`, and `@media (prefers-color-scheme: dark)` block).
 - When adding translatable text, add `data-i18n="keyName"` attribute to the element and add the key to all 7 language objects in the `T` translations object in the JS block. For placeholders, use `data-i18n-placeholder="keyName"`. For accessible names, use `data-i18n-aria="keyName"` (`applyLang` sets `aria-label`).
