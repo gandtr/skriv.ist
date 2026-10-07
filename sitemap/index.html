@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap — skriv.ist</title>
+    <meta name="description" content="Public Skrivist pages and readers.">
+    <link rel="canonical" href="https://skriv.ist/sitemap/">
+    <link rel="icon" type="image/svg+xml" href="/media/favicon.svg">
+
+    <meta property="og:title" content="Sitemap — skriv.ist">
+    <meta property="og:description" content="Public Skrivist pages and readers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://skriv.ist/sitemap/">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Noto+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-gradient-1: #dae8f3;
+            --bg-gradient-2: #f5f7f5;
+            --bg-gradient-3: #d5ecd0;
+            --surface-primary: rgba(255, 255, 255, 0.9);
+            --surface-border: rgba(0, 0, 0, 0.06);
+            --surface-shadow-1: rgba(0, 0, 0, 0.04);
+            --surface-shadow-2: rgba(0, 0, 0, 0.06);
+            --text-primary: #1a2b3c;
+            --text-secondary: #5a6e7a;
+            --text-tertiary: #8a9aa6;
+            --accent-primary: #6a9fc0;
+            --accent-secondary: #7db88a;
+            --link-color: #6a9fc0;
+            --divider: rgba(0, 0, 0, 0.06);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-gradient-1: #0f1923;
+                --bg-gradient-2: #141e28;
+                --bg-gradient-3: #111d1a;
+                --surface-primary: rgba(20, 30, 40, 0.85);
+                --surface-border: rgba(255, 255, 255, 0.08);
+                --surface-shadow-1: rgba(0, 0, 0, 0.2);
+                --surface-shadow-2: rgba(0, 0, 0, 0.3);
+                --text-primary: #e2e8f0;
+                --text-secondary: #94a3b8;
+                --text-tertiary: #64748b;
+                --accent-primary: #7cb5d6;
+                --accent-secondary: #8ec99a;
+                --link-color: #7cb5d6;
+                --divider: rgba(255, 255, 255, 0.08);
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 50%, var(--bg-gradient-3) 100%);
+            color: var(--text-primary);
+            font-family: 'Lato', 'Noto Sans', sans-serif;
+            font-synthesis: none;
+            line-height: 1.75;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover { text-decoration: underline; }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--text-primary);
+            color: var(--surface-primary);
+            padding: 8px 16px;
+            z-index: 100;
+            transition: top 0.2s;
+        }
+
+        .skip-link:focus { top: 0; }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 760px;
+            margin: 4rem auto;
+            padding: 3rem 3.5rem;
+            background: var(--surface-primary);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow:
+                0 1px 2px var(--surface-shadow-1),
+                0 4px 8px var(--surface-shadow-1),
+                0 16px 32px var(--surface-shadow-2);
+            border: 1px solid var(--surface-border);
+        }
+
+        header { margin-bottom: 2.5rem; }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: var(--text-primary);
+            letter-spacing: 2px;
+            display: inline-block;
+        }
+
+        .logo span { color: var(--accent-primary); font-style: italic; }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.25rem;
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        p, ul, ol {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        ul, ol { padding-left: 1.5rem; }
+
+        li { margin-bottom: 0.35rem; }
+
+        strong { color: var(--text-primary); font-weight: 700; }
+
+        .contact-box {
+            background: var(--bg-gradient-2);
+            border: 1px solid var(--surface-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-box p:last-child { margin-bottom: 0; }
+
+        .email-link {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--divider);
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
+        }
+
+        footer nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.75rem 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 1.5rem 1rem;
+                padding: 2rem 1.5rem;
+            }
+            h1 { font-size: 1.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <div class="container">
+        <header><a href="/" class="logo">skriv<span>.ist</span></a></header>
+        <main id="main-content">
+            <h1>Sitemap</h1>
+            <h2>Readers</h2>
+            <ul>
+                <li><a href="https://books.skriv.ist/">Skrivist Books</a></li>
+                <li><a href="https://comics.skriv.ist/">Skrivist Comics</a></li>
+            </ul>
+            <h2>Skrivist</h2>
+            <ul>
+                <li><a href="https://skriv.ist/">Home</a></li>
+                <li><a href="https://skriv.ist/privacy">Privacy Policy</a></li>
+                <li><a href="https://skriv.ist/terms">Terms of Service</a></li>
+                <li><a href="https://skriv.ist/support">Support</a></li>
+            </ul>
+            <h2>XML sitemaps</h2>
+            <ul>
+                <li><a href="https://skriv.ist/sitemap.xml">Skrivist sitemap</a></li>
+                <li><a href="https://books.skriv.ist/sitemap.xml">Books sitemap</a></li>
+                <li><a href="https://comics.skriv.ist/sitemap.xml">Comics sitemap</a></li>
+            </ul>
+        </main>
+        <footer><a href="/">Home</a></footer>
+    </div>
+</body>
+</html>
