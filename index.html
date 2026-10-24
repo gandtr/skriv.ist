@@ -54,26 +54,14 @@
             "@id": "https://skriv.ist/#books",
             "name": "Skrivist Books",
             "applicationCategory": "BookApplication",
-            "operatingSystem": "Web, iOS, iPadOS, macOS, Android",
-            "description": "EPUB and PDF reader with OPDS catalogues and no account. Free in the browser at books.skriv.ist; native apps for iPhone, iPad, Mac and Android are a one-time $3 purchase, coming soon, and sync reading progress with an Armarium server.",
+            "operatingSystem": "Web",
+            "description": "EPUB and PDF reader with OPDS catalogues and no account. Free in the browser at books.skriv.ist. Native apps for iPhone, iPad, Mac and Android (a one-time $3 purchase) are coming soon and will sync reading progress with an Armarium server.",
             "url": "https://books.skriv.ist/",
-            "offers": [
-                {
-                    "@type": "Offer",
-                    "name": "Skrivist Books for the web",
-                    "price": "0",
-                    "priceCurrency": "USD",
-                    "url": "https://books.skriv.ist/"
-                },
-                {
-                    "@type": "Offer",
-                    "name": "Skrivist Books for iPhone, iPad, Mac and Android",
-                    "price": "3.00",
-                    "priceCurrency": "USD",
-                    "availability": "https://schema.org/PreOrder",
-                    "url": "https://skriv.ist/#readers"
-                }
-            ],
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
             "creator": { "@id": "https://gand.tr/#organization" },
             "publisher": { "@id": "https://gand.tr/#organization" }
         },
@@ -99,7 +87,7 @@
             "name": "Armarium",
             "applicationCategory": "UtilitiesApplication",
             "operatingSystem": "Linux (Docker)",
-            "description": "Free, open-source (MIT) self-hosted library server for books and comics in plain folders or Calibre libraries. Serves OPDS and syncs reading progress with Skrivist Books and Skrivist Comics.",
+            "description": "Free, open-source (MIT) self-hosted library server for books and comics in plain folders or Calibre libraries. Serves OPDS and syncs reading progress with Skrivist Comics' Armarium mode and, when they ship, the Skrivist Books apps.",
             "url": "https://armarium.skriv.ist/",
             "license": "https://opensource.org/licenses/MIT",
             "isAccessibleForFree": true,
@@ -866,7 +854,7 @@
         }
 
         .plan-cta.primary:hover {
-            box-shadow: 0 4px 12px rgba(106, 159, 192, 0.3);
+            box-shadow: 0 4px 12px var(--input-focus-ring);
         }
 
         .plan-cta.secondary {
@@ -877,7 +865,7 @@
 
         .plan-cta.secondary:hover {
             background: var(--accent-primary);
-            color: #fff;
+            color: var(--button-text);
         }
 
         .armarium-section {
@@ -1289,7 +1277,7 @@
                 <h1 class="hero-entrance" style="animation-delay: 0.08s;" data-i18n="headline">Where stories find <br>their breath.</h1>
                 <p class="hero-what hero-entrance" style="animation-delay: 0.12s;" data-i18n="heroWhat">Calm readers for your own books and comics. No account, no subscription, no tracking.</p>
                 <p class="hero-sub hero-entrance" style="animation-delay: 0.16s;" data-i18n="subheadline">
-                    Skrivist Books reads EPUB and PDF, Skrivist Comics steps through comics panel by panel, and Armarium, a free library server you run at home, keeps your place between devices.
+                    Skrivist Books reads EPUB and PDF, Skrivist Comics steps through comics panel by panel, and Armarium, a free library server you run at home, serves your collection to both.
                 </p>
 
                 <video
@@ -1335,8 +1323,8 @@
                         </svg>
                     </div>
                     <h3 data-i18n="feature2Title">Yours to Keep</h3>
-                    <p data-i18n="feature2Desc">Your books stay on your device and open without a connection. There is no Skrivist account to sign in to and no cloud we keep your library in.</p>
-                    <p class="feature-note" data-i18n="feature2Note">Want your place on every device? <a href="#armarium">Pair with Armarium</a>.</p>
+                    <p data-i18n="feature2Desc">Your books stay on your device and open without a connection. Books and Comics have no account to sign in to, and we keep no copy of your library.</p>
+                    <p class="feature-note" data-i18n="feature2Note">Want your place on every device? <a href="#armarium">Armarium</a> syncs it with the Books apps (coming soon) and with Comics.</p>
                 </div>
                 <div class="feature reveal">
                     <div class="icon-organic" style="animation-delay: -4s;">
@@ -1378,7 +1366,7 @@
                             <li data-i18n="featComics1">Guided view: finds the panels and steps through them one by one</li>
                             <li data-i18n="featComics2">CBZ, CBR and PDF</li>
                             <li data-i18n="featComics3">OPDS catalogues, Kavita and Armarium libraries</li>
-                            <li data-i18n="featComics4">Works offline once loaded</li>
+                            <li data-i18n="featComics4">No account; works offline once loaded</li>
                         </ul>
                         <a href="https://comics.skriv.ist" class="plan-cta secondary" data-i18n="ctaComicsCard">Open comics.skriv.ist</a>
                     </div>
@@ -1418,7 +1406,7 @@
             en: {
                 headline: 'Where stories find <br>their breath.',
                 heroWhat: "Calm readers for your own books and comics. No account, no subscription, no tracking.",
-                subheadline: "Skrivist Books reads EPUB and PDF, Skrivist Comics steps through comics panel by panel, and Armarium, a free library server you run at home, keeps your place between devices.",
+                subheadline: "Skrivist Books reads EPUB and PDF, Skrivist Comics steps through comics panel by panel, and Armarium, a free library server you run at home, serves your collection to both.",
                 ctaButton: 'Start reading, free',
                 eyebrow: 'A quiet place to read',
                 ctaNote: "Free in your browser · no account",
@@ -1427,7 +1415,7 @@
                 feature1Desc: "No feeds, no ads, no streaks. Set the text size and pick a page colour, from white to night. The apps add typefaces, OpenDyslexic among them.",
                 feature2Title: "Yours to Keep",
                 feature2Desc: "Your books stay on your device and open without a connection. Books and Comics have no account to sign in to, and we keep no copy of your library.",
-                feature2Note: "Want your place on every device? <a href=\"#armarium\">Pair with Armarium</a>.",
+                feature2Note: "Want your place on every device? <a href=\"#armarium\">Armarium</a> syncs it with the Books apps (coming soon) and with Comics.",
                 feature3Title: "Open Catalogues",
                 feature3Desc: "Bring DRM-free files from your own folders, or browse OPDS catalogues and download straight to your shelf. Comics also reads Kavita libraries.",
                 readersTitle: "Pick Your Reader",
@@ -1469,7 +1457,7 @@
             ja: {
                 headline: '物語が息づく<br>場所。',
                 heroWhat: "あなたの本とコミックのための、静かなリーダー。アカウントも、サブスクリプションも、トラッキングもありません。",
-                subheadline: "Skrivist Books は EPUB と PDF を、Skrivist Comics はコミックをコマごとに読めます。自宅で動かす無料のライブラリサーバー Armarium が、端末をまたいで読んでいる位置をそろえます。",
+                subheadline: "Skrivist Books は EPUB と PDF を、Skrivist Comics はコミックをコマごとに読めます。自宅で動かす無料のライブラリサーバー Armarium が、そのどちらにもあなたの蔵書を届けます。",
                 ctaButton: '無料で読み始める',
                 eyebrow: '静かに読書できる場所',
                 ctaNote: "ブラウザで無料・アカウント不要",
@@ -1478,7 +1466,7 @@
                 feature1Desc: "フィードも広告も連続記録もありません。文字の大きさを変え、白から夜まで紙の色を選べます。アプリでは OpenDyslexic を含む書体も選べます。",
                 feature2Title: "手元に残る本棚",
                 feature2Desc: "本は端末に保存され、オフラインでも開けます。Books と Comics にはサインインするアカウントがなく、私たちがライブラリの複製を持つこともありません。",
-                feature2Note: "どの端末でも続きから読みたいなら、<a href=\"#armarium\">Armarium とペアリング</a>。",
+                feature2Note: "どの端末でも続きから読みたいなら、<a href=\"#armarium\">Armarium</a> が Books アプリ（近日公開）と Comics で読んでいる位置を同期します。",
                 feature3Title: "開かれたカタログ",
                 feature3Desc: "手元のフォルダから DRM フリーのファイルを読み込むことも、OPDS カタログを見て本棚へ直接ダウンロードすることもできます。Comics は Kavita のライブラリにも対応しています。",
                 readersTitle: "リーダーを選ぶ",
@@ -1520,7 +1508,7 @@
             tr: {
                 headline: 'Hikayelerin nefes<br>bulduğu yer.',
                 heroWhat: "Kendi kitapların ve çizgi romanların için sakin okuyucular. Hesap yok, abonelik yok, takip yok.",
-                subheadline: "Skrivist Books EPUB ve PDF okur, Skrivist Comics çizgi romanları kare kare gezdirir. Evde çalıştırdığın ücretsiz kütüphane sunucusu Armarium da kaldığın yeri cihazların arasında taşır.",
+                subheadline: "Skrivist Books EPUB ve PDF okur, Skrivist Comics çizgi romanları kare kare gezdirir. Evde çalıştırdığın ücretsiz kütüphane sunucusu Armarium da koleksiyonunu ikisine birden sunar.",
                 ctaButton: 'Okumaya başla, ücretsiz',
                 eyebrow: 'Sakin bir okuma alanı',
                 ctaNote: "Tarayıcında ücretsiz · hesap gerekmez",
@@ -1529,7 +1517,7 @@
                 feature1Desc: "Akış yok, reklam yok, seri sayacı yok. Yazı boyutunu ayarla, beyazdan geceye bir sayfa rengi seç. Uygulamalarda OpenDyslexic dahil yazı tipleri de var.",
                 feature2Title: "Senin Elinde",
                 feature2Desc: "Kitapların cihazında kalır ve bağlantı olmadan açılır. Books ve Comics'te giriş yapılacak bir hesap yok; kütüphanenin bir kopyasını da biz tutmayız.",
-                feature2Note: "Kaldığın yer her cihazda olsun mu? <a href=\"#armarium\">Armarium ile eşleştir</a>.",
+                feature2Note: "Kaldığın yer her cihazda olsun mu? <a href=\"#armarium\">Armarium</a> onu Books uygulamalarıyla (yakında) ve Comics ile eşitler.",
                 feature3Title: "Açık Kataloglar",
                 feature3Desc: "DRM'siz dosyalarını kendi klasörlerinden getir ya da OPDS kataloglarında gezinip doğrudan rafına indir. Comics, Kavita kütüphanelerini de okur.",
                 readersTitle: "Okuyucunu Seç",
@@ -1571,7 +1559,7 @@
             es: {
                 headline: 'Donde las historias<br>encuentran su aliento.',
                 heroWhat: "Lectores tranquilos para tus propios libros y cómics. Sin cuenta, sin suscripción, sin rastreo.",
-                subheadline: "Skrivist Books lee EPUB y PDF, Skrivist Comics recorre los cómics viñeta a viñeta, y Armarium, un servidor de biblioteca gratuito que ejecutas en casa, guarda por dónde vas en todos tus dispositivos.",
+                subheadline: "Skrivist Books lee EPUB y PDF, Skrivist Comics recorre los cómics viñeta a viñeta, y Armarium, un servidor de biblioteca gratuito que ejecutas en casa, sirve tu colección a ambos.",
                 ctaButton: 'Empieza a leer, gratis',
                 eyebrow: 'Un lugar tranquilo para leer',
                 ctaNote: "Gratis en tu navegador · sin cuenta",
@@ -1580,7 +1568,7 @@
                 feature1Desc: "Sin feeds, sin anuncios, sin rachas. Ajusta el tamaño del texto y elige un color de página, del blanco a la noche. Las apps añaden tipografías, entre ellas OpenDyslexic.",
                 feature2Title: "Siempre Tuyo",
                 feature2Desc: "Tus libros se quedan en tu dispositivo y se abren sin conexión. Books y Comics no tienen cuenta con la que iniciar sesión, y no guardamos ninguna copia de tu biblioteca.",
-                feature2Note: "¿Quieres seguir donde lo dejaste en cada dispositivo? <a href=\"#armarium\">Empareja con Armarium</a>.",
+                feature2Note: "¿Quieres seguir donde lo dejaste en cada dispositivo? <a href=\"#armarium\">Armarium</a> lo sincroniza con las apps de Books (próximamente) y con Comics.",
                 feature3Title: "Catálogos Abiertos",
                 feature3Desc: "Trae archivos sin DRM de tus propias carpetas, o explora catálogos OPDS y descarga directamente a tu estantería. Comics también lee bibliotecas de Kavita.",
                 readersTitle: "Elige Tu Lector",
@@ -1622,7 +1610,7 @@
             pt: {
                 headline: 'Onde as histórias<br>encontram seu respiro.',
                 heroWhat: "Leitores tranquilos para os seus próprios livros e quadrinhos. Sem conta, sem assinatura, sem rastreamento.",
-                subheadline: "O Skrivist Books lê EPUB e PDF, o Skrivist Comics percorre os quadrinhos quadro a quadro, e o Armarium, um servidor de biblioteca gratuito que você roda em casa, guarda onde você parou em todos os seus dispositivos.",
+                subheadline: "O Skrivist Books lê EPUB e PDF, o Skrivist Comics percorre os quadrinhos quadro a quadro, e o Armarium, um servidor de biblioteca gratuito que você roda em casa, entrega sua coleção aos dois.",
                 ctaButton: 'Comece a ler, grátis',
                 eyebrow: 'Um lugar tranquilo para ler',
                 ctaNote: "Grátis no seu navegador · sem conta",
@@ -1631,7 +1619,7 @@
                 feature1Desc: "Sem feeds, sem anúncios, sem sequências. Ajuste o tamanho do texto e escolha uma cor de página, do branco à noite. Os apps trazem fontes, entre elas a OpenDyslexic.",
                 feature2Title: "Sempre Seu",
                 feature2Desc: "Seus livros ficam no seu dispositivo e abrem sem conexão. O Books e o Comics não têm conta para entrar, e não guardamos nenhuma cópia da sua biblioteca.",
-                feature2Note: "Quer continuar de onde parou em qualquer dispositivo? <a href=\"#armarium\">Pareie com o Armarium</a>.",
+                feature2Note: "Quer continuar de onde parou em qualquer dispositivo? O <a href=\"#armarium\">Armarium</a> sincroniza isso com os apps do Books (em breve) e com o Comics.",
                 feature3Title: "Catálogos Abertos",
                 feature3Desc: "Traga arquivos sem DRM das suas próprias pastas, ou navegue por catálogos OPDS e baixe direto para a sua estante. O Comics também lê bibliotecas do Kavita.",
                 readersTitle: "Escolha Seu Leitor",
@@ -1673,7 +1661,7 @@
             de: {
                 headline: 'Wo Geschichten<br>ihren Atem finden.',
                 heroWhat: "Ruhige Reader für deine eigenen Bücher und Comics. Kein Konto, kein Abo, kein Tracking.",
-                subheadline: "Skrivist Books liest EPUB und PDF, Skrivist Comics führt Panel für Panel durch Comics, und Armarium, ein kostenloser Bibliotheksserver für zu Hause, merkt sich auf allen Geräten, wo du warst.",
+                subheadline: "Skrivist Books liest EPUB und PDF, Skrivist Comics führt Panel für Panel durch Comics, und Armarium, ein kostenloser Bibliotheksserver für zu Hause, versorgt beide mit deiner Sammlung.",
                 ctaButton: 'Lesen beginnen, kostenlos',
                 eyebrow: 'Ein ruhiger Ort zum Lesen',
                 ctaNote: "Kostenlos im Browser · kein Konto nötig",
@@ -1682,7 +1670,7 @@
                 feature1Desc: "Keine Feeds, keine Werbung, keine Streaks. Stell die Schriftgröße ein und wähl eine Seitenfarbe, von Weiß bis Nacht. Die Apps bieten zusätzlich Schriftarten, darunter OpenDyslexic.",
                 feature2Title: "Bleibt bei dir",
                 feature2Desc: "Deine Bücher bleiben auf deinem Gerät und öffnen sich auch offline. Books und Comics haben kein Konto zum Anmelden, und wir bewahren keine Kopie deiner Bibliothek auf.",
-                feature2Note: "Deine Stelle auf jedem Gerät? <a href=\"#armarium\">Mit Armarium koppeln</a>.",
+                feature2Note: "Deine Stelle auf jedem Gerät? <a href=\"#armarium\">Armarium</a> synchronisiert sie mit den Books-Apps (demnächst) und mit Comics.",
                 feature3Title: "Offene Kataloge",
                 feature3Desc: "Hol DRM-freie Dateien aus deinen eigenen Ordnern oder stöbere in OPDS-Katalogen und lade direkt ins Regal. Comics liest auch Kavita-Bibliotheken.",
                 readersTitle: "Wähl deinen Reader",
@@ -1724,7 +1712,7 @@
             fr: {
                 headline: 'Là où les histoires<br>trouvent leur souffle.',
                 heroWhat: "Des lecteurs paisibles pour vos propres livres et BD. Sans compte, sans abonnement, sans pistage.",
-                subheadline: "Skrivist Books lit l'EPUB et le PDF, Skrivist Comics parcourt les BD case par case, et Armarium, un serveur de bibliothèque gratuit que vous faites tourner chez vous, garde votre page d'un appareil à l'autre.",
+                subheadline: "Skrivist Books lit l'EPUB et le PDF, Skrivist Comics parcourt les BD case par case, et Armarium, un serveur de bibliothèque gratuit que vous faites tourner chez vous, met votre collection à la disposition des deux.",
                 ctaButton: 'Commencer à lire, gratuit',
                 eyebrow: 'Un endroit calme pour lire',
                 ctaNote: "Gratuit dans votre navigateur · sans compte",
@@ -1733,7 +1721,7 @@
                 feature1Desc: "Pas de fil d'actualité, pas de pub, pas de séries. Réglez la taille du texte et choisissez une couleur de page, du blanc à la nuit. Les apps ajoutent des polices, dont OpenDyslexic.",
                 feature2Title: "Chez Vous",
                 feature2Desc: "Vos livres restent sur votre appareil et s'ouvrent sans connexion. Books et Comics n'ont pas de compte où se connecter, et nous ne gardons aucune copie de votre bibliothèque.",
-                feature2Note: "Retrouver votre page sur chaque appareil ? <a href=\"#armarium\">Associez Armarium</a>.",
+                feature2Note: "Retrouver votre page sur chaque appareil ? <a href=\"#armarium\">Armarium</a> la synchronise avec les apps Books (bientôt disponibles) et avec Comics.",
                 feature3Title: "Catalogues Ouverts",
                 feature3Desc: "Ajoutez des fichiers sans DRM depuis vos propres dossiers, ou parcourez des catalogues OPDS et téléchargez directement dans votre bibliothèque. Comics lit aussi les bibliothèques Kavita.",
                 readersTitle: "Choisissez Votre Lecteur",
