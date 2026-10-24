@@ -7,6 +7,7 @@
 - [Skrivist Comics](https://comics.skriv.ist/): Free comic reader in the browser. Reads CBZ, CBR and PDF, finds the panels and steps through them panel by panel. Also browses OPDS catalogues, Kavita and Armarium libraries. No account; files never leave the device; works offline once cached.
 - [Skrivist Books](https://books.skriv.ist/): Free EPUB and PDF reader in the browser. OPDS 1 and OPDS 2 catalogues, read-only browsing of a local Calibre library folder, reading progress, notes with Obsidian and Anki export, and offline install as a PWA. No account; books stay on the device.
 - Skrivist Cloud (https://app.skriv.ist/): Coming soon, not for sale yet. $4.90/month with a 7-day trial. Library sync across devices, hosted text-to-speech voices, OPDS, and the Calibre plugin. Sign-in with Google only. Join the waitlist by emailing contact@skriv.ist.
+- [Armarium](https://c0ze.github.io/armarium/): Free, open-source (MIT) library server you run yourself, for books and comics in plain folders or Calibre libraries. No ads, no tracking. Serves OPDS, pairs Skrivist Books and Comics with a QR code, and syncs reading progress with them.
 - [Skrivist Calibre plugin](https://github.com/gandtr/skrivist.tools): Sends EPUB books from Calibre to a Skrivist Cloud library.
 
 ## Pages
