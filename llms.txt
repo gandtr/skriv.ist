@@ -1,18 +1,16 @@
 # Skrivist
 
-> Skrivist (skriv.ist) is a family of calm, distraction-free reading apps: two free readers that run entirely in the browser (Comics and Books) and Skrivist Cloud, a paid sync and text-to-speech service that is coming soon. Made by Gand (https://gand.tr).
+> Skrivist (skriv.ist) is a family of calm, distraction-free readers for your own books and comics: Skrivist Books and Skrivist Comics, free in the browser with no account, and Armarium, a free, open-source library server you run yourself. There is no Skrivist account, subscription or tracking. Made by Gand (https://gand.tr).
 
 ## Products
 
+- [Skrivist Books](https://books.skriv.ist/): EPUB and PDF reader. Free in the browser: OPDS 1 and OPDS 2 catalogues, read-only browsing of a local Calibre library folder, reading progress, notes with Obsidian and Anki export, and offline install as a PWA. No account; books stay on the device. Native apps for iPhone, iPad, Mac and Android are coming soon to the App Store and Google Play as a one-time $3 purchase with no subscription; they add typefaces (OpenDyslexic among them), six page colours, and pairing with an Armarium server to sync reading position.
 - [Skrivist Comics](https://comics.skriv.ist/): Free comic reader in the browser. Reads CBZ, CBR and PDF, finds the panels and steps through them panel by panel. Also browses OPDS catalogues, Kavita and Armarium libraries. No account; files never leave the device; works offline once cached.
-- [Skrivist Books](https://books.skriv.ist/): Free EPUB and PDF reader in the browser. OPDS 1 and OPDS 2 catalogues, read-only browsing of a local Calibre library folder, reading progress, notes with Obsidian and Anki export, and offline install as a PWA. No account; books stay on the device.
-- Skrivist Cloud (https://app.skriv.ist/): Coming soon, not for sale yet. $4.90/month with a 7-day trial. Library sync across devices, hosted text-to-speech voices, OPDS, and the Calibre plugin. Sign-in with Google only. Join the waitlist by emailing contact@skriv.ist.
-- [Armarium](https://c0ze.github.io/armarium/): Free, open-source (MIT) library server you run yourself, for books and comics in plain folders or Calibre libraries. No ads, no tracking. Serves OPDS, pairs Skrivist Books and Comics with a QR code, and syncs reading progress with the Skrivist Books apps for iPhone, iPad and Android (coming soon) and with Skrivist Comics' Armarium mode. The Books web reader does not sync progress.
-- [Skrivist Calibre plugin](https://github.com/gandtr/skrivist.tools): Sends EPUB books from Calibre to a Skrivist Cloud library.
+- [Armarium](https://armarium.skriv.ist/): Free, open-source (MIT) library server you run yourself, for books and comics in plain folders or Calibre libraries. No ads, no tracking. Serves OPDS, pairs Skrivist Books and Comics with a QR code, and syncs reading progress with the Skrivist Books apps (coming soon) and with Skrivist Comics' Armarium mode. The Books web reader does not sync progress.
 
 ## Pages
 
-- [Home](https://skriv.ist/): Product overview and pricing
+- [Home](https://skriv.ist/): Overview of Skrivist Books, Skrivist Comics and Armarium
 - [Privacy](https://skriv.ist/privacy)
 - [Terms](https://skriv.ist/terms)
 - [Support](https://skriv.ist/support)

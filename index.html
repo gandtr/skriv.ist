@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skrivist — Free EPUB, PDF &amp; Comic Reader in Your Browser</title>
-    <meta name="description" content="Read EPUB, PDF, CBZ and CBR locally in your browser. No account, OPDS catalogues. Skrivist Cloud (coming soon) adds sync and TTS for $4.90/mo.">
-    <meta name="keywords" content="skriv.ist, minimalist reading app, epub reader, ebook reader, distraction-free reader, reading sanctuary, offline reading, web novel reader, e-ink web reader">
+    <title>Skrivist — Calm EPUB, PDF &amp; Comic Readers, No Account</title>
+    <meta name="description" content="Read EPUB, PDF and comics free in your browser, with no account or tracking. Skrivist Books apps for iPhone, iPad, Mac and Android: $3 once, coming soon.">
+    <meta name="keywords" content="skriv.ist, skrivist, epub reader, pdf reader, comic reader, cbz reader, guided view comics, opds reader, armarium, calibre, ebook reader app, iphone epub reader, android epub reader, distraction-free reader, no account">
     <link rel="canonical" href="https://skriv.ist/">
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/media/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <meta property="og:title" content="Skrivist — Free EPUB, PDF &amp; Comic Reader in Your Browser" />
-    <meta property="og:description" content="Read EPUB, PDF, CBZ and CBR locally in your browser. No account, OPDS catalogues. Skrivist Cloud (coming soon) adds sync and TTS for $4.90/mo." />
+    <meta property="og:title" content="Skrivist — Calm EPUB, PDF &amp; Comic Readers, No Account" />
+    <meta property="og:description" content="Read EPUB, PDF and comics free in your browser, with no account or tracking. Skrivist Books apps for iPhone, iPad, Mac and Android: $3 once, coming soon." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://skriv.ist/" />
     <meta property="og:site_name" content="skriv.ist" />
@@ -24,8 +24,8 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://skriv.ist/media/poster-en.jpg" />
-    <meta name="twitter:title" content="Skrivist — Free EPUB, PDF &amp; Comic Reader in Your Browser" />
-    <meta name="twitter:description" content="Read EPUB, PDF, CBZ and CBR locally in your browser. No account, OPDS catalogues. Skrivist Cloud (coming soon) adds sync and TTS for $4.90/mo." />
+    <meta name="twitter:title" content="Skrivist — Calm EPUB, PDF &amp; Comic Readers, No Account" />
+    <meta name="twitter:description" content="Read EPUB, PDF and comics free in your browser, with no account or tracking. Skrivist Books apps for iPhone, iPad, Mac and Android: $3 once, coming soon." />
 
     <script type="application/ld+json">
 {
@@ -51,63 +51,63 @@
         },
         {
             "@type": "SoftwareApplication",
-            "name": "skriv.ist",
-            "applicationCategory": "MultimediaApplication",
-            "operatingSystem": "Web",
-            "description": "Read EPUB, PDF, CBZ and CBR locally in your browser. No account, OPDS catalogues. Skrivist Cloud (coming soon) adds sync and TTS for $4.90/mo.",
-            "url": "https://skriv.ist/",
+            "@id": "https://skriv.ist/#books",
+            "name": "Skrivist Books",
+            "applicationCategory": "BookApplication",
+            "operatingSystem": "Web, iOS, iPadOS, macOS, Android",
+            "description": "EPUB and PDF reader with OPDS catalogues and no account. Free in the browser at books.skriv.ist; native apps for iPhone, iPad, Mac and Android are a one-time $3 purchase, coming soon, and sync reading progress with an Armarium server.",
+            "url": "https://books.skriv.ist/",
             "offers": [
                 {
                     "@type": "Offer",
-                    "name": "Comics",
+                    "name": "Skrivist Books for the web",
                     "price": "0",
                     "priceCurrency": "USD",
-                    "url": "https://comics.skriv.ist"
+                    "url": "https://books.skriv.ist/"
                 },
                 {
                     "@type": "Offer",
-                    "name": "Books",
-                    "price": "0",
-                    "priceCurrency": "USD",
-                    "url": "https://books.skriv.ist"
-                },
-                {
-                    "@type": "Offer",
-                    "name": "Skrivist Cloud",
-                    "price": "4.90",
+                    "name": "Skrivist Books for iPhone, iPad, Mac and Android",
+                    "price": "3.00",
                     "priceCurrency": "USD",
                     "availability": "https://schema.org/PreOrder",
-                    "url": "https://skriv.ist/#pricing"
+                    "url": "https://skriv.ist/#readers"
                 }
             ],
             "creator": { "@id": "https://gand.tr/#organization" },
-            "publisher": { "@id": "https://gand.tr/#organization" },
-            "isRelatedTo": [
-                {
-                    "@type": "SoftwareApplication",
-                    "name": "comics.skriv.ist",
-                    "url": "https://comics.skriv.ist",
-                    "applicationCategory": "MultimediaApplication",
-                    "operatingSystem": "Web",
-                    "description": "A free CBZ, CBR and PDF comic reader. Independent of skriv.ist; files never leave the browser."
-                },
-                {
-                    "@type": "SoftwareApplication",
-                    "name": "books.skriv.ist",
-                    "url": "https://books.skriv.ist",
-                    "applicationCategory": "MultimediaApplication",
-                    "operatingSystem": "Web",
-                    "description": "Local-only EPUB and PDF reader with OPDS and offline access. No account or cloud library."
-                }
-            ],
-            "featureList": [
-                "Minimalist reading app",
-                "Distraction-free reading environment",
-                "Offline PWA access",
-                "EPUB support via OPDS and Calibre",
-                "Cloud progress sync across devices (Skrivist Cloud, coming soon)",
-                "Hosted text-to-speech (Skrivist Cloud, coming soon)"
-            ]
+            "publisher": { "@id": "https://gand.tr/#organization" }
+        },
+        {
+            "@type": "SoftwareApplication",
+            "@id": "https://skriv.ist/#comics",
+            "name": "Skrivist Comics",
+            "applicationCategory": "MultimediaApplication",
+            "operatingSystem": "Web",
+            "description": "Free CBZ, CBR and PDF comic reader with a panel-by-panel guided view. Browses OPDS catalogues, Kavita and Armarium libraries. No account; files stay on the device.",
+            "url": "https://comics.skriv.ist/",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "creator": { "@id": "https://gand.tr/#organization" },
+            "publisher": { "@id": "https://gand.tr/#organization" }
+        },
+        {
+            "@type": "SoftwareApplication",
+            "@id": "https://armarium.skriv.ist/#software",
+            "name": "Armarium",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Linux (Docker)",
+            "description": "Free, open-source (MIT) self-hosted library server for books and comics in plain folders or Calibre libraries. Serves OPDS and syncs reading progress with Skrivist Books and Skrivist Comics.",
+            "url": "https://armarium.skriv.ist/",
+            "license": "https://opensource.org/licenses/MIT",
+            "isAccessibleForFree": true,
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            }
         }
     ]
 }
@@ -752,9 +752,7 @@
         }
 
         .pricing-grid.double-row {
-            /* Container caps out at 860px, so three cards need a smaller
-               minimum than the old two-card layout to stay in one row. */
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         }
 
         .pricing-card {
@@ -777,21 +775,6 @@
         .pricing-card.popular {
             border-color: var(--accent-primary);
             box-shadow: 0 0 0 1px var(--accent-primary), 0 8px 16px var(--surface-shadow-1);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--accent-primary);
-            color: #fff;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         .plan-name {
@@ -895,13 +878,6 @@
         .plan-cta.secondary:hover {
             background: var(--accent-primary);
             color: #fff;
-        }
-
-        .plan-note {
-            margin-top: 0.85rem;
-            font-size: 0.78rem;
-            color: var(--text-tertiary);
-            text-align: center;
         }
 
         .armarium-section {
@@ -1311,9 +1287,9 @@
                     <span data-i18n="eyebrow">A quiet place to read</span>
                 </div>
                 <h1 class="hero-entrance" style="animation-delay: 0.08s;" data-i18n="headline">Where stories find <br>their breath.</h1>
-                <p class="hero-what hero-entrance" style="animation-delay: 0.12s;" data-i18n="heroWhat">Free EPUB, PDF and comic reader. Runs in your browser; nothing leaves your device.</p>
+                <p class="hero-what hero-entrance" style="animation-delay: 0.12s;" data-i18n="heroWhat">Calm readers for your own books and comics. No account, no subscription, no tracking.</p>
                 <p class="hero-sub hero-entrance" style="animation-delay: 0.16s;" data-i18n="subheadline">
-                    A quiet, minimalist reading sanctuary designed to soften the noise and let your mind wander freely through the pages.
+                    Skrivist Books reads EPUB and PDF, Skrivist Comics steps through comics panel by panel, and Armarium, a free library server you run at home, keeps your place between devices.
                 </p>
 
                 <video
@@ -1334,7 +1310,7 @@
                 <div class="cta-group hero-entrance" style="animation-delay: 0.32s;">
                     <a href="https://books.skriv.ist" class="app-btn" data-i18n="ctaButton">Start reading, free</a>
                 </div>
-                <p class="cta-note hero-entrance" style="animation-delay: 0.4s;" data-i18n="ctaNote">Free &middot; local &middot; no account</p>
+                <p class="cta-note hero-entrance" style="animation-delay: 0.4s;" data-i18n="ctaNote">Free in your browser &middot; no account</p>
                 <p class="cta-note hero-entrance" style="animation-delay: 0.44s;" data-i18n="ctaComics">Reading comics? <a href="https://comics.skriv.ist">comics.skriv.ist</a></p>
             </section>
 
@@ -1347,7 +1323,7 @@
                         </svg>
                     </div>
                     <h3 data-i18n="feature1Title">A Gentle Space</h3>
-                    <p data-i18n="feature1Desc">Free from algorithmic distractions, social feeds, and gamification. 4 beautiful reading themes including E-paper and Sepia.</p>
+                    <p data-i18n="feature1Desc">No feeds, no ads, no streaks. Set the text size and pick a page colour, from white to night. The apps add typefaces, OpenDyslexic among them.</p>
                 </div>
                 <div class="feature reveal">
                     <div class="icon-organic" style="animation-delay: -2s;">
@@ -1358,9 +1334,9 @@
                             <path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path>
                         </svg>
                     </div>
-                    <h3 data-i18n="feature2Title">Natural Sync</h3>
-                    <p data-i18n="feature2Desc">Your library flows effortlessly between your devices. Install as an app to read offline in peace; we quietly sync your progress when you reconnect.</p>
-                    <p class="feature-note"><span class="badge-soon" data-i18n="badgeCloudSoon">Cloud &middot; coming soon</span></p>
+                    <h3 data-i18n="feature2Title">Yours to Keep</h3>
+                    <p data-i18n="feature2Desc">Your books stay on your device and open without a connection. There is no Skrivist account to sign in to and no cloud we keep your library in.</p>
+                    <p class="feature-note" data-i18n="feature2Note">Want your place on every device? <a href="#armarium">Pair with Armarium</a>.</p>
                 </div>
                 <div class="feature reveal">
                     <div class="icon-organic" style="animation-delay: -4s;">
@@ -1369,56 +1345,42 @@
                             <path d="M14 11a5 5 0 0 0-7-.5l-3 3a5 5 0 0 0 7 7l1.5-1.5"></path>
                         </svg>
                     </div>
-                    <h3 data-i18n="feature3Title">Harmonic Integrations</h3>
-                    <p data-i18n="feature3Desc">Expand your collection beyond the local drive. Connect your remote Calibre library or browse OPDS catalogs beautifully.</p>
-                    <p class="feature-note"><span data-i18n="feature3OpdsNote">OPDS works today in <a href="https://books.skriv.ist">Books</a>, free.</span> <span class="badge-soon" data-i18n="badgeCloudSoon">Cloud &middot; coming soon</span></p>
+                    <h3 data-i18n="feature3Title">Open Catalogues</h3>
+                    <p data-i18n="feature3Desc">Bring DRM-free files from your own folders, or browse OPDS catalogues and download straight to your shelf. Comics also reads Kavita libraries.</p>
                 </div>
             </section>
 
-            <section class="pricing-section" id="pricing">
-                <h2 class="reveal" data-i18n="pricingTitle">Simple, Quiet Pricing</h2>
+            <section class="pricing-section" id="readers">
+                <h2 class="reveal" data-i18n="readersTitle">Pick Your Reader</h2>
 
                 <div class="pricing-grid double-row reveal">
-                    <!-- Comics -->
-                    <div class="pricing-card">
-                        <h3 class="plan-name">Comics</h3>
-                        <div class="plan-price" data-i18n="planComicsPrice">Free</div>
-                        <ul class="plan-features">
-                            <li data-i18n="featComics1">Local comics reader in your browser</li>
-                            <li data-i18n="featComics2">CBZ, CBR and PDF</li>
-                            <li data-i18n="featComics3">No account</li>
-                        </ul>
-                        <a href="https://comics.skriv.ist" class="plan-cta secondary" data-i18n="ctaComicsCard">Open comics.skriv.ist</a>
-                    </div>
-
                     <!-- Books -->
                     <div class="pricing-card popular">
                         <h3 class="plan-name">Books</h3>
                         <div class="plan-price" data-i18n="planBooksPrice">Free</div>
+                        <div class="plan-period" data-i18n="planBooksPeriod">in your browser</div>
                         <ul class="plan-features">
-                            <li data-i18n="featBooks1">EPUB and PDF reader in your browser</li>
-                            <li data-i18n="featBooks2">OPDS catalogues</li>
-                            <li data-i18n="featBooks3">Reading progress</li>
-                            <li data-i18n="featBooks4">Installs offline (PWA)</li>
-                            <li data-i18n="featBooks5">No account, nothing leaves your device</li>
+                            <li data-i18n="featBooks1">EPUB and PDF</li>
+                            <li data-i18n="featBooks2">OPDS catalogues and your Calibre library folder</li>
+                            <li data-i18n="featBooks3">Notes, with Obsidian and Anki export</li>
+                            <li data-i18n="featBooks4">Installs for offline reading</li>
+                            <li data-i18n="featBooks5">Apps for iPhone, iPad, Mac and Android: $3 once, no subscription. They pair with your Armarium server. <span class="badge-soon">Coming soon</span></li>
                         </ul>
                         <a href="https://books.skriv.ist" class="plan-cta primary" data-i18n="ctaBooksCard">Open books.skriv.ist</a>
                     </div>
 
-                    <!-- Cloud (waitlist) -->
+                    <!-- Comics -->
                     <div class="pricing-card">
-                        <div class="popular-badge" data-i18n="badgeComingSoon">Coming soon</div>
-                        <h3 class="plan-name">Cloud</h3>
-                        <div class="plan-price" data-i18n="planCloudPrice">$4.90</div>
-                        <div class="plan-period" data-i18n="planCloudPeriod">Per Month · 7-day trial</div>
+                        <h3 class="plan-name">Comics</h3>
+                        <div class="plan-price" data-i18n="planComicsPrice">Free</div>
+                        <div class="plan-period" data-i18n="planComicsPeriod">in your browser</div>
                         <ul class="plan-features">
-                            <li data-i18n="featCloud1">Your library synced across devices</li>
-                            <li data-i18n="featCloud2">Hosted text-to-speech voices</li>
-                            <li data-i18n="featCloud3">OPDS + <a href="https://github.com/gandtr/skrivist.tools">Calibre plugin</a></li>
-                            <li data-i18n="featCloud4">Google sign-in</li>
+                            <li data-i18n="featComics1">Guided view: finds the panels and steps through them one by one</li>
+                            <li data-i18n="featComics2">CBZ, CBR and PDF</li>
+                            <li data-i18n="featComics3">OPDS catalogues, Kavita and Armarium libraries</li>
+                            <li data-i18n="featComics4">Works offline once loaded</li>
                         </ul>
-                        <a href="mailto:contact@skriv.ist?subject=Skrivist%20Cloud%20waitlist" class="plan-cta secondary" data-i18n="ctaCloudCard">Join the waitlist</a>
-                        <p class="plan-note" data-i18n="cloudWaitlistNote">We'll email you once when Cloud opens.</p>
+                        <a href="https://comics.skriv.ist" class="plan-cta secondary" data-i18n="ctaComicsCard">Open comics.skriv.ist</a>
                     </div>
                 </div>
             </section>
@@ -1432,7 +1394,7 @@
                     <li data-i18n="armarium3">Your books and reading progress, synced with Skrivist Books for iPhone, iPad and Android (coming soon)</li>
                     <li data-i18n="armarium4">Your comics and reading progress, streamed and synced in Skrivist Comics' Armarium mode</li>
                 </ul>
-                <a href="https://c0ze.github.io/armarium/" class="plan-cta secondary armarium-cta" data-i18n="armariumCta">Meet Armarium</a>
+                <a href="https://armarium.skriv.ist/" class="plan-cta secondary armarium-cta" data-i18n="armariumCta">Meet Armarium</a>
             </section>
         </main>
 
@@ -1455,42 +1417,35 @@
         var T = {
             en: {
                 headline: 'Where stories find <br>their breath.',
-                heroWhat: 'Free EPUB, PDF and comic reader. Runs in your browser; nothing leaves your device.',
-                subheadline: 'A quiet, minimalist reading sanctuary designed to soften the noise and let your mind wander freely through the pages.',
+                heroWhat: "Calm readers for your own books and comics. No account, no subscription, no tracking.",
+                subheadline: "Skrivist Books reads EPUB and PDF, Skrivist Comics steps through comics panel by panel, and Armarium, a free library server you run at home, keeps your place between devices.",
                 ctaButton: 'Start reading, free',
                 eyebrow: 'A quiet place to read',
-                ctaNote: 'Free · local · no account',
+                ctaNote: "Free in your browser · no account",
                 ctaComics: 'Reading comics? <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: 'A Gentle Space',
-                feature1Desc: 'Free from algorithmic distractions, social feeds, and gamification. 4 beautiful reading themes including E-paper and Sepia.',
-                feature2Title: 'Natural Sync',
-                feature2Desc: 'Your library flows effortlessly between your devices. Install as an app to read offline in peace; we quietly sync your progress when you reconnect.',
-                feature3Title: 'Harmonic Integrations',
-                feature3Desc: 'Expand your collection beyond the local drive. Connect your remote Calibre library or browse OPDS catalogs beautifully.',
-                feature3OpdsNote: 'OPDS works today in <a href="https://books.skriv.ist">Books</a>, free.',
-                badgeCloudSoon: 'Cloud · coming soon',
-                pricingTitle: 'Simple, Quiet Pricing',
-                planComicsPrice: 'Free',
-                featComics1: 'Local comics reader in your browser',
-                featComics2: 'CBZ, CBR and PDF',
-                featComics3: 'No account',
-                ctaComicsCard: 'Open comics.skriv.ist',
+                feature1Desc: "No feeds, no ads, no streaks. Set the text size and pick a page colour, from white to night. The apps add typefaces, OpenDyslexic among them.",
+                feature2Title: "Yours to Keep",
+                feature2Desc: "Your books stay on your device and open without a connection. Books and Comics have no account to sign in to, and we keep no copy of your library.",
+                feature2Note: "Want your place on every device? <a href=\"#armarium\">Pair with Armarium</a>.",
+                feature3Title: "Open Catalogues",
+                feature3Desc: "Bring DRM-free files from your own folders, or browse OPDS catalogues and download straight to your shelf. Comics also reads Kavita libraries.",
+                readersTitle: "Pick Your Reader",
                 planBooksPrice: 'Free',
-                featBooks1: 'EPUB and PDF reader in your browser',
-                featBooks2: 'OPDS catalogues',
-                featBooks3: 'Reading progress',
-                featBooks4: 'Installs offline (PWA)',
-                featBooks5: 'No account, nothing leaves your device',
+                planBooksPeriod: "in your browser",
+                featBooks1: "EPUB and PDF",
+                featBooks2: "OPDS catalogues and your Calibre library folder",
+                featBooks3: "Notes, with Obsidian and Anki export",
+                featBooks4: "Installs for offline reading",
+                featBooks5: "Apps for iPhone, iPad, Mac and Android: $3 once, no subscription. They pair with your Armarium server. <span class=\"badge-soon\">Coming soon</span>",
                 ctaBooksCard: 'Open books.skriv.ist',
-                badgeComingSoon: 'Coming soon',
-                planCloudPrice: '$4.90',
-                planCloudPeriod: 'Per Month · 7-day trial',
-                featCloud1: 'Your library synced across devices',
-                featCloud2: 'Hosted text-to-speech voices',
-                featCloud3: 'OPDS + <a href="https://github.com/gandtr/skrivist.tools">Calibre plugin</a>',
-                featCloud4: 'Google sign-in',
-                ctaCloudCard: 'Join the waitlist',
-                cloudWaitlistNote: "We'll email you once when Cloud opens.",
+                planComicsPrice: 'Free',
+                planComicsPeriod: "in your browser",
+                featComics1: "Guided view: finds the panels and steps through them one by one",
+                featComics2: 'CBZ, CBR and PDF',
+                featComics3: "OPDS catalogues, Kavita and Armarium libraries",
+                featComics4: "No account; works offline once loaded",
+                ctaComicsCard: 'Open comics.skriv.ist',
                 armariumTitle: "Your Own Library Server",
                 armariumLead: "Armarium is a small server for the books and comics you already have, in plain folders or Calibre libraries. Run it at home and pair Skrivist with a QR code.",
                 armarium1: "Free and open source",
@@ -1513,42 +1468,35 @@
             },
             ja: {
                 headline: '物語が息づく<br>場所。',
-                heroWhat: '無料の EPUB・PDF・コミックリーダー。ブラウザで動き、データは端末の外に出ません。',
-                subheadline: '静かでミニマルな読書の聖域。雑音をやわらげ、ページの中を自由にさまよえる空間です。',
+                heroWhat: "あなたの本とコミックのための、静かなリーダー。アカウントも、サブスクリプションも、トラッキングもありません。",
+                subheadline: "Skrivist Books は EPUB と PDF を、Skrivist Comics はコミックをコマごとに読めます。自宅で動かす無料のライブラリサーバー Armarium が、端末をまたいで読んでいる位置をそろえます。",
                 ctaButton: '無料で読み始める',
                 eyebrow: '静かに読書できる場所',
-                ctaNote: '無料・ローカル・アカウント不要',
+                ctaNote: "ブラウザで無料・アカウント不要",
                 ctaComics: '漫画を読むなら？ <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: '穏やかな空間',
-                feature1Desc: 'アルゴリズム、SNS、ゲーミフィケーションはありません。E-paperやセピアを含む4つの美しいテーマ。',
-                feature2Title: '自然な同期',
-                feature2Desc: 'ライブラリはデバイス間でシームレスに同期。アプリとしてインストールし、オフラインでも快適に。',
-                feature3Title: '調和する連携',
-                feature3Desc: 'コレクションをローカルから拡張。CalibreライブラリやOPDSカタログと美しく繋がります。',
-                feature3OpdsNote: '<a href="https://books.skriv.ist">Books</a> では OPDS が今すぐ無料で使えます。',
-                badgeCloudSoon: 'Cloud・近日公開',
-                pricingTitle: 'シンプルで静かな料金プラン',
-                planComicsPrice: '無料',
-                featComics1: 'ブラウザで動くローカルコミックリーダー',
-                featComics2: 'CBZ・CBR・PDF に対応',
-                featComics3: 'アカウント不要',
-                ctaComicsCard: 'comics.skriv.ist を開く',
+                feature1Desc: "フィードも広告も連続記録もありません。文字の大きさを変え、白から夜まで紙の色を選べます。アプリでは OpenDyslexic を含む書体も選べます。",
+                feature2Title: "手元に残る本棚",
+                feature2Desc: "本は端末に保存され、オフラインでも開けます。Books と Comics にはサインインするアカウントがなく、私たちがライブラリの複製を持つこともありません。",
+                feature2Note: "どの端末でも続きから読みたいなら、<a href=\"#armarium\">Armarium とペアリング</a>。",
+                feature3Title: "開かれたカタログ",
+                feature3Desc: "手元のフォルダから DRM フリーのファイルを読み込むことも、OPDS カタログを見て本棚へ直接ダウンロードすることもできます。Comics は Kavita のライブラリにも対応しています。",
+                readersTitle: "リーダーを選ぶ",
                 planBooksPrice: '無料',
-                featBooks1: 'ブラウザで動く EPUB・PDF リーダー',
-                featBooks2: 'OPDS カタログ対応',
-                featBooks3: '読書の進捗を保存',
-                featBooks4: 'オフラインでインストール可能（PWA）',
-                featBooks5: 'アカウント不要、データは端末の外に出ません',
+                planBooksPeriod: "ブラウザで",
+                featBooks1: "EPUB と PDF",
+                featBooks2: "OPDS カタログと、手元の Calibre ライブラリフォルダ",
+                featBooks3: "メモを Obsidian・Anki 形式で書き出し",
+                featBooks4: "インストールしてオフラインで読書",
+                featBooks5: "iPhone・iPad・Mac・Android 版アプリ：買い切り $3、サブスクリプションなし。Armarium サーバーとペアリングできます。<span class=\"badge-soon\">近日公開</span>",
                 ctaBooksCard: 'books.skriv.ist を開く',
-                badgeComingSoon: '近日公開',
-                planCloudPrice: '$4.90',
-                planCloudPeriod: '月額・7日間の無料体験',
-                featCloud1: '端末間でライブラリを同期',
-                featCloud2: 'クラウド音声読み上げ',
-                featCloud3: 'OPDS + <a href="https://github.com/gandtr/skrivist.tools">Calibre プラグイン</a>',
-                featCloud4: 'Google でサインイン',
-                ctaCloudCard: '順番待ちリストに登録',
-                cloudWaitlistNote: 'Cloud が公開されたら一度だけメールでお知らせします。',
+                planComicsPrice: '無料',
+                planComicsPeriod: "ブラウザで",
+                featComics1: "ガイドビュー：コマを見つけて一つずつ順に表示",
+                featComics2: 'CBZ・CBR・PDF に対応',
+                featComics3: "OPDS カタログ、Kavita・Armarium のライブラリ",
+                featComics4: "アカウント不要、一度読み込めばオフラインでも動作",
+                ctaComicsCard: 'comics.skriv.ist を開く',
                 armariumTitle: "あなた専用のライブラリサーバー",
                 armariumLead: "Armarium は、手元のフォルダや Calibre ライブラリにある本とコミックを配信する小さなサーバーです。自宅で動かし、QR コードで Skrivist とペアリングできます。",
                 armarium1: "無料・オープンソース",
@@ -1571,42 +1519,35 @@
             },
             tr: {
                 headline: 'Hikayelerin nefes<br>bulduğu yer.',
-                heroWhat: 'Ücretsiz EPUB, PDF ve çizgi roman okuyucu. Tarayıcında çalışır; hiçbir şey cihazından çıkmaz.',
-                subheadline: 'Gürültüyü yumuşatan, zihninizi sayfalar arasında özgürce dolaştıran sessiz ve minimalist bir okuma sığınağı.',
+                heroWhat: "Kendi kitapların ve çizgi romanların için sakin okuyucular. Hesap yok, abonelik yok, takip yok.",
+                subheadline: "Skrivist Books EPUB ve PDF okur, Skrivist Comics çizgi romanları kare kare gezdirir. Evde çalıştırdığın ücretsiz kütüphane sunucusu Armarium da kaldığın yeri cihazların arasında taşır.",
                 ctaButton: 'Okumaya başla, ücretsiz',
                 eyebrow: 'Sakin bir okuma alanı',
-                ctaNote: 'Ücretsiz · yerel · hesap gerektirmez',
+                ctaNote: "Tarayıcında ücretsiz · hesap gerekmez",
                 ctaComics: 'Çizgi roman mı okuyorsun? <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: 'Huzurlu Bir Alan',
-                feature1Desc: 'Algoritmik dikkat dağıtıcılardan ve oyunlaştırmadan uzak. E-Kağıt ve Sepya dahil 4 güzel okuma teması.',
-                feature2Title: 'Doğal Senkronizasyon',
-                feature2Desc: 'Kütüphaneniz cihazlarınız arasında akar. Çevrimdışı huzur için uygulama olarak yükleyin; yeniden bağlandığınızda konumu senkronize ederiz.',
-                feature3Title: 'Uyumlu Entegrasyonlar',
-                feature3Desc: 'Koleksiyonunuzu yerel diskin ötesine taşıyın. Uzaktaki Calibre kitaplığınıza bağlanın veya OPDS kataloglarında kolayca gezinin.',
-                feature3OpdsNote: '<a href="https://books.skriv.ist">Books</a>\'ta OPDS bugünden ücretsiz çalışır.',
-                badgeCloudSoon: 'Cloud · yakında',
-                pricingTitle: 'Sade ve Sessiz Fiyatlandırma',
-                planComicsPrice: 'Ücretsiz',
-                featComics1: 'Tarayıcında çalışan yerel çizgi roman okuyucu',
-                featComics2: 'CBZ, CBR ve PDF',
-                featComics3: 'Hesap gerekmez',
-                ctaComicsCard: 'comics.skriv.ist\'i aç',
+                feature1Desc: "Akış yok, reklam yok, seri sayacı yok. Yazı boyutunu ayarla, beyazdan geceye bir sayfa rengi seç. Uygulamalarda OpenDyslexic dahil yazı tipleri de var.",
+                feature2Title: "Senin Elinde",
+                feature2Desc: "Kitapların cihazında kalır ve bağlantı olmadan açılır. Books ve Comics'te giriş yapılacak bir hesap yok; kütüphanenin bir kopyasını da biz tutmayız.",
+                feature2Note: "Kaldığın yer her cihazda olsun mu? <a href=\"#armarium\">Armarium ile eşleştir</a>.",
+                feature3Title: "Açık Kataloglar",
+                feature3Desc: "DRM'siz dosyalarını kendi klasörlerinden getir ya da OPDS kataloglarında gezinip doğrudan rafına indir. Comics, Kavita kütüphanelerini de okur.",
+                readersTitle: "Okuyucunu Seç",
                 planBooksPrice: 'Ücretsiz',
-                featBooks1: 'Tarayıcında çalışan EPUB ve PDF okuyucu',
-                featBooks2: 'OPDS katalogları',
-                featBooks3: 'Okuma ilerlemesi',
-                featBooks4: 'Çevrimdışı kurulabilir (PWA)',
-                featBooks5: 'Hesap gerekmez, hiçbir şey cihazından çıkmaz',
+                planBooksPeriod: "tarayıcında",
+                featBooks1: "EPUB ve PDF",
+                featBooks2: "OPDS katalogları ve Calibre kütüphane klasörün",
+                featBooks3: "Notlar; Obsidian ve Anki'ye aktarım",
+                featBooks4: "Çevrimdışı okumak için kurulabilir",
+                featBooks5: "iPhone, iPad, Mac ve Android uygulamaları: tek seferlik $3, abonelik yok. Armarium sunucunla eşleşir. <span class=\"badge-soon\">Yakında</span>",
                 ctaBooksCard: 'books.skriv.ist\'i aç',
-                badgeComingSoon: 'Yakında',
-                planCloudPrice: '$4.90',
-                planCloudPeriod: 'Aylık · 7 gün ücretsiz deneme',
-                featCloud1: 'Kitaplığın cihazlar arasında senkronize',
-                featCloud2: 'Barındırılan sesli okuma',
-                featCloud3: 'OPDS + <a href="https://github.com/gandtr/skrivist.tools">Calibre eklentisi</a>',
-                featCloud4: 'Google ile giriş',
-                ctaCloudCard: 'Bekleme listesine katıl',
-                cloudWaitlistNote: 'Cloud açıldığında sana bir kez e-posta göndereceğiz.',
+                planComicsPrice: 'Ücretsiz',
+                planComicsPeriod: "tarayıcında",
+                featComics1: "Rehberli görünüm: kareleri bulur ve tek tek gezdirir",
+                featComics2: 'CBZ, CBR ve PDF',
+                featComics3: "OPDS katalogları, Kavita ve Armarium kütüphaneleri",
+                featComics4: "Hesap gerekmez; bir kez yüklenince çevrimdışı çalışır",
+                ctaComicsCard: 'comics.skriv.ist\'i aç',
                 armariumTitle: "Kendi Kütüphane Sunucun",
                 armariumLead: "Armarium, elindeki kitap ve çizgi romanları, düz klasörlerden ya da Calibre kütüphanelerinden sunan küçük bir sunucu. Evde çalıştır, Skrivist'i bir QR koduyla eşleştir.",
                 armarium1: "Ücretsiz ve açık kaynak",
@@ -1629,42 +1570,35 @@
             },
             es: {
                 headline: 'Donde las historias<br>encuentran su aliento.',
-                heroWhat: 'Lector gratuito de EPUB, PDF y cómics. Funciona en tu navegador; nada sale de tu dispositivo.',
-                subheadline: 'Un santuario de lectura tranquilo y minimalista, diseñado para suavizar el ruido y dejar que tu mente vague libremente entre las páginas.',
+                heroWhat: "Lectores tranquilos para tus propios libros y cómics. Sin cuenta, sin suscripción, sin rastreo.",
+                subheadline: "Skrivist Books lee EPUB y PDF, Skrivist Comics recorre los cómics viñeta a viñeta, y Armarium, un servidor de biblioteca gratuito que ejecutas en casa, guarda por dónde vas en todos tus dispositivos.",
                 ctaButton: 'Empieza a leer, gratis',
                 eyebrow: 'Un lugar tranquilo para leer',
-                ctaNote: 'Gratis · local · sin cuenta',
+                ctaNote: "Gratis en tu navegador · sin cuenta",
                 ctaComics: '¿Lees cómics? <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: 'Un Espacio Sereno',
-                feature1Desc: 'Sin distracciones algorítmicas, redes sociales, ni gamificación. 4 hermosos temas de lectura incluyendo Tinta Electrónica y Sepia.',
-                feature2Title: 'Sincronización Natural',
-                feature2Desc: 'Tu biblioteca fluye sin esfuerzo entre tus dispositivos. Instálala como aplicación para leer sin conexión en paz; sincronizamos tu progreso cuando te reconectas.',
-                feature3Title: 'Integraciones Armónicas',
-                feature3Desc: 'Lleva tu colección más allá del disco local. Conéctate a tu biblioteca remota de Calibre o explora catálogos OPDS maravillosamente.',
-                feature3OpdsNote: 'OPDS ya funciona hoy en <a href="https://books.skriv.ist">Books</a>, gratis.',
-                badgeCloudSoon: 'Cloud · próximamente',
-                pricingTitle: 'Precios Simples y Tranquilos',
-                planComicsPrice: 'Gratis',
-                featComics1: 'Lector de cómics local en tu navegador',
-                featComics2: 'CBZ, CBR y PDF',
-                featComics3: 'Sin cuenta',
-                ctaComicsCard: 'Abrir comics.skriv.ist',
+                feature1Desc: "Sin feeds, sin anuncios, sin rachas. Ajusta el tamaño del texto y elige un color de página, del blanco a la noche. Las apps añaden tipografías, entre ellas OpenDyslexic.",
+                feature2Title: "Siempre Tuyo",
+                feature2Desc: "Tus libros se quedan en tu dispositivo y se abren sin conexión. Books y Comics no tienen cuenta con la que iniciar sesión, y no guardamos ninguna copia de tu biblioteca.",
+                feature2Note: "¿Quieres seguir donde lo dejaste en cada dispositivo? <a href=\"#armarium\">Empareja con Armarium</a>.",
+                feature3Title: "Catálogos Abiertos",
+                feature3Desc: "Trae archivos sin DRM de tus propias carpetas, o explora catálogos OPDS y descarga directamente a tu estantería. Comics también lee bibliotecas de Kavita.",
+                readersTitle: "Elige Tu Lector",
                 planBooksPrice: 'Gratis',
-                featBooks1: 'Lector de EPUB y PDF en tu navegador',
-                featBooks2: 'Catálogos OPDS',
-                featBooks3: 'Progreso de lectura',
-                featBooks4: 'Se instala sin conexión (PWA)',
-                featBooks5: 'Sin cuenta, nada sale de tu dispositivo',
+                planBooksPeriod: "en tu navegador",
+                featBooks1: "EPUB y PDF",
+                featBooks2: "Catálogos OPDS y tu carpeta de biblioteca de Calibre",
+                featBooks3: "Notas, con exportación a Obsidian y Anki",
+                featBooks4: "Se instala para leer sin conexión",
+                featBooks5: "Apps para iPhone, iPad, Mac y Android: $3 en un solo pago, sin suscripción. Se emparejan con tu servidor Armarium. <span class=\"badge-soon\">Próximamente</span>",
                 ctaBooksCard: 'Abrir books.skriv.ist',
-                badgeComingSoon: 'Próximamente',
-                planCloudPrice: '$4.90',
-                planCloudPeriod: 'Al mes · 7 días de prueba',
-                featCloud1: 'Tu biblioteca sincronizada entre dispositivos',
-                featCloud2: 'Voces de texto a voz alojadas',
-                featCloud3: 'OPDS + <a href="https://github.com/gandtr/skrivist.tools">plugin de Calibre</a>',
-                featCloud4: 'Inicio de sesión con Google',
-                ctaCloudCard: 'Unirse a la lista de espera',
-                cloudWaitlistNote: 'Te avisaremos por correo una vez cuando Cloud esté disponible.',
+                planComicsPrice: 'Gratis',
+                planComicsPeriod: "en tu navegador",
+                featComics1: "Vista guiada: encuentra las viñetas y las recorre una a una",
+                featComics2: 'CBZ, CBR y PDF',
+                featComics3: "Catálogos OPDS y bibliotecas de Kavita y Armarium",
+                featComics4: "Sin cuenta; funciona sin conexión una vez cargado",
+                ctaComicsCard: 'Abrir comics.skriv.ist',
                 armariumTitle: "Tu Propio Servidor de Biblioteca",
                 armariumLead: "Armarium es un pequeño servidor para los libros y cómics que ya tienes, en carpetas normales o bibliotecas de Calibre. Ejecútalo en casa y empareja Skrivist con un código QR.",
                 armarium1: "Gratis y de código abierto",
@@ -1687,42 +1621,35 @@
             },
             pt: {
                 headline: 'Onde as histórias<br>encontram seu respiro.',
-                heroWhat: 'Leitor grátis de EPUB, PDF e quadrinhos. Funciona no seu navegador; nada sai do seu dispositivo.',
-                subheadline: 'Um santuário de leitura tranquilo e minimalista, projetado para suavizar o ruído e deixar sua mente vagar livremente pelas páginas.',
+                heroWhat: "Leitores tranquilos para os seus próprios livros e quadrinhos. Sem conta, sem assinatura, sem rastreamento.",
+                subheadline: "O Skrivist Books lê EPUB e PDF, o Skrivist Comics percorre os quadrinhos quadro a quadro, e o Armarium, um servidor de biblioteca gratuito que você roda em casa, guarda onde você parou em todos os seus dispositivos.",
                 ctaButton: 'Comece a ler, grátis',
                 eyebrow: 'Um lugar tranquilo para ler',
-                ctaNote: 'Grátis · local · sem conta',
+                ctaNote: "Grátis no seu navegador · sem conta",
                 ctaComics: 'Lê quadrinhos? <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: 'Um Espaço Sereno',
-                feature1Desc: 'Livre de distrações algorítmicas e gamificação. 4 belos temas de leitura, incluindo E-paper e Sépia.',
-                feature2Title: 'Sincronização Natural',
-                feature2Desc: 'Sua biblioteca flui sem esforço entre seus dispositivos. Instale como app para ler offline em paz; sincronizamos seu progresso quando reconectar.',
-                feature3Title: 'Integrações Harmônicas',
-                feature3Desc: 'Expanda sua coleção além do disco local. Conecte sua biblioteca remota do Calibre ou navegue por catálogos OPDS lindamente.',
-                feature3OpdsNote: 'O OPDS já funciona hoje no <a href="https://books.skriv.ist">Books</a>, de graça.',
-                badgeCloudSoon: 'Cloud · em breve',
-                pricingTitle: 'Preços Simples e Silenciosos',
-                planComicsPrice: 'Grátis',
-                featComics1: 'Leitor de quadrinhos local no seu navegador',
-                featComics2: 'CBZ, CBR e PDF',
-                featComics3: 'Sem conta',
-                ctaComicsCard: 'Abrir comics.skriv.ist',
+                feature1Desc: "Sem feeds, sem anúncios, sem sequências. Ajuste o tamanho do texto e escolha uma cor de página, do branco à noite. Os apps trazem fontes, entre elas a OpenDyslexic.",
+                feature2Title: "Sempre Seu",
+                feature2Desc: "Seus livros ficam no seu dispositivo e abrem sem conexão. O Books e o Comics não têm conta para entrar, e não guardamos nenhuma cópia da sua biblioteca.",
+                feature2Note: "Quer continuar de onde parou em qualquer dispositivo? <a href=\"#armarium\">Pareie com o Armarium</a>.",
+                feature3Title: "Catálogos Abertos",
+                feature3Desc: "Traga arquivos sem DRM das suas próprias pastas, ou navegue por catálogos OPDS e baixe direto para a sua estante. O Comics também lê bibliotecas do Kavita.",
+                readersTitle: "Escolha Seu Leitor",
                 planBooksPrice: 'Grátis',
-                featBooks1: 'Leitor de EPUB e PDF no seu navegador',
-                featBooks2: 'Catálogos OPDS',
-                featBooks3: 'Progresso de leitura',
-                featBooks4: 'Instala offline (PWA)',
-                featBooks5: 'Sem conta, nada sai do seu dispositivo',
+                planBooksPeriod: "no seu navegador",
+                featBooks1: "EPUB e PDF",
+                featBooks2: "Catálogos OPDS e a pasta da sua biblioteca do Calibre",
+                featBooks3: "Notas, com exportação para Obsidian e Anki",
+                featBooks4: "Instala para ler offline",
+                featBooks5: "Apps para iPhone, iPad, Mac e Android: US$ 3 em pagamento único, sem assinatura. Pareiam com o seu servidor Armarium. <span class=\"badge-soon\">Em breve</span>",
                 ctaBooksCard: 'Abrir books.skriv.ist',
-                badgeComingSoon: 'Em breve',
-                planCloudPrice: '$4.90',
-                planCloudPeriod: 'Por mês · 7 dias de teste',
-                featCloud1: 'Sua biblioteca sincronizada entre dispositivos',
-                featCloud2: 'Vozes de texto para fala hospedadas',
-                featCloud3: 'OPDS + <a href="https://github.com/gandtr/skrivist.tools">plugin do Calibre</a>',
-                featCloud4: 'Login com Google',
-                ctaCloudCard: 'Entrar na lista de espera',
-                cloudWaitlistNote: 'Vamos te avisar por e-mail uma vez quando o Cloud abrir.',
+                planComicsPrice: 'Grátis',
+                planComicsPeriod: "no seu navegador",
+                featComics1: "Visualização guiada: encontra os quadros e passa por eles um a um",
+                featComics2: 'CBZ, CBR e PDF',
+                featComics3: "Catálogos OPDS e bibliotecas do Kavita e do Armarium",
+                featComics4: "Sem conta; funciona offline depois de carregado",
+                ctaComicsCard: 'Abrir comics.skriv.ist',
                 armariumTitle: "Seu Próprio Servidor de Biblioteca",
                 armariumLead: "O Armarium é um pequeno servidor para os livros e quadrinhos que você já tem, em pastas comuns ou bibliotecas do Calibre. Rode em casa e pareie o Skrivist com um QR code.",
                 armarium1: "Gratuito e de código aberto",
@@ -1745,42 +1672,35 @@
             },
             de: {
                 headline: 'Wo Geschichten<br>ihren Atem finden.',
-                heroWhat: 'Kostenloser EPUB-, PDF- und Comic-Reader. Läuft in deinem Browser; nichts verlässt dein Gerät.',
-                subheadline: 'Ein ruhiges, minimalistisches Lese-Refugium, das den Lärm mildert und deinen Geist frei durch die Seiten wandern lässt.',
+                heroWhat: "Ruhige Reader für deine eigenen Bücher und Comics. Kein Konto, kein Abo, kein Tracking.",
+                subheadline: "Skrivist Books liest EPUB und PDF, Skrivist Comics führt Panel für Panel durch Comics, und Armarium, ein kostenloser Bibliotheksserver für zu Hause, merkt sich auf allen Geräten, wo du warst.",
                 ctaButton: 'Lesen beginnen, kostenlos',
                 eyebrow: 'Ein ruhiger Ort zum Lesen',
-                ctaNote: 'Kostenlos · lokal · kein Konto nötig',
+                ctaNote: "Kostenlos im Browser · kein Konto nötig",
                 ctaComics: 'Comics lesen? <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: 'Ein Sanfter Raum',
-                feature1Desc: 'Frei von algorithmischen Ablenkungen und Gamification. 4 wunderschöne Lesethemen, inklusive E-Paper und Sepia.',
-                feature2Title: 'Natürliche Synchronisation',
-                feature2Desc: 'Deine Bibliothek fließt mühelos zwischen Geräten. Als App installieren für ruhendes Offline-Lesen; wir synchronisieren leise bei erneuter Verbindung.',
-                feature3Title: 'Harmonische Integrationen',
-                feature3Desc: 'Erweitere deine Sammlung über die Festplatte hinaus. Verbinde deine entfernte Calibre-Bibliothek oder durchsuche OPDS-Kataloge.',
-                feature3OpdsNote: 'OPDS funktioniert schon heute in <a href="https://books.skriv.ist">Books</a>, kostenlos.',
-                badgeCloudSoon: 'Cloud · demnächst',
-                pricingTitle: 'Einfache, ruhige Preise',
-                planComicsPrice: 'Kostenlos',
-                featComics1: 'Lokaler Comic-Reader in deinem Browser',
-                featComics2: 'CBZ, CBR und PDF',
-                featComics3: 'Kein Konto nötig',
-                ctaComicsCard: 'comics.skriv.ist öffnen',
+                feature1Desc: "Keine Feeds, keine Werbung, keine Streaks. Stell die Schriftgröße ein und wähl eine Seitenfarbe, von Weiß bis Nacht. Die Apps bieten zusätzlich Schriftarten, darunter OpenDyslexic.",
+                feature2Title: "Bleibt bei dir",
+                feature2Desc: "Deine Bücher bleiben auf deinem Gerät und öffnen sich auch offline. Books und Comics haben kein Konto zum Anmelden, und wir bewahren keine Kopie deiner Bibliothek auf.",
+                feature2Note: "Deine Stelle auf jedem Gerät? <a href=\"#armarium\">Mit Armarium koppeln</a>.",
+                feature3Title: "Offene Kataloge",
+                feature3Desc: "Hol DRM-freie Dateien aus deinen eigenen Ordnern oder stöbere in OPDS-Katalogen und lade direkt ins Regal. Comics liest auch Kavita-Bibliotheken.",
+                readersTitle: "Wähl deinen Reader",
                 planBooksPrice: 'Kostenlos',
-                featBooks1: 'EPUB- und PDF-Reader in deinem Browser',
-                featBooks2: 'OPDS-Kataloge',
-                featBooks3: 'Lesefortschritt',
-                featBooks4: 'Offline installierbar (PWA)',
-                featBooks5: 'Kein Konto nötig, nichts verlässt dein Gerät',
+                planBooksPeriod: "im Browser",
+                featBooks1: "EPUB und PDF",
+                featBooks2: "OPDS-Kataloge und dein Calibre-Bibliotheksordner",
+                featBooks3: "Notizen mit Export für Obsidian und Anki",
+                featBooks4: "Installierbar zum Offline-Lesen",
+                featBooks5: "Apps für iPhone, iPad, Mac und Android: einmalig 3 $, kein Abo. Sie koppeln sich mit deinem Armarium-Server. <span class=\"badge-soon\">Demnächst</span>",
                 ctaBooksCard: 'books.skriv.ist öffnen',
-                badgeComingSoon: 'Demnächst',
-                planCloudPrice: '4,90 $',
-                planCloudPeriod: 'Pro Monat · 7 Tage gratis testen',
-                featCloud1: 'Deine Bibliothek geräteübergreifend synchronisiert',
-                featCloud2: 'Gehostete Text-zu-Sprache-Stimmen',
-                featCloud3: 'OPDS + <a href="https://github.com/gandtr/skrivist.tools">Calibre-Plugin</a>',
-                featCloud4: 'Anmeldung mit Google',
-                ctaCloudCard: 'Warteliste beitreten',
-                cloudWaitlistNote: 'Wir schreiben dir einmal per E-Mail, wenn Cloud startet.',
+                planComicsPrice: 'Kostenlos',
+                planComicsPeriod: "im Browser",
+                featComics1: "Geführte Ansicht: findet die Panels und zeigt sie nacheinander",
+                featComics2: 'CBZ, CBR und PDF',
+                featComics3: "OPDS-Kataloge, Kavita- und Armarium-Bibliotheken",
+                featComics4: "Kein Konto; läuft nach dem ersten Laden auch offline",
+                ctaComicsCard: 'comics.skriv.ist öffnen',
                 armariumTitle: "Dein eigener Bibliotheksserver",
                 armariumLead: "Armarium ist ein kleiner Server für die Bücher und Comics, die du schon hast, in normalen Ordnern oder Calibre-Bibliotheken. Betreibe ihn zu Hause und koppele Skrivist per QR-Code.",
                 armarium1: "Kostenlos und Open Source",
@@ -1803,42 +1723,35 @@
             },
             fr: {
                 headline: 'Là où les histoires<br>trouvent leur souffle.',
-                heroWhat: 'Lecteur EPUB, PDF et BD gratuit. Fonctionne dans votre navigateur ; rien ne quitte votre appareil.',
-                subheadline: 'Un sanctuaire de lecture tranquilo et minimaliste, conçu pour adoucir le bruit et laisser votre esprit vagabonder librement à travers les pages.',
+                heroWhat: "Des lecteurs paisibles pour vos propres livres et BD. Sans compte, sans abonnement, sans pistage.",
+                subheadline: "Skrivist Books lit l'EPUB et le PDF, Skrivist Comics parcourt les BD case par case, et Armarium, un serveur de bibliothèque gratuit que vous faites tourner chez vous, garde votre page d'un appareil à l'autre.",
                 ctaButton: 'Commencer à lire, gratuit',
                 eyebrow: 'Un endroit calme pour lire',
-                ctaNote: 'Gratuit · local · sans compte',
+                ctaNote: "Gratuit dans votre navigateur · sans compte",
                 ctaComics: 'Vous lisez des BD ? <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: 'Un Espace Doux',
-                feature1Desc: 'Sans distractions algorithmiques ni gamification. 4 magnifiques thèmes de lecture dont E-paper et Sépia.',
-                feature2Title: 'Synchronisation Naturelle',
-                feature2Desc: 'Votre bibliothèque circule sans effort. Installez en tant qu\'application pour lire hors ligne en paix; la synchronisation se fait discrètement au retour.',
-                feature3Title: 'Intégrations Harmoniques',
-                feature3Desc: 'Étendez votre collection au-delà du disque local. Connectez votre bibliothèque Calibre distante ou parcourez les catalogues OPDS avec élégance.',
-                feature3OpdsNote: 'OPDS fonctionne dès aujourd\'hui dans <a href="https://books.skriv.ist">Books</a>, gratuitement.',
-                badgeCloudSoon: 'Cloud · bientôt disponible',
-                pricingTitle: 'Prix Simples et Discrets',
-                planComicsPrice: 'Gratuit',
-                featComics1: 'Lecteur de BD local dans votre navigateur',
-                featComics2: 'CBZ, CBR et PDF',
-                featComics3: 'Sans compte',
-                ctaComicsCard: 'Ouvrir comics.skriv.ist',
+                feature1Desc: "Pas de fil d'actualité, pas de pub, pas de séries. Réglez la taille du texte et choisissez une couleur de page, du blanc à la nuit. Les apps ajoutent des polices, dont OpenDyslexic.",
+                feature2Title: "Chez Vous",
+                feature2Desc: "Vos livres restent sur votre appareil et s'ouvrent sans connexion. Books et Comics n'ont pas de compte où se connecter, et nous ne gardons aucune copie de votre bibliothèque.",
+                feature2Note: "Retrouver votre page sur chaque appareil ? <a href=\"#armarium\">Associez Armarium</a>.",
+                feature3Title: "Catalogues Ouverts",
+                feature3Desc: "Ajoutez des fichiers sans DRM depuis vos propres dossiers, ou parcourez des catalogues OPDS et téléchargez directement dans votre bibliothèque. Comics lit aussi les bibliothèques Kavita.",
+                readersTitle: "Choisissez Votre Lecteur",
                 planBooksPrice: 'Gratuit',
-                featBooks1: 'Lecteur EPUB et PDF dans votre navigateur',
-                featBooks2: 'Catalogues OPDS',
-                featBooks3: 'Progression de lecture',
-                featBooks4: 'Installation hors ligne (PWA)',
-                featBooks5: 'Sans compte, rien ne quitte votre appareil',
+                planBooksPeriod: "dans votre navigateur",
+                featBooks1: "EPUB et PDF",
+                featBooks2: "Catalogues OPDS et le dossier de votre bibliothèque Calibre",
+                featBooks3: "Notes, avec export vers Obsidian et Anki",
+                featBooks4: "S'installe pour lire hors ligne",
+                featBooks5: "Apps pour iPhone, iPad, Mac et Android : 3 $ une seule fois, sans abonnement. Elles s'associent à votre serveur Armarium. <span class=\"badge-soon\">Bientôt disponible</span>",
                 ctaBooksCard: 'Ouvrir books.skriv.ist',
-                badgeComingSoon: 'Bientôt disponible',
-                planCloudPrice: '4,90 $',
-                planCloudPeriod: 'Par Mois · 7 jours d’essai',
-                featCloud1: 'Votre bibliothèque synchronisée entre appareils',
-                featCloud2: 'Voix de synthèse vocale hébergées',
-                featCloud3: 'OPDS + <a href="https://github.com/gandtr/skrivist.tools">plugin Calibre</a>',
-                featCloud4: 'Connexion avec Google',
-                ctaCloudCard: 'Rejoindre la liste d\'attente',
-                cloudWaitlistNote: 'Nous vous enverrons un e-mail une seule fois quand Cloud ouvrira.',
+                planComicsPrice: 'Gratuit',
+                planComicsPeriod: "dans votre navigateur",
+                featComics1: "Vue guidée : repère les cases et les fait défiler une à une",
+                featComics2: 'CBZ, CBR et PDF',
+                featComics3: "Catalogues OPDS, bibliothèques Kavita et Armarium",
+                featComics4: "Sans compte ; fonctionne hors ligne une fois chargé",
+                ctaComicsCard: 'Ouvrir comics.skriv.ist',
                 armariumTitle: "Votre Propre Serveur de Bibliothèque",
                 armariumLead: "Armarium est un petit serveur pour les livres et les BD que vous avez déjà, dans de simples dossiers ou des bibliothèques Calibre. Faites-le tourner chez vous et associez Skrivist avec un QR code.",
                 armarium1: "Gratuit et open source",
