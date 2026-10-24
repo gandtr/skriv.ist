@@ -539,6 +539,10 @@
             outline: none;
         }
 
+        .hero-video[hidden] {
+            display: none;
+        }
+
         @media (max-width: 600px) {
             .hero-video {
                 margin-bottom: 2rem;
@@ -1280,7 +1284,11 @@
                     Skrivist Books reads EPUB and PDF, Skrivist Comics steps through comics panel by panel, and Armarium, a free library server you run at home, serves your collection to both.
                 </p>
 
+                <!-- Hidden until the Books/Comics promo renders replace media/:
+                     the current ones still advertise Skrivist Cloud. Delete
+                     the `hidden` line to bring the video back. -->
                 <video
+                    hidden
                     id="heroVideo"
                     class="hero-video hero-entrance"
                     style="animation-delay: 0.24s;"
@@ -1773,7 +1781,7 @@
         function updateHeroVideo() {
             var videoEl = document.getElementById('heroVideo');
             var sourceEl = document.getElementById('heroVideoSource');
-            if (!videoEl || !sourceEl) return;
+            if (!videoEl || !sourceEl || videoEl.hidden) return;
             var suffix = heroPortraitMq.matches ? '-vertical' : '';
             var newSrc = '/media/skrivist-promo-' + currentLang + suffix + '.mp4';
             if (sourceEl.getAttribute('src') === newSrc) return;
