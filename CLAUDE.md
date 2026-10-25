@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**skriv.ist** is the marketing landing page for the Skrivist readers and their companion server: Skrivist Books ([books.skriv.ist](https://books.skriv.ist), free in the browser; native iPhone/iPad/Mac/Android apps at $3 one-time, coming soon), Skrivist Comics ([comics.skriv.ist](https://comics.skriv.ist), free), and [Armarium](https://armarium.skriv.ist/) (free, open-source, self-hosted library server that syncs reading progress with the apps). No account, subscription or tracking. The page has a hero promo video, three feature highlights, Books and Comics cards, and an Armarium section, and drives the primary CTA to [books.skriv.ist](https://books.skriv.ist). Skrivist Cloud, the hosted app at app.skriv.ist with sync and hosted text-to-speech, was shut down (teardown plan: gandtr/skrivist.app `docs/teardown-2026-10.md`). app.skriv.ist redirects to skriv.ist, and the page does not link to it. Made by [Gand Technology Services](https://gand.tr).
+**skriv.ist** is the marketing landing page for the Skrivist readers and their companion server: Skrivist Books ([books.skriv.ist](https://books.skriv.ist), free in the browser; native iPhone/iPad/Mac/Android apps at $3 one-time, coming soon), Skrivist Comics ([comics.skriv.ist](https://comics.skriv.ist), free), and [Armarium](https://armarium.skriv.ist/) (free, open-source, self-hosted library server that syncs reading progress with the apps). No account, subscription or tracking. The page has a hero trailer (Books or Comics, picked with a switch), three feature highlights, Books and Comics cards, and an Armarium section, and drives the primary CTA to [books.skriv.ist](https://books.skriv.ist). Skrivist Cloud, the hosted app at app.skriv.ist with sync and hosted text-to-speech, was shut down (teardown plan: gandtr/skrivist.app `docs/teardown-2026-10.md`). app.skriv.ist redirects to skriv.ist, and the page does not link to it. Made by [Gand Technology Services](https://gand.tr).
 
 - **Live URL:** https://skriv.ist
 - **Hosting:** Cloudflare Pages (project `skriv-ist`, static files). Deploys are **manual**: dispatch the "Deploy" GitHub Actions workflow (`gh workflow run deploy.yml` or Actions UI). Pushes do not deploy.
@@ -12,8 +12,8 @@
 
 - Pure HTML + CSS (no frameworks, no build tools, no package manager)
 - Google Fonts: Playfair Display (headings), Lato (body)
-- Minimal inline JS (theme toggle + language switcher + locale/orientation-aware hero video + scroll-reveal)
-- The marketing page lives in `index.html`; legal/submission pages are standalone static files; promo video assets live in `media/`
+- Minimal inline JS (theme toggle + language switcher + locale/orientation-aware hero trailers with a Books | Comics switch + scroll-reveal)
+- The marketing page lives in `index.html`; legal/submission pages are standalone static files; trailer assets live in `media/`
 
 ## Project Structure
 
@@ -22,11 +22,12 @@
 ├── privacy.html               # Privacy Policy (app-store submission required)
 ├── terms.html                 # Terms of Service (app-store submission required)
 ├── support.html               # Support & account deletion (app-store submission required)
-├── media/                     # Hero promo video assets, per locale (en, ja, tr, es, pt, de, fr)
-│   ├── skrivist-promo-{lang}.mp4           # landscape 16:9 (desktop)
-│   ├── skrivist-promo-{lang}-vertical.mp4  # portrait 9:16 (mobile)
-│   ├── captions-{lang}[-vertical].vtt      # WebVTT captions (`npm run captions` in ../skrivist-promo-video)
-│   └── poster-{lang}[-vertical].jpg        # poster frames
+├── media/                     # Hero trailers, per video (books, comics) and locale (en, ja, tr, es, pt, de, fr)
+│   ├── skrivist-{video}-{lang}.mp4           # landscape 16:9 (desktop), 1280x720
+│   ├── skrivist-{video}-{lang}-vertical.mp4  # portrait 9:16 (mobile), 720x1280
+│   ├── skrivist-{video}-{lang}[-vertical].vtt  # WebVTT captions
+│   ├── skrivist-{video}-{lang}[-vertical].jpg  # poster frames (the title card at 2.5 s)
+│   └── og-image.jpg                          # 1920x1080 share image (Books title card, en)
 ├── .github/workflows/deploy.yml  # Manual-dispatch Cloudflare Pages deploy
 ├── .project-instructions.md   # Design/SEO context for developers
 ├── robots.txt                 # Search engine directives (+ sitemap reference)
@@ -38,7 +39,7 @@
 └── CLAUDE.md                  # This file
 ```
 
-> Promo videos are produced in the sibling project `../skrivist-promo-video/`; its renders (`out/skrivist-promo-{lang}[-vertical].mp4`) and captions (`out/captions-{lang}[-vertical].vtt`) are copied into `media/`.
+> Trailers are produced in the sibling project `../skrivist-promo-video/`. Its renders (`out/skrivist-{video}-{lang}[-vertical].mp4`, 1080p, about 230 MB) are too heavy for the page, so `media/` holds 720p re-encodes: `ffmpeg -i in.mp4 -vf scale=1280:-2 (vertical: scale=720:-2) -c:v libx264 -preset slow -crf 26 -profile:v high -pix_fmt yuv420p -movflags +faststart -c:a aac -b:a 96k out.mp4`, about 2 MB each. Posters: `ffmpeg -ss 2.5 -i in.mp4 -frames:v 1 -vf scale=… -q:v 4 out.jpg`. Captions are copied as they are.
 
 ## Design System
 
@@ -82,7 +83,7 @@
 - **Primary CTA** - "Start reading, free" links to `books.skriv.ist`; the hero promo video, the Books and Comics cards (`#readers`) and the Armarium section (`#armarium`) support it. When the Books apps reach the App Store and Google Play, replace the "Coming soon" badge in `featBooks5` with store links.
 - **Legal pages describe what is live today** - `privacy.html`, `terms.html` and `support.html` cover the website, Skrivist Books and Comics (web, desktop and native apps) and Armarium pairing, and must match what those products do now, not plans. Skrivist Cloud (app.skriv.ist) closed on 2026-10-24 and its accounts and data were deleted the same day: privacy keeps a short "Skrivist Cloud (closed)" section saying what it held and that it was deleted, and support says there is nothing left to request. Google Cloud/Firebase and Polar are no longer processors. The store listings of the native apps link /privacy, /terms and /support, so those URLs must stay. Support contact is `contact@skriv.ist`.
 - **Mobile responsive** - media queries at the 600px breakpoint for mobile layout.
-- **Hero promo video** - currently hidden (`hidden` attribute on `#heroVideo`) because the renders in `media/` still advertise Skrivist Cloud; delete that line once the Books/Comics renders replace them. While hidden, `updateHeroVideo()` does nothing. When shown, it is locale-aware (swaps per language) and orientation-aware: `updateHeroVideo()` serves the vertical 9:16 cut on mobile (≤600px) and the landscape 16:9 cut on desktop, keyed to the same 600px breakpoint as the CSS. Sources and posters follow `media/skrivist-promo-{lang}[-vertical].mp4` / `media/poster-{lang}[-vertical].jpg`.
+- **Hero trailers** - the hero plays the Skrivist Books trailer by default; the `.trailer-switch` above it (two `aria-pressed` buttons) swaps to Skrivist Comics, and keeps playing if the video was playing. `updateHeroVideo()` is locale-aware (swaps per language) and orientation-aware: it serves the vertical 9:16 cut on mobile (≤600px) and the landscape 16:9 cut on desktop, keyed to the same 600px breakpoint as the CSS. The video, poster and captions share one name: `media/skrivist-{books|comics}-{lang}[-vertical].{mp4,jpg,vtt}`. The video's accessible name comes from `ariaVideoBooks` / `ariaVideoComics`.
 - **SEO is configured** - canonical tag, OG/Twitter cards, JSON-LD schema, keywords meta, robots.txt + sitemap.xml, and 404.html are all in place. New static files must also be added to the "Assemble site bundle" step in `deploy.yml`. The www→apex 301 lives in a Cloudflare zone **Redirect Rule** (dashboard: Rules → Redirect Rules), NOT in a Pages `_redirects` file — Pages `_redirects` cannot match on hostname.
 
 ## Working With This Project
