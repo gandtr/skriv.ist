@@ -18,12 +18,12 @@
     <meta property="og:url" content="https://skriv.ist/" />
     <meta property="og:site_name" content="skriv.ist" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:image" content="https://skriv.ist/media/poster-en.jpg" />
+    <meta property="og:image" content="https://skriv.ist/media/og-image.jpg" />
     <meta property="og:image:width" content="1920" />
     <meta property="og:image:height" content="1080" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://skriv.ist/media/poster-en.jpg" />
+    <meta name="twitter:image" content="https://skriv.ist/media/og-image.jpg" />
     <meta name="twitter:title" content="Skrivist — Calm EPUB, PDF &amp; Comic Readers, No Account" />
     <meta name="twitter:description" content="Read EPUB, PDF and comics free in your browser, with no account or tracking. Skrivist Books apps for iPhone, iPad, Mac and Android: $3 once, coming soon." />
 
@@ -539,8 +539,42 @@
             outline: none;
         }
 
-        .hero-video[hidden] {
-            display: none;
+        /* Books | Comics switch above the hero video */
+        .trailer-switch {
+            display: inline-flex;
+            gap: 4px;
+            padding: 4px;
+            margin: 0 auto 1rem auto;
+            border: 1px solid var(--surface-border);
+            border-radius: 50px;
+            background: var(--input-focus-ring);
+        }
+
+        .trailer-switch button {
+            width: auto;
+            min-width: 112px;
+            min-height: 44px;
+            padding: 0 1.4rem;
+            border-radius: 50px;
+            background: transparent;
+            box-shadow: none;
+            /* --text-secondary falls under 4.5:1 on the tinted pill */
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            text-transform: none;
+        }
+
+        .trailer-switch button:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .trailer-switch button[aria-pressed="true"] {
+            background: linear-gradient(135deg, var(--button-gradient-1), var(--button-gradient-2));
+            color: var(--button-text);
+            box-shadow: 0 2px 8px var(--surface-shadow-1);
         }
 
         @media (max-width: 600px) {
@@ -1284,23 +1318,24 @@
                     Skrivist Books reads EPUB and PDF, Skrivist Comics steps through comics panel by panel, and Armarium, a free library server you run at home, serves your collection to both.
                 </p>
 
-                <!-- Hidden until the Books/Comics promo renders replace media/:
-                     the current ones still advertise Skrivist Cloud. Delete
-                     the `hidden` line to bring the video back. -->
+                <div class="trailer-switch hero-entrance" style="animation-delay: 0.2s;" role="group" data-i18n-aria="ariaTrailerSwitch" aria-label="Choose a trailer">
+                    <button type="button" data-trailer="books" aria-pressed="true">Books</button>
+                    <button type="button" data-trailer="comics" aria-pressed="false">Comics</button>
+                </div>
+
                 <video
-                    hidden
                     id="heroVideo"
                     class="hero-video hero-entrance"
                     style="animation-delay: 0.24s;"
-                    poster="/media/poster-en.jpg"
+                    poster="/media/skrivist-books-en.jpg"
                     preload="metadata"
                     controls
                     playsinline
                     muted
-                    data-i18n-aria="ariaVideo"
-                    aria-label="skriv.ist promotional video">
-                    <source id="heroVideoSource" src="/media/skrivist-promo-en.mp4" type="video/mp4">
-                    <track id="heroVideoTrack" kind="captions" src="/media/captions-en.vtt" srclang="en" label="English" default>
+                    data-i18n-aria="ariaVideoBooks"
+                    aria-label="Skrivist Books trailer">
+                    <source id="heroVideoSource" src="/media/skrivist-books-en.mp4" type="video/mp4">
+                    <track id="heroVideoTrack" kind="captions" src="/media/skrivist-books-en.vtt" srclang="en" label="English" default>
                 </video>
 
                 <div class="cta-group hero-entrance" style="animation-delay: 0.32s;">
@@ -1456,7 +1491,9 @@
                 footerSitemap: 'Sitemap',
                 ariaLanguage: 'Change language',
                 ariaTheme: 'Toggle dark mode',
-                ariaVideo: 'skriv.ist promotional video',
+                ariaVideoBooks: 'Skrivist Books trailer',
+                ariaVideoComics: 'Skrivist Comics trailer',
+                ariaTrailerSwitch: 'Choose a trailer',
                 langLabel: 'Language',
                 label: 'EN'
             },
@@ -1506,7 +1543,9 @@
                 footerSitemap: 'サイトマップ',
                 ariaLanguage: '言語を変更',
                 ariaTheme: 'ダークモードを切り替え',
-                ariaVideo: 'skriv.ist プロモーション動画',
+                ariaVideoBooks: 'Skrivist Books の紹介動画',
+                ariaVideoComics: 'Skrivist Comics の紹介動画',
+                ariaTrailerSwitch: '紹介動画を選ぶ',
                 langLabel: '言語',
                 label: 'JA'
             },
@@ -1556,7 +1595,9 @@
                 footerSitemap: 'Site haritası',
                 ariaLanguage: 'Dili değiştir',
                 ariaTheme: 'Karanlık modu aç veya kapat',
-                ariaVideo: 'skriv.ist tanıtım videosu',
+                ariaVideoBooks: 'Skrivist Books tanıtım videosu',
+                ariaVideoComics: 'Skrivist Comics tanıtım videosu',
+                ariaTrailerSwitch: 'Tanıtım videosu seçin',
                 langLabel: 'Dil',
                 label: 'TR'
             },
@@ -1606,7 +1647,9 @@
                 footerSitemap: 'Mapa del sitio',
                 ariaLanguage: 'Cambiar idioma',
                 ariaTheme: 'Activar o desactivar el modo oscuro',
-                ariaVideo: 'Vídeo promocional de skriv.ist',
+                ariaVideoBooks: 'Tráiler de Skrivist Books',
+                ariaVideoComics: 'Tráiler de Skrivist Comics',
+                ariaTrailerSwitch: 'Elige un tráiler',
                 langLabel: 'Idioma',
                 label: 'ES'
             },
@@ -1656,7 +1699,9 @@
                 footerSitemap: 'Mapa do site',
                 ariaLanguage: 'Alterar idioma',
                 ariaTheme: 'Ativar ou desativar o modo escuro',
-                ariaVideo: 'Vídeo promocional do skriv.ist',
+                ariaVideoBooks: 'Trailer do Skrivist Books',
+                ariaVideoComics: 'Trailer do Skrivist Comics',
+                ariaTrailerSwitch: 'Escolha um trailer',
                 langLabel: 'Idioma',
                 label: 'PT'
             },
@@ -1706,7 +1751,9 @@
                 footerSitemap: 'Sitemap',
                 ariaLanguage: 'Sprache ändern',
                 ariaTheme: 'Dunkelmodus umschalten',
-                ariaVideo: 'skriv.ist Werbevideo',
+                ariaVideoBooks: 'Trailer zu Skrivist Books',
+                ariaVideoComics: 'Trailer zu Skrivist Comics',
+                ariaTrailerSwitch: 'Trailer auswählen',
                 langLabel: 'Sprache',
                 label: 'DE'
             },
@@ -1756,7 +1803,9 @@
                 footerSitemap: 'Plan du site',
                 ariaLanguage: 'Changer de langue',
                 ariaTheme: 'Activer ou désactiver le mode sombre',
-                ariaVideo: 'Vidéo promotionnelle de skriv.ist',
+                ariaVideoBooks: 'Bande-annonce de Skrivist Books',
+                ariaVideoComics: 'Bande-annonce de Skrivist Comics',
+                ariaTrailerSwitch: 'Choisir une bande-annonce',
                 langLabel: 'Langue',
                 label: 'FR'
             }
@@ -1764,21 +1813,30 @@
 
         var currentLang = 'en';
 
-        /* Pick the hero promo render that matches the viewport: a vertical
+        /* Which trailer the hero plays: 'books' or 'comics' (the switch
+           above the video). */
+        var currentTrailer = 'books';
+
+        /* Pick the hero trailer render that matches the viewport: a vertical
            9:16 cut on narrow/mobile screens, the 16:9 landscape cut otherwise.
-           Tracks the same 600px breakpoint the CSS uses. A missing per-locale
-           file simply 404s in DevTools without affecting the UI. */
+           Tracks the same 600px breakpoint the CSS uses. The video, its
+           poster and its captions share one name:
+           media/skrivist-{books|comics}-{lang}[-vertical].{mp4,jpg,vtt}. */
         var heroPortraitMq = window.matchMedia('(max-width: 600px)');
 
         function updateHeroVideo() {
             var videoEl = document.getElementById('heroVideo');
             var sourceEl = document.getElementById('heroVideoSource');
-            if (!videoEl || !sourceEl || videoEl.hidden) return;
+            if (!videoEl || !sourceEl) return;
+            var ariaKey = currentTrailer === 'comics' ? 'ariaVideoComics' : 'ariaVideoBooks';
+            videoEl.setAttribute('data-i18n-aria', ariaKey);
+            if (T[currentLang] && T[currentLang][ariaKey]) videoEl.setAttribute('aria-label', T[currentLang][ariaKey]);
             var suffix = heroPortraitMq.matches ? '-vertical' : '';
-            var newSrc = '/media/skrivist-promo-' + currentLang + suffix + '.mp4';
+            var base = '/media/skrivist-' + currentTrailer + '-' + currentLang + suffix;
+            var newSrc = base + '.mp4';
             if (sourceEl.getAttribute('src') === newSrc) return;
             sourceEl.setAttribute('src', newSrc);
-            videoEl.setAttribute('poster', '/media/poster-' + currentLang + suffix + '.jpg');
+            videoEl.setAttribute('poster', base + '.jpg');
             /* Swap the caption track with a fresh element: mutating <track>
                src in place leaves stale cues in Safari/Chrome, and .track can
                still be null there. Guarded so captions can never abort
@@ -1793,7 +1851,7 @@
                     var newTrack = document.createElement('track');
                     newTrack.setAttribute('id', 'heroVideoTrack');
                     newTrack.setAttribute('kind', 'captions');
-                    newTrack.setAttribute('src', '/media/captions-' + currentLang + suffix + '.vtt');
+                    newTrack.setAttribute('src', base + '.vtt');
                     newTrack.setAttribute('srclang', currentLang);
                     var opt = picker.querySelector('.lang-option[data-lang="' + currentLang + '"]');
                     if (opt) newTrack.setAttribute('label', opt.textContent);
@@ -1973,6 +2031,27 @@
             heroPortraitMq.addListener(updateHeroVideo);
         }
         updateHeroVideo();
+
+        /* Books | Comics switch: swap the trailer, and keep playing if the
+           previous one was playing (the click is the user gesture). */
+        var trailerButtons = document.querySelectorAll('.trailer-switch button');
+        for (var tb = 0; tb < trailerButtons.length; tb++) {
+            trailerButtons[tb].addEventListener('click', function() {
+                var choice = this.getAttribute('data-trailer');
+                if (choice === currentTrailer) return;
+                var videoEl = document.getElementById('heroVideo');
+                var wasPlaying = videoEl && !videoEl.paused;
+                currentTrailer = choice;
+                for (var b = 0; b < trailerButtons.length; b++) {
+                    trailerButtons[b].setAttribute('aria-pressed', trailerButtons[b] === this ? 'true' : 'false');
+                }
+                updateHeroVideo();
+                if (wasPlaying) {
+                    var p = videoEl.play();
+                    if (p && p.catch) p.catch(function() {});
+                }
+            });
+        }
 
         /* ===== THEME TOGGLE ===== */
         var toggle = document.querySelector('.theme-toggle');
