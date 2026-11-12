@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skrivist — Calm EPUB, PDF &amp; Comic Readers, No Account</title>
-    <meta name="description" content="Read EPUB, PDF and comics free in your browser, with no account or tracking. Skrivist Books apps for iPhone, iPad, Mac and Android: $3 once, coming soon.">
+    <meta name="description" content="Read EPUB, PDF and comics free in your browser, with no account or tracking. Skrivist Books apps for iPhone, iPad, Mac and Android: $3 once, no subscription.">
     <meta name="keywords" content="skriv.ist, skrivist, epub reader, pdf reader, comic reader, cbz reader, guided view comics, opds reader, armarium, calibre, ebook reader app, iphone epub reader, android epub reader, distraction-free reader, no account">
     <link rel="canonical" href="https://skriv.ist/">
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
@@ -13,7 +13,7 @@
     <link rel="manifest" href="/site.webmanifest" />
 
     <meta property="og:title" content="Skrivist — Calm EPUB, PDF &amp; Comic Readers, No Account" />
-    <meta property="og:description" content="Read EPUB, PDF and comics free in your browser, with no account or tracking. Skrivist Books apps for iPhone, iPad, Mac and Android: $3 once, coming soon." />
+    <meta property="og:description" content="Read EPUB, PDF and comics free in your browser, with no account or tracking. Skrivist Books apps for iPhone, iPad, Mac and Android: $3 once, no subscription." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://skriv.ist/" />
     <meta property="og:site_name" content="skriv.ist" />
@@ -25,7 +25,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://skriv.ist/media/og-image.jpg" />
     <meta name="twitter:title" content="Skrivist — Calm EPUB, PDF &amp; Comic Readers, No Account" />
-    <meta name="twitter:description" content="Read EPUB, PDF and comics free in your browser, with no account or tracking. Skrivist Books apps for iPhone, iPad, Mac and Android: $3 once, coming soon." />
+    <meta name="twitter:description" content="Read EPUB, PDF and comics free in your browser, with no account or tracking. Skrivist Books apps for iPhone, iPad, Mac and Android: $3 once, no subscription." />
 
     <script type="application/ld+json">
 {
@@ -54,14 +54,28 @@
             "@id": "https://skriv.ist/#books",
             "name": "Skrivist Books",
             "applicationCategory": "BookApplication",
-            "operatingSystem": "Web",
-            "description": "EPUB and PDF reader with OPDS catalogues and no account. Free in the browser at books.skriv.ist. Native apps for iPhone, iPad, Mac and Android (a one-time $3 purchase) are coming soon and will sync reading progress with an Armarium server.",
+            "operatingSystem": "Web, iOS, iPadOS, macOS, Android",
+            "description": "EPUB and PDF reader with OPDS catalogues and no account. Free in the browser at books.skriv.ist. The apps for iPhone, iPad and Android are a one-time $3 purchase on the App Store and Google Play; they add typefaces and sync reading progress with an Armarium server. The App Store purchase includes the Mac app, the web reader as a desktop app.",
             "url": "https://books.skriv.ist/",
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-            },
+            "downloadUrl": [
+                "https://apps.apple.com/app/id6819334879",
+                "https://play.google.com/store/apps/details?id=ist.skriv.books"
+            ],
+            "offers": [
+                {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD",
+                    "url": "https://books.skriv.ist/"
+                },
+                {
+                    "@type": "Offer",
+                    "price": "3.00",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock",
+                    "url": "https://apps.apple.com/app/id6819334879"
+                }
+            ],
             "creator": { "@id": "https://gand.tr/#organization" },
             "publisher": { "@id": "https://gand.tr/#organization" }
         },
@@ -87,7 +101,7 @@
             "name": "Armarium",
             "applicationCategory": "UtilitiesApplication",
             "operatingSystem": "Linux (Docker)",
-            "description": "Free, open-source (MIT) self-hosted library server for books and comics in plain folders or Calibre libraries. Serves OPDS and syncs reading progress with Skrivist Comics' Armarium mode and, when they ship, the Skrivist Books apps.",
+            "description": "Free, open-source (MIT) self-hosted library server for books and comics in plain folders or Calibre libraries. Serves OPDS and syncs reading progress with Skrivist Comics' Armarium mode and the Skrivist Books apps for iPhone, iPad and Android.",
             "url": "https://armarium.skriv.ist/",
             "license": "https://opensource.org/licenses/MIT",
             "isAccessibleForFree": true,
@@ -1093,18 +1107,6 @@
             color: var(--link-color);
         }
 
-        .badge-soon {
-            display: inline-block;
-            padding: 2px 10px;
-            border-radius: 20px;
-            background: var(--input-focus-ring);
-            color: var(--accent-primary);
-            font-size: 0.72rem;
-            font-weight: 400;
-            letter-spacing: 0.3px;
-            white-space: nowrap;
-        }
-
         /* --- organic icon now cradles a friendly line glyph --- */
         .icon-organic {
             width: 60px;
@@ -1354,7 +1356,7 @@
                         </svg>
                     </div>
                     <h3 data-i18n="feature1Title">A Gentle Space</h3>
-                    <p data-i18n="feature1Desc">No feeds, no ads, no streaks. Set the text size and pick a page colour, from white to night. The apps add typefaces, OpenDyslexic among them.</p>
+                    <p data-i18n="feature1Desc">No feeds, no ads, no streaks. Set the text size and pick a page colour, from white to night. The iPhone, iPad and Android apps add typefaces, OpenDyslexic among them.</p>
                 </div>
                 <div class="feature reveal">
                     <div class="icon-organic" style="animation-delay: -2s;">
@@ -1367,7 +1369,7 @@
                     </div>
                     <h3 data-i18n="feature2Title">Yours to Keep</h3>
                     <p data-i18n="feature2Desc">Your books stay on your device and open without a connection. Books and Comics have no account to sign in to, and we keep no copy of your library.</p>
-                    <p class="feature-note" data-i18n="feature2Note">Want your place on every device? <a href="#armarium">Armarium</a> syncs it with the Books apps (coming soon) and with Comics.</p>
+                    <p class="feature-note" data-i18n="feature2Note">Want your place on every device? <a href="#armarium">Armarium</a> syncs it with the Books apps for iPhone, iPad and Android, and with Comics.</p>
                 </div>
                 <div class="feature reveal">
                     <div class="icon-organic" style="animation-delay: -4s;">
@@ -1395,7 +1397,8 @@
                             <li data-i18n="featBooks2">OPDS catalogues and your Calibre library folder</li>
                             <li data-i18n="featBooks3">Notes, with Obsidian and Anki export</li>
                             <li data-i18n="featBooks4">Installs for offline reading</li>
-                            <li data-i18n="featBooks5">Apps for iPhone, iPad, Mac and Android: $3 once, no subscription. They pair with your Armarium server. <span class="badge-soon">Coming soon</span></li>
+                            <li data-i18n="featBooks5">Apps for iPhone, iPad and Android: $3 once, no subscription. They add typefaces and sync your place with your Armarium server. <a href="https://apps.apple.com/app/id6819334879">App Store</a> · <a href="https://play.google.com/store/apps/details?id=ist.skriv.books">Google Play</a></li>
+                            <li data-i18n="featBooks6">The App Store purchase includes the Mac app: this web reader as a desktop app, without the extra typefaces or sync.</li>
                         </ul>
                         <a href="https://books.skriv.ist" class="plan-cta primary" data-i18n="ctaBooksCard">Open books.skriv.ist</a>
                     </div>
@@ -1422,7 +1425,7 @@
                 <ul class="plan-features armarium-points">
                     <li data-i18n="armarium1">Free and open source</li>
                     <li data-i18n="armarium2">No ads, no tracking</li>
-                    <li data-i18n="armarium3">Your books and reading progress, synced with Skrivist Books for iPhone, iPad and Android (coming soon)</li>
+                    <li data-i18n="armarium3">Your books and reading progress, synced with Skrivist Books for iPhone, iPad and Android</li>
                     <li data-i18n="armarium4">Your comics and reading progress, streamed and synced in Skrivist Comics' Armarium mode</li>
                 </ul>
                 <a href="https://armarium.skriv.ist/" class="plan-cta secondary armarium-cta" data-i18n="armariumCta">Meet Armarium</a>
@@ -1454,10 +1457,10 @@
                 ctaNote: "Free in your browser · no account",
                 ctaComics: 'Reading comics? <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: 'A Gentle Space',
-                feature1Desc: "No feeds, no ads, no streaks. Set the text size and pick a page colour, from white to night. The apps add typefaces, OpenDyslexic among them.",
+                feature1Desc: "No feeds, no ads, no streaks. Set the text size and pick a page colour, from white to night. The iPhone, iPad and Android apps add typefaces, OpenDyslexic among them.",
                 feature2Title: "Yours to Keep",
                 feature2Desc: "Your books stay on your device and open without a connection. Books and Comics have no account to sign in to, and we keep no copy of your library.",
-                feature2Note: "Want your place on every device? <a href=\"#armarium\">Armarium</a> syncs it with the Books apps (coming soon) and with Comics.",
+                feature2Note: "Want your place on every device? <a href=\"#armarium\">Armarium</a> syncs it with the Books apps for iPhone, iPad and Android, and with Comics.",
                 feature3Title: "Open Catalogues",
                 feature3Desc: "Bring DRM-free files from your own folders, or browse OPDS catalogues and download straight to your shelf. Comics also reads Kavita libraries.",
                 readersTitle: "Pick Your Reader",
@@ -1467,7 +1470,8 @@
                 featBooks2: "OPDS catalogues and your Calibre library folder",
                 featBooks3: "Notes, with Obsidian and Anki export",
                 featBooks4: "Installs for offline reading",
-                featBooks5: "Apps for iPhone, iPad, Mac and Android: $3 once, no subscription. They pair with your Armarium server. <span class=\"badge-soon\">Coming soon</span>",
+                featBooks5: "Apps for iPhone, iPad and Android: $3 once, no subscription. They add typefaces and sync your place with your Armarium server. <a href=\"https://apps.apple.com/app/id6819334879\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=ist.skriv.books\">Google Play</a>",
+                featBooks6: "The App Store purchase includes the Mac app: this web reader as a desktop app, without the extra typefaces or sync.",
                 ctaBooksCard: 'Open books.skriv.ist',
                 planComicsPrice: 'Free',
                 planComicsPeriod: "in your browser",
@@ -1480,7 +1484,7 @@
                 armariumLead: "Armarium is a small server for the books and comics you already have, in plain folders or Calibre libraries. Run it at home and pair Skrivist with a QR code.",
                 armarium1: "Free and open source",
                 armarium2: "No ads, no tracking",
-                armarium3: "Your books and reading progress, synced with Skrivist Books for iPhone, iPad and Android (coming soon)",
+                armarium3: "Your books and reading progress, synced with Skrivist Books for iPhone, iPad and Android",
                 armarium4: "Your comics and reading progress, streamed and synced in Skrivist Comics' Armarium mode",
                 armariumCta: "Meet Armarium",
                 footerCopy: '© 2026 skriv.ist | Crafted with care',
@@ -1506,10 +1510,10 @@
                 ctaNote: "ブラウザで無料・アカウント不要",
                 ctaComics: '漫画を読むなら？ <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: '穏やかな空間',
-                feature1Desc: "フィードも広告も連続記録もありません。文字の大きさを変え、白から夜まで紙の色を選べます。アプリでは OpenDyslexic を含む書体も選べます。",
+                feature1Desc: "フィードも広告も連続記録もありません。文字の大きさを変え、白から夜まで紙の色を選べます。iPhone・iPad・Android 版アプリでは OpenDyslexic を含む書体も選べます。",
                 feature2Title: "手元に残る本棚",
                 feature2Desc: "本は端末に保存され、オフラインでも開けます。Books と Comics にはサインインするアカウントがなく、私たちがライブラリの複製を持つこともありません。",
-                feature2Note: "どの端末でも続きから読みたいなら、<a href=\"#armarium\">Armarium</a> が Books アプリ（近日公開）と Comics で読んでいる位置を同期します。",
+                feature2Note: "どの端末でも続きから読みたいなら、<a href=\"#armarium\">Armarium</a> が iPhone・iPad・Android 版 Books アプリと Comics で読んでいる位置を同期します。",
                 feature3Title: "開かれたカタログ",
                 feature3Desc: "手元のフォルダから DRM フリーのファイルを読み込むことも、OPDS カタログを見て本棚へ直接ダウンロードすることもできます。Comics は Kavita のライブラリにも対応しています。",
                 readersTitle: "リーダーを選ぶ",
@@ -1519,7 +1523,8 @@
                 featBooks2: "OPDS カタログと、手元の Calibre ライブラリフォルダ",
                 featBooks3: "メモを Obsidian・Anki 形式で書き出し",
                 featBooks4: "インストールしてオフラインで読書",
-                featBooks5: "iPhone・iPad・Mac・Android 版アプリ：買い切り $3、サブスクリプションなし。Armarium サーバーとペアリングできます。<span class=\"badge-soon\">近日公開</span>",
+                featBooks5: "iPhone・iPad・Android 版アプリ：買い切り $3、サブスクリプションなし。書体が増え、Armarium サーバーで読んでいる位置を同期できます。 <a href=\"https://apps.apple.com/app/id6819334879\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=ist.skriv.books\">Google Play</a>",
+                featBooks6: "App Store での購入には Mac 版アプリも含まれます。この Web リーダーをデスクトップアプリにしたもので、追加の書体と同期はありません。",
                 ctaBooksCard: 'books.skriv.ist を開く',
                 planComicsPrice: '無料',
                 planComicsPeriod: "ブラウザで",
@@ -1532,7 +1537,7 @@
                 armariumLead: "Armarium は、手元のフォルダや Calibre ライブラリにある本とコミックを配信する小さなサーバーです。自宅で動かし、QR コードで Skrivist とペアリングできます。",
                 armarium1: "無料・オープンソース",
                 armarium2: "広告なし、トラッキングなし",
-                armarium3: "本と読書の進み具合を、iPhone・iPad・Android 版 Skrivist Books と同期（近日公開）",
+                armarium3: "本と読書の進み具合を、iPhone・iPad・Android 版 Skrivist Books と同期",
                 armarium4: "コミックと読書の進み具合を、Skrivist Comics の Armarium モードでストリーミング・同期",
                 armariumCta: "Armarium について",
                 footerCopy: '© 2026 skriv.ist | 丁寧に作られました',
@@ -1558,10 +1563,10 @@
                 ctaNote: "Tarayıcında ücretsiz · hesap gerekmez",
                 ctaComics: 'Çizgi roman mı okuyorsun? <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: 'Huzurlu Bir Alan',
-                feature1Desc: "Akış yok, reklam yok, seri sayacı yok. Yazı boyutunu ayarla, beyazdan geceye bir sayfa rengi seç. Uygulamalarda OpenDyslexic dahil yazı tipleri de var.",
+                feature1Desc: "Akış yok, reklam yok, seri sayacı yok. Yazı boyutunu ayarla, beyazdan geceye bir sayfa rengi seç. iPhone, iPad ve Android uygulamalarında OpenDyslexic dahil yazı tipleri de var.",
                 feature2Title: "Senin Elinde",
                 feature2Desc: "Kitapların cihazında kalır ve bağlantı olmadan açılır. Books ve Comics'te giriş yapılacak bir hesap yok; kütüphanenin bir kopyasını da biz tutmayız.",
-                feature2Note: "Kaldığın yer her cihazda olsun mu? <a href=\"#armarium\">Armarium</a> onu Books uygulamalarıyla (yakında) ve Comics ile eşitler.",
+                feature2Note: "Kaldığın yer her cihazda olsun mu? <a href=\"#armarium\">Armarium</a> onu iPhone, iPad ve Android için Books uygulamalarıyla ve Comics ile eşitler.",
                 feature3Title: "Açık Kataloglar",
                 feature3Desc: "DRM'siz dosyalarını kendi klasörlerinden getir ya da OPDS kataloglarında gezinip doğrudan rafına indir. Comics, Kavita kütüphanelerini de okur.",
                 readersTitle: "Okuyucunu Seç",
@@ -1571,7 +1576,8 @@
                 featBooks2: "OPDS katalogları ve Calibre kütüphane klasörün",
                 featBooks3: "Notlar; Obsidian ve Anki'ye aktarım",
                 featBooks4: "Çevrimdışı okumak için kurulabilir",
-                featBooks5: "iPhone, iPad, Mac ve Android uygulamaları: tek seferlik $3, abonelik yok. Armarium sunucunla eşleşir. <span class=\"badge-soon\">Yakında</span>",
+                featBooks5: "iPhone, iPad ve Android uygulamaları: tek seferlik $3, abonelik yok. Yazı tipleri eklerler ve kaldığın yeri Armarium sunucunla eşitlerler. <a href=\"https://apps.apple.com/app/id6819334879\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=ist.skriv.books\">Google Play</a>",
+                featBooks6: "App Store satın alımı Mac uygulamasını da kapsar: bu web okuyucunun masaüstü uygulaması; ek yazı tipleri ve eşitleme yok.",
                 ctaBooksCard: 'books.skriv.ist\'i aç',
                 planComicsPrice: 'Ücretsiz',
                 planComicsPeriod: "tarayıcında",
@@ -1584,7 +1590,7 @@
                 armariumLead: "Armarium, elindeki kitap ve çizgi romanları, düz klasörlerden ya da Calibre kütüphanelerinden sunan küçük bir sunucu. Evde çalıştır, Skrivist'i bir QR koduyla eşleştir.",
                 armarium1: "Ücretsiz ve açık kaynak",
                 armarium2: "Reklam yok, takip yok",
-                armarium3: "Kitapların ve okuma ilerlemen, iPhone, iPad ve Android için Skrivist Books ile eşitlenir (yakında)",
+                armarium3: "Kitapların ve okuma ilerlemen, iPhone, iPad ve Android için Skrivist Books ile eşitlenir",
                 armarium4: "Çizgi romanların ve okuma ilerlemen, Skrivist Comics'in Armarium modunda akışla gelir ve eşitlenir",
                 armariumCta: "Armarium'u tanı",
                 footerCopy: '© 2026 skriv.ist | Özenle yapıldı',
@@ -1610,10 +1616,10 @@
                 ctaNote: "Gratis en tu navegador · sin cuenta",
                 ctaComics: '¿Lees cómics? <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: 'Un Espacio Sereno',
-                feature1Desc: "Sin feeds, sin anuncios, sin rachas. Ajusta el tamaño del texto y elige un color de página, del blanco a la noche. Las apps añaden tipografías, entre ellas OpenDyslexic.",
+                feature1Desc: "Sin feeds, sin anuncios, sin rachas. Ajusta el tamaño del texto y elige un color de página, del blanco a la noche. Las apps para iPhone, iPad y Android añaden tipografías, entre ellas OpenDyslexic.",
                 feature2Title: "Siempre Tuyo",
                 feature2Desc: "Tus libros se quedan en tu dispositivo y se abren sin conexión. Books y Comics no tienen cuenta con la que iniciar sesión, y no guardamos ninguna copia de tu biblioteca.",
-                feature2Note: "¿Quieres seguir donde lo dejaste en cada dispositivo? <a href=\"#armarium\">Armarium</a> lo sincroniza con las apps de Books (próximamente) y con Comics.",
+                feature2Note: "¿Quieres seguir donde lo dejaste en cada dispositivo? <a href=\"#armarium\">Armarium</a> lo sincroniza con las apps de Books para iPhone, iPad y Android, y con Comics.",
                 feature3Title: "Catálogos Abiertos",
                 feature3Desc: "Trae archivos sin DRM de tus propias carpetas, o explora catálogos OPDS y descarga directamente a tu estantería. Comics también lee bibliotecas de Kavita.",
                 readersTitle: "Elige Tu Lector",
@@ -1623,7 +1629,8 @@
                 featBooks2: "Catálogos OPDS y tu carpeta de biblioteca de Calibre",
                 featBooks3: "Notas, con exportación a Obsidian y Anki",
                 featBooks4: "Se instala para leer sin conexión",
-                featBooks5: "Apps para iPhone, iPad, Mac y Android: $3 en un solo pago, sin suscripción. Se emparejan con tu servidor Armarium. <span class=\"badge-soon\">Próximamente</span>",
+                featBooks5: "Apps para iPhone, iPad y Android: $3 en un solo pago, sin suscripción. Añaden tipografías y sincronizan tu progreso con tu servidor Armarium. <a href=\"https://apps.apple.com/app/id6819334879\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=ist.skriv.books\">Google Play</a>",
+                featBooks6: "La compra en el App Store incluye la app para Mac: este lector web como app de escritorio, sin las tipografías adicionales ni la sincronización.",
                 ctaBooksCard: 'Abrir books.skriv.ist',
                 planComicsPrice: 'Gratis',
                 planComicsPeriod: "en tu navegador",
@@ -1636,7 +1643,7 @@
                 armariumLead: "Armarium es un pequeño servidor para los libros y cómics que ya tienes, en carpetas normales o bibliotecas de Calibre. Ejecútalo en casa y empareja Skrivist con un código QR.",
                 armarium1: "Gratis y de código abierto",
                 armarium2: "Sin anuncios, sin rastreo",
-                armarium3: "Tus libros y tu progreso de lectura, sincronizados con Skrivist Books para iPhone, iPad y Android (próximamente)",
+                armarium3: "Tus libros y tu progreso de lectura, sincronizados con Skrivist Books para iPhone, iPad y Android",
                 armarium4: "Tus cómics y tu progreso de lectura, en streaming y sincronizados en el modo Armarium de Skrivist Comics",
                 armariumCta: "Conoce Armarium",
                 footerCopy: '© 2026 skriv.ist | Hecho con cuidado',
@@ -1662,10 +1669,10 @@
                 ctaNote: "Grátis no seu navegador · sem conta",
                 ctaComics: 'Lê quadrinhos? <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: 'Um Espaço Sereno',
-                feature1Desc: "Sem feeds, sem anúncios, sem sequências. Ajuste o tamanho do texto e escolha uma cor de página, do branco à noite. Os apps trazem fontes, entre elas a OpenDyslexic.",
+                feature1Desc: "Sem feeds, sem anúncios, sem sequências. Ajuste o tamanho do texto e escolha uma cor de página, do branco à noite. Os apps para iPhone, iPad e Android trazem fontes, entre elas a OpenDyslexic.",
                 feature2Title: "Sempre Seu",
                 feature2Desc: "Seus livros ficam no seu dispositivo e abrem sem conexão. O Books e o Comics não têm conta para entrar, e não guardamos nenhuma cópia da sua biblioteca.",
-                feature2Note: "Quer continuar de onde parou em qualquer dispositivo? O <a href=\"#armarium\">Armarium</a> sincroniza isso com os apps do Books (em breve) e com o Comics.",
+                feature2Note: "Quer continuar de onde parou em qualquer dispositivo? O <a href=\"#armarium\">Armarium</a> sincroniza isso com os apps do Books para iPhone, iPad e Android, e com o Comics.",
                 feature3Title: "Catálogos Abertos",
                 feature3Desc: "Traga arquivos sem DRM das suas próprias pastas, ou navegue por catálogos OPDS e baixe direto para a sua estante. O Comics também lê bibliotecas do Kavita.",
                 readersTitle: "Escolha Seu Leitor",
@@ -1675,7 +1682,8 @@
                 featBooks2: "Catálogos OPDS e a pasta da sua biblioteca do Calibre",
                 featBooks3: "Notas, com exportação para Obsidian e Anki",
                 featBooks4: "Instala para ler offline",
-                featBooks5: "Apps para iPhone, iPad, Mac e Android: US$ 3 em pagamento único, sem assinatura. Pareiam com o seu servidor Armarium. <span class=\"badge-soon\">Em breve</span>",
+                featBooks5: "Apps para iPhone, iPad e Android: US$ 3 em pagamento único, sem assinatura. Trazem fontes e sincronizam seu progresso com o seu servidor Armarium. <a href=\"https://apps.apple.com/app/id6819334879\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=ist.skriv.books\">Google Play</a>",
+                featBooks6: "A compra na App Store inclui o app para Mac: este leitor web como app de desktop, sem as fontes extras nem a sincronização.",
                 ctaBooksCard: 'Abrir books.skriv.ist',
                 planComicsPrice: 'Grátis',
                 planComicsPeriod: "no seu navegador",
@@ -1688,7 +1696,7 @@
                 armariumLead: "O Armarium é um pequeno servidor para os livros e quadrinhos que você já tem, em pastas comuns ou bibliotecas do Calibre. Rode em casa e pareie o Skrivist com um QR code.",
                 armarium1: "Gratuito e de código aberto",
                 armarium2: "Sem anúncios, sem rastreamento",
-                armarium3: "Seus livros e seu progresso de leitura, sincronizados com o Skrivist Books para iPhone, iPad e Android (em breve)",
+                armarium3: "Seus livros e seu progresso de leitura, sincronizados com o Skrivist Books para iPhone, iPad e Android",
                 armarium4: "Seus quadrinhos e seu progresso de leitura, em streaming e sincronizados no modo Armarium do Skrivist Comics",
                 armariumCta: "Conheça o Armarium",
                 footerCopy: '© 2026 skriv.ist | Feito com cuidado',
@@ -1714,10 +1722,10 @@
                 ctaNote: "Kostenlos im Browser · kein Konto nötig",
                 ctaComics: 'Comics lesen? <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: 'Ein Sanfter Raum',
-                feature1Desc: "Keine Feeds, keine Werbung, keine Streaks. Stell die Schriftgröße ein und wähl eine Seitenfarbe, von Weiß bis Nacht. Die Apps bieten zusätzlich Schriftarten, darunter OpenDyslexic.",
+                feature1Desc: "Keine Feeds, keine Werbung, keine Streaks. Stell die Schriftgröße ein und wähl eine Seitenfarbe, von Weiß bis Nacht. Die Apps für iPhone, iPad und Android bieten zusätzlich Schriftarten, darunter OpenDyslexic.",
                 feature2Title: "Bleibt bei dir",
                 feature2Desc: "Deine Bücher bleiben auf deinem Gerät und öffnen sich auch offline. Books und Comics haben kein Konto zum Anmelden, und wir bewahren keine Kopie deiner Bibliothek auf.",
-                feature2Note: "Deine Stelle auf jedem Gerät? <a href=\"#armarium\">Armarium</a> synchronisiert sie mit den Books-Apps (demnächst) und mit Comics.",
+                feature2Note: "Deine Stelle auf jedem Gerät? <a href=\"#armarium\">Armarium</a> synchronisiert sie mit den Books-Apps für iPhone, iPad und Android und mit Comics.",
                 feature3Title: "Offene Kataloge",
                 feature3Desc: "Hol DRM-freie Dateien aus deinen eigenen Ordnern oder stöbere in OPDS-Katalogen und lade direkt ins Regal. Comics liest auch Kavita-Bibliotheken.",
                 readersTitle: "Wähl deinen Reader",
@@ -1727,7 +1735,8 @@
                 featBooks2: "OPDS-Kataloge und dein Calibre-Bibliotheksordner",
                 featBooks3: "Notizen mit Export für Obsidian und Anki",
                 featBooks4: "Installierbar zum Offline-Lesen",
-                featBooks5: "Apps für iPhone, iPad, Mac und Android: einmalig 3 $, kein Abo. Sie koppeln sich mit deinem Armarium-Server. <span class=\"badge-soon\">Demnächst</span>",
+                featBooks5: "Apps für iPhone, iPad und Android: einmalig 3 $, kein Abo. Sie bieten zusätzliche Schriftarten und synchronisieren deine Stelle mit deinem Armarium-Server. <a href=\"https://apps.apple.com/app/id6819334879\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=ist.skriv.books\">Google Play</a>",
+                featBooks6: "Der Kauf im App Store umfasst auch die Mac-App: diesen Web-Reader als Desktop-App, ohne die zusätzlichen Schriftarten und ohne Synchronisierung.",
                 ctaBooksCard: 'books.skriv.ist öffnen',
                 planComicsPrice: 'Kostenlos',
                 planComicsPeriod: "im Browser",
@@ -1740,7 +1749,7 @@
                 armariumLead: "Armarium ist ein kleiner Server für die Bücher und Comics, die du schon hast, in normalen Ordnern oder Calibre-Bibliotheken. Betreibe ihn zu Hause und koppele Skrivist per QR-Code.",
                 armarium1: "Kostenlos und Open Source",
                 armarium2: "Keine Werbung, kein Tracking",
-                armarium3: "Deine Bücher und dein Lesefortschritt, synchronisiert mit Skrivist Books für iPhone, iPad und Android (bald verfügbar)",
+                armarium3: "Deine Bücher und dein Lesefortschritt, synchronisiert mit Skrivist Books für iPhone, iPad und Android",
                 armarium4: "Deine Comics und dein Lesefortschritt, gestreamt und synchronisiert im Armarium-Modus von Skrivist Comics",
                 armariumCta: "Armarium kennenlernen",
                 footerCopy: '© 2026 skriv.ist | Mit Sorgfalt gefertigt',
@@ -1766,10 +1775,10 @@
                 ctaNote: "Gratuit dans votre navigateur · sans compte",
                 ctaComics: 'Vous lisez des BD ? <a href="https://comics.skriv.ist">comics.skriv.ist</a>',
                 feature1Title: 'Un Espace Doux',
-                feature1Desc: "Pas de fil d'actualité, pas de pub, pas de séries. Réglez la taille du texte et choisissez une couleur de page, du blanc à la nuit. Les apps ajoutent des polices, dont OpenDyslexic.",
+                feature1Desc: "Pas de fil d'actualité, pas de pub, pas de séries. Réglez la taille du texte et choisissez une couleur de page, du blanc à la nuit. Les apps pour iPhone, iPad et Android ajoutent des polices, dont OpenDyslexic.",
                 feature2Title: "Chez Vous",
                 feature2Desc: "Vos livres restent sur votre appareil et s'ouvrent sans connexion. Books et Comics n'ont pas de compte où se connecter, et nous ne gardons aucune copie de votre bibliothèque.",
-                feature2Note: "Retrouver votre page sur chaque appareil ? <a href=\"#armarium\">Armarium</a> la synchronise avec les apps Books (bientôt disponibles) et avec Comics.",
+                feature2Note: "Retrouver votre page sur chaque appareil ? <a href=\"#armarium\">Armarium</a> la synchronise avec les apps Books pour iPhone, iPad et Android, et avec Comics.",
                 feature3Title: "Catalogues Ouverts",
                 feature3Desc: "Ajoutez des fichiers sans DRM depuis vos propres dossiers, ou parcourez des catalogues OPDS et téléchargez directement dans votre bibliothèque. Comics lit aussi les bibliothèques Kavita.",
                 readersTitle: "Choisissez Votre Lecteur",
@@ -1779,7 +1788,8 @@
                 featBooks2: "Catalogues OPDS et le dossier de votre bibliothèque Calibre",
                 featBooks3: "Notes, avec export vers Obsidian et Anki",
                 featBooks4: "S'installe pour lire hors ligne",
-                featBooks5: "Apps pour iPhone, iPad, Mac et Android : 3 $ une seule fois, sans abonnement. Elles s'associent à votre serveur Armarium. <span class=\"badge-soon\">Bientôt disponible</span>",
+                featBooks5: "Apps pour iPhone, iPad et Android : 3 $ une seule fois, sans abonnement. Elles ajoutent des polices et synchronisent votre page avec votre serveur Armarium. <a href=\"https://apps.apple.com/app/id6819334879\">App Store</a> · <a href=\"https://play.google.com/store/apps/details?id=ist.skriv.books\">Google Play</a>",
+                featBooks6: "L'achat sur l'App Store inclut l'app Mac : ce lecteur web en app de bureau, sans les polices supplémentaires ni la synchronisation.",
                 ctaBooksCard: 'Ouvrir books.skriv.ist',
                 planComicsPrice: 'Gratuit',
                 planComicsPeriod: "dans votre navigateur",
@@ -1792,7 +1802,7 @@
                 armariumLead: "Armarium est un petit serveur pour les livres et les BD que vous avez déjà, dans de simples dossiers ou des bibliothèques Calibre. Faites-le tourner chez vous et associez Skrivist avec un QR code.",
                 armarium1: "Gratuit et open source",
                 armarium2: "Sans publicité, sans pistage",
-                armarium3: "Vos livres et votre progression de lecture, synchronisés avec Skrivist Books pour iPhone, iPad et Android (bientôt disponible)",
+                armarium3: "Vos livres et votre progression de lecture, synchronisés avec Skrivist Books pour iPhone, iPad et Android",
                 armarium4: "Vos BD et votre progression de lecture, en streaming et synchronisées dans le mode Armarium de Skrivist Comics",
                 armariumCta: "Découvrir Armarium",
                 footerCopy: '© 2026 skriv.ist | Fait avec soin',
