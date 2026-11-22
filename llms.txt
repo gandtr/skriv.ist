@@ -1,12 +1,12 @@
 # Skrivist
 
-> Skrivist (skriv.ist) is a family of calm, distraction-free readers for your own books and comics: Skrivist Books and Skrivist Comics, free in the browser with no account, and Armarium, a free, open-source library server you run yourself. There is no Skrivist account, subscription or tracking. Made by Gand (https://gand.tr).
+> Skrivist (skriv.ist) is a family of calm, distraction-free readers for your own books and comics: Skrivist Books and Skrivist Comics, apps for iPhone, iPad, Mac, Android and Windows at a one-time $3 each (coming soon), and Armarium, a free, open-source library server you run yourself. There is no Skrivist account, subscription or tracking. The free browser versions closed in November 2026. Made by Gand (https://gand.tr).
 
 ## Products
 
-- [Skrivist Books](https://books.skriv.ist/): EPUB and PDF reader. Free in the browser: OPDS 1 and OPDS 2 catalogues, read-only browsing of a local Calibre library folder, reading progress, text size and six page colours, notes with Obsidian and Anki export, and offline install as a PWA. No account; books stay on the device. Native apps for iPhone, iPad, Mac and Android are coming soon to the App Store and Google Play as a one-time $3 purchase with no subscription; they add typefaces (OpenDyslexic among them) and pairing with an Armarium server to sync reading position.
-- [Skrivist Comics](https://comics.skriv.ist/): Free comic reader in the browser. Reads CBZ, CBR and PDF, finds the panels and steps through them panel by panel. Also browses OPDS catalogues, Kavita and Armarium libraries. No account; files never leave the device; works offline once cached.
-- [Armarium](https://armarium.skriv.ist/): Free, open-source (MIT) library server you run yourself, for books and comics in plain folders or Calibre libraries. No ads, no tracking. Serves OPDS, pairs Skrivist Books and Comics with a QR code, and syncs reading progress with the Skrivist Books apps (coming soon) and with Skrivist Comics' Armarium mode. The Books web reader does not sync progress.
+- [Skrivist Books](https://books.skriv.ist/): EPUB and PDF reader app for iPhone, iPad, Mac, Android and Windows, a one-time $3 purchase, coming soon. OPDS catalogues and Armarium libraries, text size, page colours and typefaces (OpenDyslexic among them), and on phones and tablets your own Dropbox. No account; books stay on the device.
+- [Skrivist Comics](https://comics.skriv.ist/): Comic reader app for iPhone, iPad, Mac, Android and Windows, a one-time $3 purchase, coming soon. Reads CBZ, CBR and PDF, finds the panels and steps through them panel by panel, right to left for manga. Browses OPDS catalogues and Armarium libraries. No account; files never leave the device.
+- [Armarium](https://armarium.skriv.ist/): Free, open-source (MIT) library server you run yourself, for books and comics in plain folders or Calibre libraries. No ads, no tracking. Serves OPDS, pairs Skrivist Books and Comics with a QR code, and syncs reading progress with both apps.
 
 ## Pages
 
