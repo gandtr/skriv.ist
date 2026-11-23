@@ -1,7 +1,7 @@
 {
   "name": "Skrivist",
   "short_name": "Skrivist",
-  "description": "Free EPUB, PDF and comic readers that run in your browser.",
+  "description": "Calm EPUB, PDF and comic reader apps, with no account or tracking.",
   "start_url": "/",
   "display": "browser",
   "background_color": "#f5f7f5",

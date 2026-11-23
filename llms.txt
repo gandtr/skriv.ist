@@ -1,6 +1,6 @@
 # Skrivist
 
-> Skrivist (skriv.ist) is a family of calm, distraction-free readers for your own books and comics: Skrivist Books and Skrivist Comics, apps for iPhone, iPad, Mac, Android and Windows at a one-time $3 each (coming soon), and Armarium, a free, open-source library server you run yourself. There is no Skrivist account, subscription or tracking. The free browser versions closed in November 2026. Made by Gand (https://gand.tr).
+> Skrivist (skriv.ist) is a family of calm, distraction-free readers for your own books and comics: Skrivist Books and Skrivist Comics, apps for iPhone, iPad, Mac, Android and Windows at a one-time $3 each (coming soon), and Armarium, a free, open-source library server you run yourself. There is no Skrivist account, subscription or tracking. The web readers at books.skriv.ist and comics.skriv.ist closed on November 23, 2026; those addresses are the apps' pages now. Made by Gand (https://gand.tr).
 
 ## Products
 
