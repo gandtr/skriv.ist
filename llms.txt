@@ -17,5 +17,6 @@
 
 ## Contact
 
+- Problems and feature requests for Skrivist Books, Skrivist Comics and Armarium: [github.com/c0ze/armarium/issues](https://github.com/c0ze/armarium/issues) (Books and Comics are closed source; Armarium is open source)
 - [contact@skriv.ist](mailto:contact@skriv.ist)
 - [Gand](https://gand.tr/)
